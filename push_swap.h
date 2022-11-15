@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/13 21:08:11 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:36:43 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +20,7 @@ typedef struct s_info
 {
 	struct s_info	*prev;
 	struct s_info	*next;
-	int				content;
+	int				data;
 }	t_info;
 
 typedef struct s_stack
@@ -32,50 +31,9 @@ typedef struct s_stack
 }	t_stack;
 
 int	ft_atoi(const char *str);
-t_info	*ft_lstnew(int content, t_info *tmp, int flag);
+t_info	*ft_lstnew(int data, t_stack *s);
 int ft_init(t_stack *s, char **ar, int ac);
 int	main(int ac, char **ar);
 
 
 #endif
-=======
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 12:32:56 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/10/29 12:32:56 by junyojeo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_info
-{
-	struct s_info	*prev;
-	struct s_info	*next;
-	int				content;
-}	t_info;
-
-typedef struct s_stack
-{
-	t_info	*head;
-	t_info	*tail;
-	int		size;
-}	t_stack;
-
-int	ft_atoi(const char *str);
-t_info	*ft_lstnew(int content, t_info *tmp, int flag);
-int ft_init(t_stack *s, char **ar, int ac);
-int	main(int ac, char **ar);
-
-
-#endif
->>>>>>> ab0ca95f006d1795d9dc2e0519628aa8f8401589

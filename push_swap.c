@@ -1,5 +1,5 @@
 // info
-// 	content
+// 	data
 // 	*next
 // 	*prev
 
@@ -7,10 +7,11 @@
 // 	size
 // 	*head
 // 	*tail
-// //
+
 // 	stack a;
 // 	init();
-// 	parsing();
+// 	parsing(); -파싱은 ac의 개수가 맞지 않으니까 strjoin으로 하나의 문자열로 만든 후 공백 기준으로 나누고, atoi로 숫자만 찾아
+// atoi에서 ', "가 있는 경우부터 
 // 	//스택 a는 완성 b 초기화부터 하면 됨..b는 했다 쳐 size 0 head 0 tail 0.
 // 	...
 // 	sa(s->tail);
@@ -22,9 +23,24 @@
 // {
 // 	int	tmp;
 
-// 	tmp = tail->content;
-// 	tail->prev->content = s->tail->prev;
+// 	tmp = tail->data;
+// 	tail->prev->data = s->tail->prev;
 // }
+/* 에러 내뿜고 exit()하기 문자일때, 부호만 있을때//, 혹시 "발견 하면 인덱스 저장해두고 다시 발견하면 저장해둔 인덱스부터 공백기준 split, int범위 밖일 때, 부호 뒤에 숫자가 안나올때??
+	./push_swap 1 2 3 4 -
+	./push_swap "-"
+	./push_swap "-one"
+	./push_swap " 1 one  2 3  4 "
+	./push_swap 1 "  2 3  4 " 1
+	./push_swap 2 +3  4- " "
+	./push_swap 2147483648 +3  4- " "
+	./push_swap +2147483648 +3  4- " "
+	./push_swap +2147483648 "++3"  4- " "
+	./push_swap "++3" 4- " "
+	./push_swap -2147483649 " "
+	./push_swap " "
+	./push_swap "" 33
+*/
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -39,75 +55,20 @@
 
 #include "push_swap.h"
 
-char	*ft_strjoin(char *s1, char const *s2)
-{
-	char	*str;
-	int		src_len;
-	int		i;
-	int		j;
 
-	src_len = (ft_strlen(s1) + ft_strlen(s2));
-	str = (char *)malloc(sizeof(char) * (src_len + 1));
-	if (str == NULL)
-		return (0);
-	i = 0;
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (s2[j])
-	{
-		str[i] = s2[j];
-		i++;
-		j++;
-	}
-	str[i] = ' ';
-	str[i + 1] = '\0';
-	free(s1);
-	return (str);
-}
-
-int	ft_atoi(const char *str)
-{
-	long long	res;
-	int			sign;
-
-	if (*str == '\0')
-		return (0);
-	sign = 1;
-	res = 0;
-	while (*str == 32 || *str == '\'' || *str == '\"')
-		str++;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
-	}
-	while ('0' <= *str && *str <= '9')
-	{
-		res = res * 10 + (*str - '0');
-		str++;
-	}
-	if (!(res <= 2147483647))
-		return (0);
-	return (res * sign);
-}
-
-t_info	*ft_lstnew(int content, t_info *tmp, int flag)
+t_info	*ft_lstnew(int data, t_stack *s)// head와 tail을 더미노드로 설정 123 head[1] [1] [2] [3] tail[3]
 {
 	t_info	*elem;
 
 	elem = (t_info *)malloc(sizeof(t_info));
 	if (!elem)
 		return (0);
-	elem->content = content;
-	if (flag)
-		elem->prev = tmp;
-	else
-		elem->prev = NULL;	
+	elem->data = data;
+	elem->prev = s->tail->prev;
+	elem->next = s->tail;
+	s->tail->prev->next = elem;
+	s->tail->prev = elem;
+	s->size++;
 	return (elem);
 }
 
@@ -117,13 +78,28 @@ int ft_init(t_stack *s, char **ar, int ac)
 	char	*str;
 	int		i;
 
-	tmp = NULL;
 	i = 1;
-	while (i < ac - 1)
-		str = ft_strjoin(str, ar[i]);
-	
+	while (i < ac)
+		str = ft_strjoin(str, ar[i], i);
+	ar = ft_split(str, ' ');
+	i = 0;
+	while (ar)
+	{
+		tmp = ft_lstnew(ft_atoi(ar[i]), s);
+		// if (i == 1)
+		// {
+		// 	tmp = ft_lstnew(ft_atoi(ar[i]), tmp, 1);
+		// }
+		// else
+		// {
+		// 	tmp = ft_lstnew(ft_atoi(ar[i]), tmp, 0));
+		// 	tmp->prev = s->tail;
+		// 	tmp->next = s->tail;
+		// 	tmp = ft_lstnew(ft_atoi(ar[i]), tmp);
+		// }
+		ar++;
+	}
 	tmp->next = NULL;
-	s->tail = tmp;
 	return (1);
 }
 
