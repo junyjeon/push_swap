@@ -47,12 +47,13 @@ int	ft_atoi(const char *str)
 {
 	long long	res;
 	int			sign;
+	char		*tmp;
 
 	if (*str == '\0')
 		return (0);
 	sign = 1;
 	res = 0;
-	while (*str == ' ' || *str == '\'' || *str == '\"')
+	while (*str == ' ')
 		str++;
 	while ('0' <= *str && *str <= '9')
 	{

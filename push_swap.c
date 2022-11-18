@@ -23,6 +23,31 @@
 // {
 // 	int	tmp;
 
+// void	*nodeFirst(int data, t_info *head)// head와 tail을 더미노드로 설정 123 head[1] [1] [2] [3] tail[3]
+// {
+// 	t_info	*node;
+
+// 	node = (t_info *)malloc(sizeof(t_info));
+// 	if (!node)
+// 		return (0);
+// 	node->data = data;
+// 	if (!head->next)
+// 	{
+// 		node->prev = head;
+// 		node->next = NULL;
+// 		head->prev = NULL;
+// 		head->data = 0;
+// 		head->next = node;
+// 	}
+// 	else
+// 	{
+// 		node->prev = head;
+// 		node->next = head->next;
+// 		head->next->prev = node;
+// 		head->next = node;
+// 	}
+// }
+
 // 	tmp = tail->data;
 // 	tail->prev->data = s->tail->prev;
 // }
@@ -55,60 +80,79 @@
 
 #include "push_swap.h"
 
-
-t_info	*ft_lstnew(int data, t_stack *s)// head와 tail을 더미노드로 설정 123 head[1] [1] [2] [3] tail[3]
+int	append(int data, t_stack *a)
 {
-	t_info	*elem;
+	t_info *new;
+	t_info *cur;
 
-	elem = (t_info *)malloc(sizeof(t_info));
-	if (!elem)
+	new = (t_info *)malloc(sizeof(t_info));
+	if (!new)
 		return (0);
-	elem->data = data;
-	elem->prev = s->tail->prev;
-	elem->next = s->tail;
-	s->tail->prev->next = elem;
-	s->tail->prev = elem;
-	s->size++;
-	return (elem);
+	new->data = data;
+	if (!a->head->next)
+	{
+		new->prev = new;
+		a->head->prev = NULL;
+		a->head->data = 0;
+		a->head->next = new;
+		a->tail->prev = new;
+		a->tail->data = 0;
+		a->tail->next = NULL;
+	}
+	else
+	{
+		a->tail->prev = new;
+		cur = a->head->next;
+		while (cur)
+			cur = cur->next;
+		new->prev = cur;
+	}
+	new->next = NULL;
+	return (1);
 }
 
-int ft_init(t_stack *s, char **ar, int ac)
+int init(t_stack *a, t_stack *b, char **ar, int ac)
 {
-	t_info *tmp;
 	char	*str;
+	char	**res;
 	int		i;
 
+	str = NULL;
 	i = 1;
 	while (i < ac)
-		str = ft_strjoin(str, ar[i], i);
-	ar = ft_split(str, ' ');
+		if (!(str = ft_strjoin(str, ar[i++], i)))
+			return (0);
+	if (!(res = ft_split(str, ' ')))
+		return (0);
 	i = 0;
-	while (ar)
+	while (res[i])
 	{
-		tmp = ft_lstnew(ft_atoi(ar[i]), s);
-		// if (i == 1)
-		// {
-		// 	tmp = ft_lstnew(ft_atoi(ar[i]), tmp, 1);
-		// }
-		// else
-		// {
-		// 	tmp = ft_lstnew(ft_atoi(ar[i]), tmp, 0));
-		// 	tmp->prev = s->tail;
-		// 	tmp->next = s->tail;
-		// 	tmp = ft_lstnew(ft_atoi(ar[i]), tmp);
-		// }
-		ar++;
+		if (!append(ft_atoi(res[i++]), a))
+			return (0);
 	}
-	tmp->next = NULL;
+	b->head = (t_info *)malloc(sizeof(t_info));
+	b->tail = (t_info *)malloc(sizeof(t_info));
+	b->head->prev = NULL;
+	b->head->next = b->tail;
+	b->tail->prev = b->head;
+	b->tail->next = NULL;
 	return (1);
 }
 
 int	main(int ac, char **ar)
 {
-	t_stack s;
+	t_stack a;
+	t_stack b;
 
-	ft_init_passing(&s, ar, ac);
-	oper();
+	error_check();
+	init(&a, &b, ar, ac);
+	/*
+		if (피벗 < 노드의 데이터)
 
+	if (head < new->data)
+	{
+		a 나 b의 왼쪽(위쪽 상관없이 분리) 
+	}
+	*/
 	return (0);
 }
