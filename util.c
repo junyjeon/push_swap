@@ -12,6 +12,17 @@
 
 #include "push_swap.h"
 
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (str)
+		while (str[i])
+			i++;
+	return (i);
+}
+
 char	*ft_strjoin(char *s1, char const *s2, int first_val)
 {
 	char	*str;
@@ -24,18 +35,12 @@ char	*ft_strjoin(char *s1, char const *s2, int first_val)
 	if (str == NULL)
 		return (0);
 	i = 0;
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
+	if (s1)
+		while (s1[i])
+			str[i] = s1[i++];
 	j = 0;
 	while (s2[j])
-	{
-		str[i] = s2[j];
-		i++;
-		j++;
-	}
+		str[i++] = s2[j++];
 	str[i] = ' ';
 	str[i + 1] = '\0';
 	if (!(first_val == 1))
