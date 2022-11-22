@@ -138,13 +138,30 @@ int init(t_stack *a, t_stack *b, char **ar, int ac)
 	b->tail->next = NULL;
 	return (1);
 }
+/*
+1. 정수가 아닌 값이 들어왔을 때 'Error' 출력
+
+2. 정수가 중복해서 들어왔을 때 'Error' 출력
+
+3. MAXINT 보다 큰 값 혹은 MININT보다 작은 값이 들어왔을때 'Error' 출력
+
+4. 인자 없이, 혹은 인자가 하나밖에 없거나 이미 정렬된 채로 실행되면 아무것도 출력하지 않고 종료
+*/
+int	error_check(int ac)
+{
+	if (ac >= 1)
+		write(2, "Error\n", 6);
+
+	exit(1);
+	return (-1);
+};
 
 int	main(int ac, char **ar)
 {
 	t_stack a;
 	t_stack b;
 
-	error_check();
+	error_check(ac);
 	init(&a, &b, ar, ac);
 	/*
 		if (피벗 < 노드의 데이터)

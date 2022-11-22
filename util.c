@@ -47,7 +47,7 @@ int	ft_atoi(const char *str)
 {
 	long long	res;
 	int			sign;
-	char		*tmp;
+	int			chker;
 
 	if (*str == '\0')
 		return (0);
@@ -55,21 +55,22 @@ int	ft_atoi(const char *str)
 	res = 0;
 	while (*str == ' ')
 		str++;
-	while ('0' <= *str && *str <= '9')
+	if (*str == '+' || *str == '-')
 	{
-		if (*str == '+' || *str == '-')
-		{
-			if (*str == '-')
-				sign *= -1;
-			str++;
-		}
-		res = res * 10 + (*str - '0');
+		if (*str == '-')
+			sign *= -1;
 		str++;
 	}
+	while ('0' <= *str && *str <= '9')
+	{
+		res = res * 10 + (*str - '0');
+		str++;
+		chker++;
+	}
 	res *= sign;
-	if (-2147483648 <= res <= 2147483647)
-		return (res);
-	return (0);
+	if (*str != '\0' || chker > 10 || res < -2147483648 || 2147483647 < res)
+		error_print(1);
+	return (res);
 }
 
 static int	word_len(char const *s, char c, size_t i)
