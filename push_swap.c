@@ -108,6 +108,7 @@ int	append(int data, t_stack *a)
 		new->prev = cur;
 	}
 	new->next = NULL;
+	a->size++;
 	return (1);
 }
 
@@ -117,6 +118,8 @@ int init(t_stack *a, t_stack *b, char **ar, int ac)
 	char	**res;
 	int		i;
 
+	if (ac < 3)
+		error_print(1);
 	str = NULL;
 	i = 1;
 	while (i < ac)
@@ -126,16 +129,17 @@ int init(t_stack *a, t_stack *b, char **ar, int ac)
 		return (0);
 	i = 0;
 	while (res[i])
-	{
-		if (!append(ft_atoi(res[i++]), a))
+		if (!append(ft_atoi_ll(res[i++]), a))
 			return (0);
-	}
-	b->head = (t_info *)malloc(sizeof(t_info));
+	b->head = (t_info *)malloc(sizeof(t_info));//왜 잃어버리지 ???? ???? ????
 	b->tail = (t_info *)malloc(sizeof(t_info));
 	b->head->prev = NULL;
-	b->head->next = b->tail;
-	b->tail->prev = b->head;
+	b->head->data = 0;
+	b->head->next = NULL;
+	b->tail->prev = NULL;
+	b->tail->data = 0;
 	b->tail->next = NULL;
+	b->size = 0;
 	return (1);
 }
 /*
@@ -147,22 +151,195 @@ int init(t_stack *a, t_stack *b, char **ar, int ac)
 
 4. 인자 없이, 혹은 인자가 하나밖에 없거나 이미 정렬된 채로 실행되면 아무것도 출력하지 않고 종료
 */
-int	error_check(int ac)
-{
-	if (ac >= 1)
-		write(2, "Error\n", 6);
+//스택이 정렬 되어 있는지,
 
-	exit(1);
-	return (-1);
-};
+int	error_check(char *ar, int size)
+{
+	int i;
+	int j;
+	int tmp;
+	int	chker;
+
+	i = -1;
+	while (++i < size)
+	{
+		j = -1;
+		while (++j < size - 1)
+		{
+			if (ar[j] > ar[j + 1])
+			{
+				tmp = ar[j];
+				ar[j] = ar[j + 1];
+				ar[j + 1] = tmp;
+				chker++;
+			}
+		}
+		if (ar[i] == ar[i + 1])//정렬 후 숫자가 중복되어도 error
+			error_print(1);
+	}
+	if (chker == 0)//끝에 chker가 0이면 정렬 되어있음
+		error_print(-1);
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	rra(a);
+	rrb(b);
+}
+
+void	rrb(t_stack *b)
+{
+	t_info	*tmp;
+
+	tmp = pop_back(b);
+	push_front(b, tmp);
+}
+
+void	rra(t_stack *a)
+{
+	t_info	*tmp;
+	
+	tmp = pop_back(a);
+	push_front(a, tmp);
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	ra(a);
+	rb(b);
+}
+
+void	rb(t_stack *b)
+{
+	t_info	*tmp;
+
+	if (b->size <= 1)
+		return ;
+	tmp = b->head->next;
+	b->head->next = b->head->next->next;
+	b->head->next->prev = NULL;
+	b->tail->prev->next = tmp;
+	tmp->prev = b->tail->prev;
+	b->tail->prev = tmp;
+	b->tail->prev->next = NULL;
+	write(1, "rb\n", 3);
+}
+
+void	ra(t_stack *a)
+{
+	t_info	*tmp;
+
+	if (a->size < 2)
+		return ;
+	tmp = a->head->next;
+	a->head->next = a->head->next->next;
+	a->head->next->prev = NULL;
+	a->tail->prev->next = tmp;
+	tmp->prev = a->tail->prev;
+	a->tail->prev = tmp;
+	a->tail->prev->next = NULL;
+	write(1, "ra\n", 3);
+}
+
+void	pb(t_stack *a, t_stack *b)
+{
+	t_info	*tmp;
+
+	if (!a->size)
+		return ;
+	tmp = a->head->next;
+	if (a->size > 1)
+	{
+		a->head->next = a->head->next->next;
+		a->head->next->prev = NULL;
+	}
+	if (b->size == 0)
+	{
+		tmp->next = NULL;
+		b->head->next = tmp;
+		b->tail->prev = tmp;
+	}
+	else
+	{
+		tmp->next = b->head->next;
+		b->head->next->prev = tmp;
+		b->head->next = tmp;
+	}
+	b->size--;
+	a->size++;
+	write(1, "pb\n", 3);
+}
+
+void	pa(t_stack *a, t_stack *b)//b의 front를 a의 front로 이동
+{
+	t_info	*tmp;
+
+	if (!b->size)
+		return ;
+	tmp = pop_front(b);
+	tmp = b->head->next;
+	if (b->size > 1)
+	{
+		b->head->next = b->head->next->next;
+		b->head->next->prev = NULL;
+	}
+	if (a->size == 0)
+	{
+		tmp->next = NULL;
+		a->head->next = tmp;
+		a->tail->prev = tmp;
+	}
+	else
+	{
+		tmp->next = a->head->next;
+		a->head->next->prev = tmp;
+		a->head->next = tmp;
+	}
+	a->size++;
+	b->size--;
+	write(1, "pa\n", 3);
+}
+
+void	ss(t_stack *a, t_stack *b)
+{
+	sa(a);
+	sb(b);
+}
+
+void	sb(t_stack *b)
+{
+	int	tmp;
+
+	if (!b->size)
+		return ;
+	tmp = b->head->next->data;
+	b->head->next->data = b->head->next->next->data;
+	b->head->next->next->data = tmp;
+	write(1, "sb\n", 3);
+}
+
+void	sa(t_stack *a)
+{
+	int	tmp;
+
+	if (!a->size)
+		return ;
+	tmp = a->head->next->data;
+	a->head->next->data = a->head->next->next->data;
+	a->head->next->next->data = tmp;
+	write(1, "sa\n", 3);
+}
 
 int	main(int ac, char **ar)
 {
 	t_stack a;
 	t_stack b;
 
-	error_check(ac);
-	init(&a, &b, ar, ac);
+	if (!init(&a, &b, ar, ac))
+		return (-1);
+	if (!error_check(ac, a.size))
+		return (-1);
+	
 	/*
 		if (피벗 < 노드의 데이터)
 

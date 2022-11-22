@@ -48,7 +48,15 @@ char	*ft_strjoin(char *s1, char const *s2, int first_val)
 	return (str);
 }
 
-int	ft_atoi(const char *str)
+void error_print(int type)
+{
+	if (type >= 1)
+		write(2, "Error\n", 6);
+	exit(1);
+	return (-1);
+}
+
+int	ft_atoi_ll(const char *str)
 {
 	long long	res;
 	int			sign;
@@ -60,12 +68,10 @@ int	ft_atoi(const char *str)
 	res = 0;
 	while (*str == ' ')
 		str++;
+	if (*str == '-')
+		sign *= -1;
 	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			sign *= -1;
 		str++;
-	}
 	while ('0' <= *str && *str <= '9')
 	{
 		res = res * 10 + (*str - '0');
