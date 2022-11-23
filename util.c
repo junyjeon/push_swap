@@ -23,7 +23,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char const *s2, int first_val)
+char	*ft_strjoin(char *s1, char const *s2, int first)
 {
 	char	*str;
 	int		src_len;
@@ -31,29 +31,73 @@ char	*ft_strjoin(char *s1, char const *s2, int first_val)
 	int		j;
 
 	src_len = (ft_strlen(s1) + ft_strlen(s2));
-	str = (char *)malloc(sizeof(char) * (src_len + 1));
+	str = malloc(src_len + 2);
 	if (str == NULL)
 		return (0);
 	i = 0;
 	if (s1)
+	{
 		while (s1[i])
-			str[i] = s1[i++];
+		{
+			str[i] = s1[i];
+			i++;
+		}
+	}
 	j = 0;
 	while (s2[j])
 		str[i++] = s2[j++];
 	str[i] = ' ';
 	str[i + 1] = '\0';
-	if (!(first_val == 1))
+	if (!(first == 1))
 		free(s1);
 	return (str);
 }
+// char	*ft_strjoin(char *s1, char const *s2, int first)
+// {
+// 	char	*str;
+// 	int		s_len;
+// 	int		i;
+// 	int		j;
+
+// 	i = 0;
+// 	if (s1)
+// 		while (s1[i])
+// 			i++;
+// 	j = 0;
+// 	while (s2[j])
+// 		j++;
+// 	s_len = i + j;
+// 	str = malloc(s_len + 1);
+// 	if (str == NULL)
+// 		return (0);
+// 	i = 0;
+// 	if (s1)
+// 	{
+// 		while (s1[i])
+// 		{
+// 			str[i] = s1[i];
+// 			i++;
+// 		}
+// 	}
+// 	j = 0;
+// 	while (s2[j])
+// 	{
+// 		str[i] = s2[j];
+// 		i++;
+// 		j++;
+// 	}
+// 	str[i] = ' ';
+// 	str[i + 1] = '\0';
+// 	if (!(first == 1))
+// 		free(s1);
+// 	return (str);
+// }
 
 void error_print(int type)
 {
 	if (type >= 1)
 		write(2, "Error\n", 6);
 	exit(1);
-	return (-1);
 }
 
 int	ft_atoi_ll(const char *str)
@@ -82,6 +126,56 @@ int	ft_atoi_ll(const char *str)
 	if (*str != '\0' || chker > 10 || res < -2147483648 || 2147483647 < res)
 		error_print(1);
 	return (res);
+}
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	char	*s;
+	char	*d;
+
+	if (dest == src)
+		return (dest);
+	s = (char *)src;
+	d = (char *)dest;
+	while (n-- > 0)
+		*(d++) = *(s++);
+	return (dest);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	size_t	s_len;
+	char	*dst;
+
+	s_len = ft_strlen(s1);
+	dst = (char *)malloc(sizeof(char) * s_len + 1);
+	if (!dst)
+		return (0);
+	ft_memcpy(dst, s1, s_len);
+	dst[s_len] = '\0';
+	return (dst);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	int				i;
+	unsigned int	s_len;
+	char			*str;
+
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (ft_strdup(""));
+	str = (char *)malloc(s_len + 1);
+	if (!str)
+		return (0);
+	i = 0;
+	while (len-- && s[start + i])
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
 static int	word_len(char const *s, char c, size_t i)

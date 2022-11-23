@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 23:13:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/23 02:16:57 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/11/23 18:51:45 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	push_back(t_stack *s, t_info *new)
 	s->tail->prev = new;
 	s->size++;
 }
-
+//노드 뽑지 말말고  data좁기
 t_info	*pop_front(t_stack *s)
 {
 	t_info	*front;
@@ -54,8 +54,10 @@ t_info	*pop_front(t_stack *s)
 	front = s->head->next;
 	if (s->head->next == NULL)
 		return ;
+	front->next = NULL;
+	front->prev = NULL:
 	s->head->next = s->head->next->next;
-	s->head->next->next->prev = NULL;
+	s->head->next->prev = NULL;
 	s->size--;
 	return (front);
 }
@@ -64,12 +66,11 @@ t_info	*pop_back(t_stack *s)
 {
 	t_info	*back;
 
+	back = s->tail->prev;
 	if (s->tail->prev == NULL)
 		return ;
-	back = s->tail->prev;
-	s->tail->prev = back->prev;
-	back->prev->next = NULL;
-	back->prev = NULL;
+	s->tail->prev = s->tail->prev->prev;
+	s->tail->prev->next = NULL;
 	s->size--;
 	return (back);
 }
