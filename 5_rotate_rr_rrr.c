@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:06 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/24 04:24:49 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:45:28 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void	rra(t_stack *a)//스택 a의 tail을 head로 이동
 {
 	int	tmp;
 	
+	if (a->size <= 1)
+		return ;
+	a->bottom->dir->next = a->top->dir;
+	a->top->dir->prev = a->bottom->dir;
 	tmp = pop_back(a);
 	push_front(a, tmp);
 	write(1, "rra\n", 4);
@@ -61,6 +65,12 @@ void	ra(t_stack *a)//스택 a의 head를 tail로 이동
 {
 	if (a->size <= 1)
 		return ;
+	// top->next = bottom;
+	// bottom->prev = top;
+	// bottom = top;
+	// top = top->prev;
+	// top->next = NULL;
+	// bottom->prev = NULL;
 	a->top->dir->next = a->bottom->dir;
 	a->bottom->dir->prev = a->top->dir;
 	a->bottom->dir = a->top->dir;

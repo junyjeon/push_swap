@@ -18,11 +18,12 @@ void	push_front(t_stack *s, int val)
 	t_info *new;
 
 	new = lstnew(val);
-	if (!s->size)
+	if (!s->top->dir->index)
 	{
 		s->bottom->dir = new;
 		s->top->dir = new;
 		new->next = NULL;
+		
 	}
 	else 
 	{
@@ -30,7 +31,7 @@ void	push_front(t_stack *s, int val)
 		new->next = s->bottom->dir;
 		s->bottom->dir = new;
 	}
-	s->size++;
+	s->top->dir->index;
 }
 
 void	push_back(t_stack *s, int val)

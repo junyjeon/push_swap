@@ -29,7 +29,7 @@ void merge_sort(int *A, int start, int end, int K)
 {
     int p = start, r = end, q;
     
-	if (p < r){
+	if (p < r){//size
         q = (p + r) / 2;
         merge_sort(A, p, q, K);
         merge_sort(A, q + 1, r, K);

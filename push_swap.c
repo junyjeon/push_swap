@@ -140,29 +140,58 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+void	base(t_stack *a)
+{
+	int	first;
+	int	second;
+	int	last;
+
+	first = a->bottom->dir->val;
+	second = a->bottom->dir->next->val;
+	last = a->top->dir->val;
+	if (first < second && second > last && first < last)//132
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (first < second && second > last && first > last)//231
+		rra(a);
+	else if (first > second && first < last && second < last)//213
+		sa(a);
+	else if (first > second && second < last && first > last)//312
+		ra(a);
+	else//321
+	{
+		sa(a);
+		rra(a);
+	}
+	sa(a);
+	
+}
+
 void	hard_coding(t_stack *a)
 {
 	int	first;
 	int	second;
 	int	third;
 	
-	if (a->size == 1)
+	if (a->top->dir->index == 1)
 	{
 		write(1, "Arguments vector is one\n", 24);
 		exit(1);
 	}
 	first = a->bottom->dir->val;
-	if (a->size == 2)
+	if (a->top->dir->index == 2)
 	{
 		second = a->bottom->dir->next->val;
 		if (first > second)
 			sa(a);
 		exit(1);
 	}
-	if (a->size == 3)
+	if (a->top->dir->index == 3)
 	{
 		second = a->bottom->dir->next->val;
-		third = a->bottom->dir->next->next->val;
+		third = a->top->dir->val;
 		if (first < second && second > third && first < third)//132
 		{
 			sa(a);
@@ -182,6 +211,31 @@ void	hard_coding(t_stack *a)
 	}
 }
 
+
+void	merge_sort(t_stack *a, t_info *left, t_info *right)
+{
+	t_info	*cur;
+	t_info	*midlst;
+
+	if (left->index < right->index)
+	{
+		cur = a->bottom->dir;
+		while (cur)
+		{
+			if (cur->index = (left->index + right->index) / 2)//Divide
+			{
+				midlst = cur;
+				break;
+			}
+			printf("%d", cur->index);
+			cur = cur->next;
+		}
+		merge_sort(&a, left, midlst);
+		merge_sort(&a, midlst->next, right);
+		merge(&a, left, midlst, right);
+	}
+}
+
 int	main(int ac, char **ar)
 {
 	t_stack a;
@@ -189,7 +243,8 @@ int	main(int ac, char **ar)
 
 	init(&a, &b, ar, ac);
 	hard_coding(&a);
-	merge_sort();
+	SplitList(a.bottom->dir, a.bottom->dir, a.top->dir);
+	merge_sort(&a, &b, 0, a.top->dir->index);
 	// error_check(ar, ac, a.size);
 
 	return (0);

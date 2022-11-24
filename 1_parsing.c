@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/24 03:53:49 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/11/24 18:31:01 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	append(int val, t_stack *a)
 	if (!new)
 		return (0);
 	new->val = val;
-	new->index = a->size;
 	if (!a->bottom)
 	{
 		a->bottom = malloc(sizeof(a->bottom));
@@ -29,15 +28,16 @@ int	append(int val, t_stack *a)
 		new->prev = new;
 		a->bottom->dir = new;
 		a->top->dir = new;
+		new->index = 1;
 	}
 	else
 	{
 		a->top->dir->next = new;
 		new->prev = a->top->dir;
 		a->top->dir = new;
+		new->index = new->prev->index + 1;
 	}
 	new->next = NULL;
-	a->size++;
 	return (1);
 }
 
@@ -45,10 +45,8 @@ static void	stack_init(t_stack *a, t_stack *b)
 {
 	a->bottom = NULL;
 	a->top = NULL;
-	a->size = 0;
 	b->bottom = NULL;
 	b->top = NULL;
-	b->size = 0;
 }
 
 int init(t_stack *a, t_stack *b, char **ar, int ac)
