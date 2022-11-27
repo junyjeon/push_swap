@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 18:04:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/27 20:34:24 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/11/27 22:58:20 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,16 @@
 #define sort_213	(first > second && second < last && first < last)
 #define sort_312	(first > second && second < last && first > last)
 
-void	max(t_stack *a, t_stack *b)
+static void	_max(t_stack *a, t_stack *b)
+{
+	if (sort_231)
+		rra(a);
+	else if (sort_213 || sort_312)
+		sa(a);
+	pb(a, b);
+}
+
+static void	_max(t_stack *a, t_stack *b)
 {
 	if (sort_132 || sort_231) // 132
 		sa(a);
@@ -29,7 +38,7 @@ void	max(t_stack *a, t_stack *b)
 	pb(a, b);
 }
 
-void	sort(t_stack *a, t_stack *b, int *arr, int size)
+static void	_sort(t_stack *a, t_stack *b, int *arr, int size)
 {
 	int i;
 	int j;
@@ -38,14 +47,14 @@ void	sort(t_stack *a, t_stack *b, int *arr, int size)
 	while (arr[++i])
 	{
 		j = arr[i];
-		while (--j)
+		if (arr[0])
 		{
-			if (sort_132 || sort_231) // 132
-				sa(a);
-			else if (sort_213) // 213
-				rra(a);
-			pb(a, b);
+			while (--j)
+				max(a, b);
 		}
+		else
+			while (--j)
+				min(a, b);
 		merge_sort(a, b);
 	}
 }

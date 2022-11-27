@@ -215,7 +215,7 @@ int	main(int ac, char **ar)
 	init(&a, &b, ar, ac);
 	hard_coding(&a, &b);
 	// SplitList(a.bottom->dir, a.bottom->dir, a.top->dir);
-	merge_sort(&a, a.bottom->dir, a.top->dir);
+	merge_sort(&a, &b);
 	// error_check(ar, ac, a.size);
 	t_info *cura = a.bottom->dir;
 	t_info *curb = b.bottom->dir;
