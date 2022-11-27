@@ -31,7 +31,7 @@ void	push_front(t_stack *s, int val)
 		new->next = s->bottom->dir;
 		s->bottom->dir = new;
 	}
-	s->top->dir->index;
+	s->top->dir->index++;
 }
 
 void	push_back(t_stack *s, int val)

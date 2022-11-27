@@ -138,114 +138,92 @@
 //if sa다음 sb오면 ss로 바꾸기
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void	base(t_stack *a)
+void	hard_coding(t_stack *a, t_stack *b)
 {
 	int	first;
 	int	second;
 	int	last;
-
-	first = a->bottom->dir->val;
-	second = a->bottom->dir->next->val;
-	last = a->top->dir->val;
-	if (first < second && second > last && first < last)//132
-	{
-		sa(a);
-		ra(a);
-	}
-	else if (first < second && second > last && first > last)//231
-		rra(a);
-	else if (first > second && first < last && second < last)//213
-		sa(a);
-	else if (first > second && second < last && first > last)//312
-		ra(a);
-	else//321
-	{
-		sa(a);
-		rra(a);
-	}
-	sa(a);
+	int i;
 	
-}
-
-void	hard_coding(t_stack *a)
-{
-	int	first;
-	int	second;
-	int	third;
-	
-	if (a->top->dir->index == 1)
+	if (1 == a->top->dir->index)
 	{
 		write(1, "Arguments vector is one\n", 24);
 		exit(1);
 	}
 	first = a->bottom->dir->val;
-	if (a->top->dir->index == 2)
+	if (2 == a->top->dir->index)
 	{
 		second = a->bottom->dir->next->val;
 		if (first > second)
 			sa(a);
 		exit(1);
 	}
-	if (a->top->dir->index == 3)
+	if (3 == a->top->dir->index)
 	{
 		second = a->bottom->dir->next->val;
-		third = a->top->dir->val;
-		if (first < second && second > third && first < third)//132
+		last = a->top->dir->val;
+		if (first < second && second > last && first < last)//132
 		{
 			sa(a);
 			ra(a);
 		}
-		else if (first < second && second > third && first > third)//231
+		else if (first < second && second > last && first > last)//231
 			rra(a);
-		else if (first > second && first < third && second < third)//213
+		else if (first > second && second < last && first < last)//213
 			sa(a);
-		else if (first > second && second < third && first > third)//312
+		else if (first > second && second < last && first > last)//312
 			ra(a);
 		else//321
 		{
 			sa(a);
 			rra(a);
 		}
+		exit(1);
 	}
 }
 
+// void	merge_sort(t_stack *a, t_info *left, t_info *right)
+// {
+// 	t_info	*cur;
+// 	t_info	*midlst;
 
-void	merge_sort(t_stack *a, t_info *left, t_info *right)
-{
-	t_info	*cur;
-	t_info	*midlst;
-
-	if (left->index < right->index)
-	{
-		cur = a->bottom->dir;
-		while (cur)
-		{
-			if (cur->index = (left->index + right->index) / 2)//Divide
-			{
-				midlst = cur;
-				break;
-			}
-			printf("%d", cur->index);
-			cur = cur->next;
-		}
-		merge_sort(&a, left, midlst);
-		merge_sort(&a, midlst->next, right);
-		merge(&a, left, midlst, right);
-	}
-}
-
+// 	if (left->index < right->index)
+// 	{
+// 		cur = a->bottom->dir;
+// 		while (cur)
+// 		{
+// 			if (cur->index = (left->index + right->index) / 2)//Divide
+// 			{
+// 				midlst = cur;
+// 				break;
+// 			}
+// 			printf("%d", cur->index);
+// 			cur = cur->next;
+// 		}
+// 		merge_sort(&a, left, midlst);
+// 		merge_sort(&a, midlst->next, right);
+// 		merge(&a, left, midlst, right);
+// 	}
+// }
+#include "stdio.h"
 int	main(int ac, char **ar)
 {
 	t_stack a;
 	t_stack b;
 
 	init(&a, &b, ar, ac);
-	hard_coding(&a);
-	SplitList(a.bottom->dir, a.bottom->dir, a.top->dir);
-	merge_sort(&a, &b, 0, a.top->dir->index);
+	hard_coding(&a, &b);
+	// SplitList(a.bottom->dir, a.bottom->dir, a.top->dir);
+	merge_sort(&a, a.bottom->dir, a.top->dir);
 	// error_check(ar, ac, a.size);
-
+	t_info *cura = a.bottom->dir;
+	t_info *curb = b.bottom->dir;
+	while (cura || curb)
+	{
+		printf("a:     %d,     b: %d\n", cura->val, curb->val);
+		cura = cura->next;
+		curb = curb->next;
+	}
 	return (0);
 }

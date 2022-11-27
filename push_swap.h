@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/24 02:43:40 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:49:27 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ int	pop_front(t_stack *s);
 int	pop_back(t_stack *s);
 int	append(int val, t_stack *a);
 int	init(t_stack *a, t_stack *b, char **ar, int ac);
-void	hard_coding(t_stack *a);
+void	merge_sort1(t_stack *a, t_stack *b);
+void	hard_coding(t_stack *a, t_stack *b);
 int	main(int ac, char **ar);
 
 
