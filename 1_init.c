@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1_parsing.c                                        :+:      :+:    :+:   */
+/*   1_init.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/27 20:29:11 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:10:36 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	append(int val, t_stack *a)
+static int	add_stack(int val, t_stack *a)
 {
 	t_info *new;
 	t_info *cur;
@@ -65,6 +65,6 @@ int init(t_stack *a, t_stack *b, char **ar, int ac)
 	res = ft_split(str, ' ');
 	i = 0;
 	while (res[i])
-		append(ft_atoi_ll(res[i++]), a);
+		add_stack(ft_atoi_ll(res[i++]), a);
 	return (1);
 }

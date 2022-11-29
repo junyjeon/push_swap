@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/30 02:49:00 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/11/30 02:49:27 by junyojeo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 // info
 // 	val
 // 	*next
@@ -136,53 +148,6 @@
 // 	write(1, "pa\n", 3);
 // }
 //if sa다음 sb오면 ss로 바꾸기
-
-#include "push_swap.h"
-
-void	hard_coding(t_stack *a, t_stack *b)
-{
-	int	first;
-	int	second;
-	int	last;
-	int i;
-	
-	if (1 == a->top->dir->index)
-	{
-		write(1, "Arguments vector is one\n", 24);
-		exit(1);
-	}
-	first = a->bottom->dir->val;
-	if (2 == a->top->dir->index)
-	{
-		second = a->bottom->dir->next->val;
-		if (first > second)
-			sa(a);
-		exit(1);
-	}
-	if (3 == a->top->dir->index)
-	{
-		second = a->bottom->dir->next->val;
-		last = a->top->dir->val;
-		if (first < second && second > last && first < last)//132
-		{
-			sa(a);
-			ra(a);
-		}
-		else if (first < second && second > last && first > last)//231
-			rra(a);
-		else if (first > second && second < last && first < last)//213
-			sa(a);
-		else if (first > second && second < last && first > last)//312
-			ra(a);
-		else//321
-		{
-			sa(a);
-			rra(a);
-		}
-		exit(1);
-	}
-}
-
 // void	merge_sort(t_stack *a, t_info *left, t_info *right)
 // {
 // 	t_info	*cur;
@@ -206,16 +171,23 @@ void	hard_coding(t_stack *a, t_stack *b)
 // 		merge(&a, left, midlst, right);
 // 	}
 // }
+#include "push_swap.h"
 #include "stdio.h"
+
+
 int	main(int ac, char **ar)
 {
 	t_stack a;
 	t_stack b;
 
 	init(&a, &b, ar, ac);
-	hard_coding(&a, &b);
+	little_sort(&a, &b);
 	// SplitList(a.bottom->dir, a.bottom->dir, a.top->dir);
-	merge_sort(&a, &b);
+	int arr[2];
+
+	arr[0, 2] = a.size / 3;
+	arr[1] = a.size / 3 + a.size % 3;
+	merge_sort(&a, &b, &arr, 0);
 	// error_check(ar, ac, a.size);
 	// t_info *cura = a.bottom->dir;
 	// t_info *curb = b.bottom->dir;

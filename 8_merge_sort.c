@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   7_merge_sort.c                                     :+:      :+:    :+:   */
+/*   8_merge_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 18:04:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/28 21:53:24 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/11/30 02:51:59 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-#define first		(a->bottom->dir->val)
-#define second		(a->top->dir->next->val)
-#define last		(a->bottom->dir->val)
-#define sort_132	(first < second && second > last && first < last)
-#define sort_231	(first < second && second > last && first > last)
-#define sort_213	(first > second && second < last && first < last)
-#define sort_312	(first > second && second < last && first > last)
 
 static void	_max(t_stack *a, t_stack *b)
 {
@@ -44,22 +36,22 @@ void	merge_sort(t_stack *a, t_stack *b)
 	int i;
 	int j;
 
-	if (n < 3)
-	{
-		if (direct)
-			arr[i] = 1;
-		else
-			arr[i] = -1;
-	}
-	else
-	{
-		if (direct)
-		{
+	// if (n < 3)
+	// {
+	// 	if (direct)
+	// 		arr[i] = 1;
+	// 	else
+	// 		arr[i] = -1;
+	// }
+	// else
+	// {
+	// 	if (direct)
+	// 	{
 
-		}
-		else
-			배열 [][][]  a->size / 3, + a->size % 3
-	}
+	// 	}
+	// 	else
+	// 		배열 [][][]  a->size / 3, + a->size % 3
+	// }
 	/* |\ max부터
 	if (sort_132 || sort_231) // 132
 		sa(a);
@@ -74,4 +66,25 @@ void	merge_sort(t_stack *a, t_stack *b)
 		sa(a);
 	pb(a, b);
 	*/
+}
+
+void	merge_sort(t_stack *a, t_stack *b, int *arr, int div)
+{
+	if (div < 6)
+		return ;
+	else
+	{
+		merge_sort(a, b, arr, div);
+		int i = 0;
+		while (arr[i])
+		{
+			div = arr[i];
+			while (--div)
+			{
+
+				div--;
+			}
+			i++;
+		}
+	}
 }
