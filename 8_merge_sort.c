@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   7_merge_sort.c                                     :+:      :+:    :+:   */
+/*   8_merge_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 18:04:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/27 22:58:20 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:49:17 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-#define first		(a->bottom->dir->val)
-#define second		(a->top->dir->next->val)
-#define last		(a->bottom->dir->val)
-#define sort_132	(first < second && second > last && first < last)
-#define sort_231	(first < second && second > last && first > last)
-#define sort_213	(first > second && second < last && first < last)
-#define sort_312	(first > second && second < last && first > last)
 
 static void	_max(t_stack *a, t_stack *b)
 {
@@ -85,4 +77,25 @@ void	merge_sort(t_stack *a, t_stack *b)
 		sa(a);
 	pb(a, b);
 	*/
+}
+
+void	merge_sort(t_stack *a, t_stack *b, int *arr, int div)
+{
+	if (div < 6)
+		return ;
+	else
+	{
+		int i = 0;
+		while (arr[i])
+		{
+			div = arr[i];
+			while (--div)
+			{
+
+				div--;
+			}
+			merge_sort(a, b);
+			i++;
+		}
+	}
 }

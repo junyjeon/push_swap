@@ -23,7 +23,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char const *s2, int first)
+char	*ft_strjoin(char *s1, char const *s2, int index)
 {
 	char	*str;
 	int		src_len;
@@ -48,7 +48,7 @@ char	*ft_strjoin(char *s1, char const *s2, int first)
 		str[i++] = s2[j++];
 	str[i] = ' ';
 	str[i + 1] = '\0';
-	if (!(first == 1))
+	if (!(index == 1))
 		free(s1);
 	return (str);
 }
