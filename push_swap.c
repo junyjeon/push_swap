@@ -217,13 +217,13 @@ int	main(int ac, char **ar)
 	// SplitList(a.bottom->dir, a.bottom->dir, a.top->dir);
 	merge_sort(&a, &b);
 	// error_check(ar, ac, a.size);
-	t_info *cura = a.bottom->dir;
-	t_info *curb = b.bottom->dir;
-	while (cura || curb)
-	{
-		printf("a:     %d,     b: %d\n", cura->val, curb->val);
-		cura = cura->next;
-		curb = curb->next;
-	}
+	// t_info *cura = a.bottom->dir;
+	// t_info *curb = b.bottom->dir;
+	// while (cura || curb)
+	// {
+	// 	printf("a:     %d,     b: %d\n", cura->val, curb->val);
+	// 	cura = cura->next;
+	// 	curb = curb->next;
+	// }
 	return (0);
 }
