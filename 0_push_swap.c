@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   0_push_swap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 02:49:00 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/30 02:49:27 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:14:26 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,33 +147,35 @@
 // 	b->size--;
 // 	write(1, "pa\n", 3);
 // }
-//if sa다음 sb오면 ss로 바꾸기
-// void	merge_sort(t_stack *a, t_info *left, t_info *right)
-// {
-// 	t_info	*cur;
-// 	t_info	*midlst;
 
-// 	if (left->index < right->index)
-// 	{
-// 		cur = a->bottom->dir;
-// 		while (cur)
-// 		{
-// 			if (cur->index = (left->index + right->index) / 2)//Divide
-// 			{
-// 				midlst = cur;
-// 				break;
-// 			}
-// 			printf("%d", cur->index);
-// 			cur = cur->next;
-// 		}
-// 		merge_sort(&a, left, midlst);
-// 		merge_sort(&a, midlst->next, right);
-// 		merge(&a, left, midlst, right);
-// 	}
-// }
+//if sa다음 sb오면 ss로 바꾸기
+
+void	merge_sort(t_stack *a, t_info *left, t_info *right)
+{
+	t_info	*cur;
+	t_info	*midlst;
+
+	if (left->index < right->index)
+	{
+		cur = a->bottom->dir;
+		while (cur)
+		{
+			if (cur->index = (left->index + right->index) / 2)//Divide
+			{
+				midlst = cur;
+				break;
+			}
+			printf("%d", cur->index);
+			cur = cur->next;
+		}
+		merge_sort(&a, left, midlst);
+		merge_sort(&a, midlst->next, right);
+		merge(&a, left, midlst, right);
+	}
+}
+
 #include "push_swap.h"
 #include "stdio.h"
-
 
 int	main(int ac, char **ar)
 {
@@ -184,9 +186,11 @@ int	main(int ac, char **ar)
 	little_sort(&a, &b);
 	// SplitList(a.bottom->dir, a.bottom->dir, a.top->dir);
 	int arr[2];
-
-	arr[0, 2] = a.size / 3;
-	arr[1] = a.size / 3 + a.size % 3;
+/*
+	arr[0, 1, 2] = a.size / 3 (오름), a.size / 3 + a.size % 3(내림), a.size / 3(내림);
+	arr[3, 4, 5] = arr[0] / 3 (오름), arr[0] / 3 + arr[0] % 3(내림), arr[0] / 3(내림), 
+	arr[6, 7, 8] = arr[0] / 3 (내림), arr[0] / 3 + arr[0] % 3(내림), arr[0] / 3(내림), 
+*/
 	merge_sort(&a, &b, &arr, 0);
 	// error_check(ar, ac, a.size);
 	// t_info *cura = a.bottom->dir;

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/30 02:51:34 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/05 20:56:13 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+// For little sorting
 # define first		(a->top->dir->val)
 # define second		(a->top->dir->next->val)
 # define last		(a->bottom->dir->val)
@@ -24,6 +25,13 @@
 # define sort_213	(first > second && second < last && first < last)
 # define sort_312	(first > second && second < last && first > last)
 
+// For struct triangle
+# define MAX		(1)
+# define MIN		(0)
+# define INC		(1)
+# define DEC		(-1)
+
+//node info
 typedef struct s_info
 {
 	struct s_info	*prev;
@@ -32,11 +40,39 @@ typedef struct s_info
 	int				val;
 }	t_info;
 
+//top and bottom
 typedef struct s_direction
 {
 	t_info	*dir;
 }	t_direction;
 
+//size and descending or ascending and stack a or b
+typedef struct s_triangle
+{
+	int	size;
+	int	inc_or_dec;
+	int	a_or_b;
+}	t_tri;
+
+/* NOTE
+ * ------------------------
+ *                        |
+ *       INC =    *       |
+ *               /|       |
+ *              / |       |
+ *             /__|       |
+ *                        |
+ * ------------------------
+ *                        |
+ *       DEC = ____       |
+ *             \  |       |
+ *              \ |       |
+ *               \|       |
+ *                *       |
+ * ------------------------
+ * */
+
+//stack info
 typedef struct s_stack
 {
 	t_direction	*top;

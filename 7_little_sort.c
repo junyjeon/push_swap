@@ -44,8 +44,11 @@ void	little_sort(t_stack *a, t_stack *b)
 			rra(a);
 		}
 	}
-	else if (4 == first)
+	else if (4 <= first <= 6)
 	{
+		while (a->size == 3)
+			pb(a, b);
+		
 
 	}
 	exit(1);

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/29 11:10:36 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:12:14 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,11 @@ static int	add_stack(int val, t_stack *a)
 	return (1);
 }
 
-static void	stack_init(t_stack *a, t_stack *b)
+static void	stack_init(t_stack *s)
 {
-	a->bottom = NULL;
-	a->top = NULL;
-	b->bottom = NULL;
-	b->top = NULL;
+	s->bottom = NULL;
+	s->top = NULL;
+	s->size = 0;
 }
 
 int init(t_stack *a, t_stack *b, char **ar, int ac)
@@ -57,7 +56,8 @@ int init(t_stack *a, t_stack *b, char **ar, int ac)
 
 	if (ac <= 1)
 		error_print(1);
-	stack_init(a, b);
+	stack_init(a);
+	stack_init(b);
 	str = NULL;
 	i = 0;
 	while (++i < ac)
