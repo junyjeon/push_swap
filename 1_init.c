@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/05 17:12:14 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:54:44 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ int init(t_stack *a, t_stack *b, char **ar, int ac)
 
 	if (ac <= 1)
 		error_print(1);
+	str = NULL;
 	stack_init(a);
 	stack_init(b);
-	str = NULL;
 	i = 0;
 	while (++i < ac)
 		str = ft_strjoin(str, ar[i], i);

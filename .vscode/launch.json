@@ -5,8 +5,8 @@
 		"type": "lldb",
 		"request": "launch",
 		"name": "Debug",
-		"program": "${fileDirname}/${fileBasenameNoExtension}",
-		"args": [],
+		"program": "${workspaceFolder}/${fileBasenameNoExtension}",
+		"args": [1 2 3],
 		"cwd": "${fileDirname}"
 	  }
 	]

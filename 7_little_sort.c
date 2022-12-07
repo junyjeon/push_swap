@@ -27,29 +27,22 @@ void	little_sort(t_stack *a, t_stack *b)
 	}
 	else if (3 == first)
 	{
-		if (sort_132)//132
+		if (sort_132)
 		{
 			sa(a);
 			ra(a);
 		}
-		else if (sort_231)//231
+		else if (sort_231)
 			rra(a);
-		else if (sort_213)//213
+		else if (sort_213)
 			sa(a);
-		else if (sort_312)//312
+		else if (sort_312)
 			ra(a);
-		else//321
+		else
 		{
 			sa(a);
 			rra(a);
 		}
-	}
-	else if (4 <= first <= 6)
-	{
-		while (a->size == 3)
-			pb(a, b);
-		
-
 	}
 	exit(1);
 }

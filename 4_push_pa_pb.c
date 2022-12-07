@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:52:34 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/24 02:37:45 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:54:18 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	pb(t_stack *a, t_stack *b)
 	write(1, "pb\n", 3);
 }
 
-void	pa(t_stack *a, t_stack *b)//b의 front를 a의 front로 이동
+void	pa(t_stack *a, t_stack *b)
 {
 	int	tmp;
 

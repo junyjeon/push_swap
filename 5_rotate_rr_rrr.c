@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:06 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/27 17:56:29 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:54:41 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	rrb(t_stack *b)
 	write(1, "rra\n", 4);
 }
 
-void	rra(t_stack *a)//스택 a의 bottom을 top로 이동
+void	rra(t_stack *a)
 {
 	if (a->size <= 1)
 		return ;
@@ -65,16 +65,10 @@ void	rb(t_stack *b)
 	write(1, "rb\n", 3);
 }
 
-void	ra(t_stack *a)//스택 a의 top을 bottom으로 이동
+void	ra(t_stack *a)
 {
 	if (a->size <= 1)
 		return ;
-	// top->next = bottom;
-	// bottom->prev = top;
-	// bottom = top;
-	// top = top->prev;
-	// top->next = NULL;
-	// bottom->prev = NULL;
 	a->top->dir->next = a->bottom->dir;
 	a->bottom->dir->prev = a->top->dir;
 	a->bottom->dir = a->top->dir;

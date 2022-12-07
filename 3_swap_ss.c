@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/24 04:06:15 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:53:59 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	sb(t_stack *b)
 	write(1, "sb\n", 3);
 }
 
-void	sa(t_stack *a)//a의 top과 top->next를 맞교환
+void	sa(t_stack *a)
 {
 	int	tmp;
 

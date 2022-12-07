@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 02:49:00 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/05 17:14:26 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:56:26 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,25 +173,14 @@ void	merge_sort(t_stack *a, t_info *left, t_info *right)
 		merge(&a, left, midlst, right);
 	}
 }
-
-#include "push_swap.h"
-#include "stdio.h"
-
-int	main(int ac, char **ar)
-{
-	t_stack a;
-	t_stack b;
-
-	init(&a, &b, ar, ac);
-	little_sort(&a, &b);
 	// SplitList(a.bottom->dir, a.bottom->dir, a.top->dir);
-	int arr[2];
+	//int arr[2];
 /*
 	arr[0, 1, 2] = a.size / 3 (오름), a.size / 3 + a.size % 3(내림), a.size / 3(내림);
-	arr[3, 4, 5] = arr[0] / 3 (오름), arr[0] / 3 + arr[0] % 3(내림), arr[0] / 3(내림), 
+	arr[3, 4, 5] = arr[0] / 3 (오름),S arr[0] / 3 + arr[0] % 3(내림), arr[0] / 3(내림), 
 	arr[6, 7, 8] = arr[0] / 3 (내림), arr[0] / 3 + arr[0] % 3(내림), arr[0] / 3(내림), 
 */
-	merge_sort(&a, &b, &arr, 0);
+	//merge_sort(&a, &b, &arr, 0);
 	// error_check(ar, ac, a.size);
 	// t_info *cura = a.bottom->dir;
 	// t_info *curb = b.bottom->dir;
@@ -201,5 +190,14 @@ int	main(int ac, char **ar)
 	// 	cura = cura->next;
 	// 	curb = curb->next;
 	// }
+#include "push_swap.h"
+
+int	main(int ac, char **ar)
+{
+	t_stack a;
+	t_stack b;
+
+	init(&a, &b, ar, ac);
+	little_sort(&a, &b);
 	return (0);
 }

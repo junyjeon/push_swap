@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/05 20:56:13 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:55:50 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define MIN		(0)
 # define INC		(1)
 # define DEC		(-1)
+# define IN_A		(1)
+# define IN_B		(-1)
 
 //node info
 typedef struct s_info
@@ -52,6 +54,7 @@ typedef struct s_triangle
 	int	size;
 	int	inc_or_dec;
 	int	a_or_b;
+	int *val;
 }	t_tri;
 
 /* NOTE
@@ -116,7 +119,7 @@ int	pop_back(t_stack *s);
 void	error_print(int type);
 int	error_check(char *ar, int size);
 int	init(t_stack *a, t_stack *b, char **ar, int ac);
-void	merge_sort(t_stack *a, t_stack *b, int *arr, int div);
+//void	merge_sort(t_stack *a, t_stack *b, int *arr, int div);
 void	little_sort(t_stack *a, t_stack *b);
 int	main(int ac, char **ar);
 

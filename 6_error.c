@@ -6,13 +6,13 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:56:47 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/11/24 02:50:57 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:54:51 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error_check(char *ar, int size)//정렬하면서 
+int	error_check(char *ar, int size)
 {
 	int i;
 	int j;
@@ -33,10 +33,10 @@ int	error_check(char *ar, int size)//정렬하면서
 				chker++;
 			}
 		}
-		if (ar[i] == ar[i + 1])//정렬 후 숫자가 중복되어도 error
+		if (ar[i] == ar[i + 1])
 			error_print(1);
 	}
-	if (chker == 0)//끝에 chker가 0이면 정렬 되어있음
+	if (chker == 0)
 		error_print(-1);
 	return (0);
 }
