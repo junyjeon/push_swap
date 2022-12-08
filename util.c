@@ -52,46 +52,6 @@ char	*ft_strjoin(char *s1, char const *s2, int index)
 		free(s1);
 	return (str);
 }
-// char	*ft_strjoin(char *s1, char const *s2, int first)
-// {
-// 	char	*str;
-// 	int		s_len;
-// 	int		i;
-// 	int		j;
-
-// 	i = 0;
-// 	if (s1)
-// 		while (s1[i])
-// 			i++;
-// 	j = 0;
-// 	while (s2[j])
-// 		j++;
-// 	s_len = i + j;
-// 	str = malloc(s_len + 1);
-// 	if (str == NULL)
-// 		return (0);
-// 	i = 0;
-// 	if (s1)
-// 	{
-// 		while (s1[i])
-// 		{
-// 			str[i] = s1[i];
-// 			i++;
-// 		}
-// 	}
-// 	j = 0;
-// 	while (s2[j])
-// 	{
-// 		str[i] = s2[j];
-// 		i++;
-// 		j++;
-// 	}
-// 	str[i] = ' ';
-// 	str[i + 1] = '\0';
-// 	if (!(first == 1))
-// 		free(s1);
-// 	return (str);
-// }
 
 void error_print(int type)
 {
@@ -104,7 +64,6 @@ int	ft_atoi_ll(const char *str)
 {
 	long long	res;
 	int			sign;
-	int			chker;
 
 	if (*str == '\0')
 		return (0);
@@ -120,11 +79,10 @@ int	ft_atoi_ll(const char *str)
 	{
 		res = res * 10 + (*str - '0');
 		str++;
-		chker++;
 	}
 	res *= sign;
-	if (*str != '\0' || chker > 10 || res < -2147483648 || 2147483647 < res)
-		error_print(1);
+	//if (*str != '\0' || res < -2147483648 || 2147483647 < res)
+	//	error_print(1);
 	return (res);
 }
 

@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2022/12/07 21:54:05 by junyojeo         ###   ########.fr        #
+#    Updated: 2022/12/08 18:52:21 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,7 @@ SRC			=	\
 5_rotate_rr_rrr.c \
 6_error.c \
 7_little_sort.c \
-8_merge_sort.c \
-util.c \
-
+util.c
 BONUS_SRC	=	
 OBJ			=	$(SRC:.c=.o)
 BONUS_OBJ	= 	$(BONUS_SRC:.c=.o)

@@ -89,6 +89,30 @@ int main(void)
 // 	}
 // }
 
+//void	merge_sort(t_stack *a, t_info *left, t_info *right)
+//{
+//	t_info	*cur;
+//	t_info	*midlst;
+
+//	if (left->index < right->index)
+//	{
+//		cur = a->bottom->dir;
+//		while (cur)
+//		{
+//			if (cur->index = (left->index + right->index) / 2)//Divide
+//			{
+//				midlst = cur;
+//				break;
+//			}
+//			printf("%d", cur->index);
+//			cur = cur->next;
+//		}
+//		merge_sort(&a, left, midlst);
+//		merge_sort(&a, midlst->next, right);
+//		merge(&a, left, midlst, right);
+//	}
+//}
+
 // int main(void)
 // {
 // 	int N = 5, K = 7, *tmp;

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/07 21:55:50 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/08 22:06:11 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,22 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>/////
 
 // For little sorting
 # define first		(a->top->dir->val)
-# define second		(a->top->dir->next->val)
+# define second		(a->top->dir->prev->val)
+# define third		(a->top->dir->prev->prev->val)
+# define fourth		(a->top->dir->prev->prev->prev->val)
 # define last		(a->bottom->dir->val)
 # define sort_132	(first < second && second > last && first < last)
 # define sort_231	(first < second && second > last && first > last)
 # define sort_213	(first > second && second < last && first < last)
 # define sort_312	(first > second && second < last && first > last)
+# define sort_2134	(second < first && first < third)
+# define sort_3124	(third < first && first < fourth)
+# define sort_41235	(fourth < first && first < last)
+
 
 // For struct triangle
 # define MAX		(1)
@@ -54,7 +61,6 @@ typedef struct s_triangle
 	int	size;
 	int	inc_or_dec;
 	int	a_or_b;
-	int *val;
 }	t_tri;
 
 /* NOTE
@@ -97,10 +103,8 @@ char	*ft_strjoin(char *s1, char const *s2, int first_val);
 int	ft_atoi_ll(const char *str);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-static int	word_len(char const *s, char c, size_t i);
-static void	ft_free(char **res);
-static char	**ft_division(char *s, char c, char **res);
 char	**ft_split(char *s, char c);
+t_info	*lstnew(int val);
 void	rrr(t_stack *a, t_stack *b);
 void	rrb(t_stack *b);
 void	rra(t_stack *a);
@@ -116,12 +120,9 @@ void	push_front(t_stack *s, int val);
 void	push_back(t_stack *s, int val);
 int	pop_front(t_stack *s);
 int	pop_back(t_stack *s);
-void	error_print(int type);
-int	error_check(char *ar, int size);
 int	init(t_stack *a, t_stack *b, char **ar, int ac);
-//void	merge_sort(t_stack *a, t_stack *b, int *arr, int div);
+void	error_print(int type);
 void	little_sort(t_stack *a, t_stack *b);
 int	main(int ac, char **ar);
-
 
 #endif

@@ -6,21 +6,17 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/07 20:54:44 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/08 22:03:29 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	add_stack(int val, t_stack *a)
+static int	stack_add(int val, t_stack *a)
 {
 	t_info *new;
-	t_info *cur;
 
-	new = (t_info *)malloc(sizeof(t_info));
-	if (!new)
-		return (0);
-	new->val = val;
+	new = lstnew(val);
 	if (!a->bottom)
 	{
 		a->bottom = malloc(sizeof(a->bottom));
@@ -28,16 +24,16 @@ static int	add_stack(int val, t_stack *a)
 		new->prev = new;
 		a->bottom->dir = new;
 		a->top->dir = new;
-		new->index = 1;
 	}
 	else
 	{
 		a->top->dir->next = new;
 		new->prev = a->top->dir;
 		a->top->dir = new;
-		new->index = new->prev->index + 1;
 	}
 	new->next = NULL;
+	new->index = a->size;
+	a->size++;
 	return (1);
 }
 
@@ -47,7 +43,6 @@ static void	stack_init(t_stack *s)
 	s->top = NULL;
 	s->size = 0;
 }
-
 int init(t_stack *a, t_stack *b, char **ar, int ac)
 {
 	char	*str;
@@ -56,15 +51,16 @@ int init(t_stack *a, t_stack *b, char **ar, int ac)
 
 	if (ac <= 1)
 		error_print(1);
-	str = NULL;
 	stack_init(a);
 	stack_init(b);
+	str = NULL;
 	i = 0;
 	while (++i < ac)
 		str = ft_strjoin(str, ar[i], i);
 	res = ft_split(str, ' ');
 	i = 0;
 	while (res[i])
-		add_stack(ft_atoi_ll(res[i++]), a);
+		stack_add(ft_atoi_ll(res[i++]), a);
+	printf("%zu, %d, %d \n", a->top->dir->index, a->top->dir->val, a->size);
 	return (1);
 }
