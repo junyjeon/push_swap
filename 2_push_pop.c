@@ -44,6 +44,25 @@ void	push_front(t_stack *s, int val)
 	}
 }
 
+void	push_front(t_stack *s, int val)
+{
+	t_info *new;
+	t_info *cur;
+
+	new = lstnew(val);
+	ft_lstadd_front(s->bottom->dir, new);
+	s->bottom->dir->index = 0;
+	s->size++;
+	cur = s->bottom->dir;
+	while (cur)
+	{
+		cur = cur->next;
+		cur->index++;
+		printf("%zu\n", cur->index);
+	}
+}
+
+
 void	push_back(t_stack *s, int val)
 {
 	t_info *new;

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/08 22:06:11 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/08 22:23:03 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,6 @@ typedef struct s_info
 	int				val;
 }	t_info;
 
-//top and bottom
-typedef struct s_direction
-{
-	t_info	*dir;
-}	t_direction;
-
 //size and descending or ascending and stack a or b
 typedef struct s_triangle
 {
@@ -84,8 +78,8 @@ typedef struct s_triangle
 //stack info
 typedef struct s_stack
 {
-	t_direction	*top;
-	t_direction	*bottom;
+	t_info	*top;
+	t_info	*bottom;
 	int			size;
 }	t_stack;
 
