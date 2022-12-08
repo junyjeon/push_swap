@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/08 22:23:03 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/08 22:44:11 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,8 @@ void	pa(t_stack *a, t_stack *b);
 void	ss(t_stack *a, t_stack *b);
 void	sb(t_stack *b);
 void	sa(t_stack *a);
-void	push_front(t_stack *s, int val);
-void	push_back(t_stack *s, int val);
+int	push_front(t_stack *s, int val);
+int	push_back(t_stack *s, int val);
 int	pop_front(t_stack *s);
 int	pop_back(t_stack *s);
 int	init(t_stack *a, t_stack *b, char **ar, int ac);

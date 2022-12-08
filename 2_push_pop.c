@@ -13,7 +13,7 @@ t_info	*lstnew(int val)
 	return (elem);
 }
 
-void	push_front(t_stack *s, int val)
+int	push_front(t_stack *s, int val)
 {
 	t_info *new;
 	t_info *cur;
@@ -44,14 +44,27 @@ void	push_front(t_stack *s, int val)
 	}
 }
 
-void	push_front(t_stack *s, int val)
+int	push_front(t_stack *s, int val)
 {
 	t_info *new;
 	t_info *cur;
 
 	new = lstnew(val);
-	ft_lstadd_front(s->bottom->dir, new);
-	s->bottom->dir->index = 0;
+	if (!new)
+		return (0);
+	ft_lstadd_front(s->bottom, new);
+	if (s->bottom->val == -1)
+	{
+		new->next = new;
+		s->top = new;
+	}
+	else
+	{
+		new->next = s->top;
+		s->top = new;
+	}
+	new->next = s->bottom;
+	new->index = 0;
 	s->size++;
 	cur = s->bottom->dir;
 	while (cur)
@@ -63,16 +76,28 @@ void	push_front(t_stack *s, int val)
 }
 
 
-void	push_back(t_stack *s, int val)
+int	push_back(t_stack *s, int val)
 {
 	t_info *new;
 
 	new = lstnew(val);
-	s->top->dir->next = new;
-	new->prev = s->top->dir;
-	s->top->dir = new;
-	s->top->dir->index = s->size;
+	if (!new)
+		return (0);
+	ft_lstadd_back(&s->bottom, new);
+	if (s->bottom->val == -1)
+	{
+		new->prev = new;
+		s->top = new;
+	}
+	else
+	{
+		new->prev = s->top;
+		s->top = new;
+	}
+	new->next = NULL;
+	new->index = s->size;
 	s->size++;
+	return (1);
 }
 
 int	pop_front(t_stack *s)
