@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2022/12/09 22:24:07 by junyojeo         ###   ########.fr        #
+#    Updated: 2022/12/09 22:26:00 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ all :		$(NAME)
 $(NAME) : mandatory
 
 mandatory :	$(SRCS:.c=.o)
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $^ -o $(NAME)
 #	cp ./push_swap ./$(NAME)
 	
 bonus : $(SRCS:.c=.o) $(BONUS_OBJ)
