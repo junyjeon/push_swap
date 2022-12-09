@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_swap_ss.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/09 20:06:27 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/09 05:02:18 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/12/09 20:44:54 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-static void	swap(t_stack *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	tmp;
+	int				i;
+	unsigned int	s_len;
+	char			*str;
 
-	if (s->size <= 1)
-		return ;
-	tmp = s->bottom->val;
-	s->bottom->val = s->bottom->next->val;
-	s->bottom->next->val = tmp;
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
-	write(1, "ss\n", 3);
-}
-
-void sa(t_stack *a)
-{
-	swap(a);
-	write(1, "sa\n", 3);
-}
-
-void sb(t_stack *b)
-{
-	swap(b);
-	write(1, "sb\n", 3);
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (ft_strdup(""));
+	str = (char *)malloc(s_len + 1);
+	if (!str)
+		return (0);
+	i = 0;
+	while (len-- && s[start + i])
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

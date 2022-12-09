@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_swap_ss.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/09 20:06:27 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/06 17:53:24 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/12/09 20:44:30 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-static void	swap(t_stack *s)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	tmp;
+	char	*s;
+	char	*d;
 
-	if (s->size <= 1)
-		return ;
-	tmp = s->bottom->val;
-	s->bottom->val = s->bottom->next->val;
-	s->bottom->next->val = tmp;
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
-	write(1, "ss\n", 3);
-}
-
-void sa(t_stack *a)
-{
-	swap(a);
-	write(1, "sa\n", 3);
-}
-
-void sb(t_stack *b)
-{
-	swap(b);
-	write(1, "sb\n", 3);
+	if (dest == src)
+		return (dest);
+	s = (char *)src;
+	d = (char *)dest;
+	while (n-- > 0)
+		*(d++) = *(s++);
+	return (dest);
 }

@@ -1,44 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_swap_ss.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/09 20:06:27 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/08 18:29:06 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/12/09 20:44:16 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-static void	swap(t_stack *s)
+t_info	*ft_lstlast(t_info *lst)
 {
-	int	tmp;
-
-	if (s->size <= 1)
-		return ;
-	tmp = s->bottom->val;
-	s->bottom->val = s->bottom->next->val;
-	s->bottom->next->val = tmp;
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
-	write(1, "ss\n", 3);
-}
-
-void sa(t_stack *a)
-{
-	swap(a);
-	write(1, "sa\n", 3);
-}
-
-void sb(t_stack *b)
-{
-	swap(b);
-	write(1, "sb\n", 3);
+	if (!lst)
+		return (0);
+	while (lst->next != 0)
+		lst = lst->next;
+	return (lst);
 }

@@ -1,44 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_swap_ss.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/09 20:06:27 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/08 18:13:27 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/12/09 20:44:24 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-static void	swap(t_stack *s)
+t_info	*lstnew(int val)
 {
-	int	tmp;
+	t_info	*elem;
 
-	if (s->size <= 1)
-		return ;
-	tmp = s->bottom->val;
-	s->bottom->val = s->bottom->next->val;
-	s->bottom->next->val = tmp;
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
-	write(1, "ss\n", 3);
-}
-
-void sa(t_stack *a)
-{
-	swap(a);
-	write(1, "sa\n", 3);
-}
-
-void sb(t_stack *b)
-{
-	swap(b);
-	write(1, "sb\n", 3);
+	elem = malloc(sizeof(elem));
+	if (!elem)
+		return (0);
+	elem->prev = NULL;
+	elem->val = val;
+	elem->next = NULL;
+	return (elem);
 }

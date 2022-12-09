@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:06 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/07 21:54:41 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:39:32 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,27 @@ void	rrr(t_stack *a, t_stack *b)
 	write(1, "rrr\n", 4);
 }
 
+void	revers_rotate(t_stack *s)
+{
+	if (s->size <= 1)
+		return ;
+	s->top->next = s->bottom;
+	s->bottom->prev = s->top;
+	s->top = s->bottom;
+	s->bottom = s->bottom->next;
+	s->top->next = NULL;
+	s->bottom->prev = NULL;
+}
+
 void	rrb(t_stack *b)
 {
-	if (b->size <= 1)
-		return ;
-	b->top->dir->next = b->bottom->dir;
-	b->bottom->dir->prev = b->top->dir;
-	b->top->dir = b->bottom->dir;
-	b->bottom->dir = b->bottom->dir->next;
-	b->top->dir->next = NULL;
-	b->bottom->dir->prev = NULL;
-	write(1, "rra\n", 4);
+	revers_rotate(b);
+	write(1, "rrb\n", 4);
 }
 
 void	rra(t_stack *a)
 {
-	if (a->size <= 1)
-		return ;
-	a->top->dir->next = a->bottom->dir;
-	a->bottom->dir->prev = a->top->dir;
-	a->top->dir = a->bottom->dir;
-	a->bottom->dir = a->bottom->dir->next;
-	a->top->dir->next = NULL;
-	a->bottom->dir->prev = NULL;
+	revers_rotate(a);
 	write(1, "rra\n", 4);
 }
 
@@ -52,28 +50,26 @@ void	rr(t_stack *a, t_stack *b)
 	write(1, "rr\n", 4);
 }
 
+void	rotate(t_stack *s)
+{
+	if (s->size <= 1)
+		return ;
+	s->top->next = s->bottom;
+	s->bottom->prev = s->top;
+	s->bottom = s->top;
+	s->top = s->top->prev;
+	s->top->next = NULL;
+	s->bottom->prev = NULL;
+}
+
 void	rb(t_stack *b)
 {
-	if (b->size <= 1)
-		return ;
-	b->top->dir->next = b->bottom->dir;
-	b->bottom->dir->prev = b->top->dir;
-	b->bottom->dir = b->top->dir;
-	b->top->dir = b->top->dir->prev;
-	b->top->dir->next = NULL;
-	b->bottom->dir->prev = NULL;
+	rotate(b);
 	write(1, "rb\n", 3);
 }
 
 void	ra(t_stack *a)
 {
-	if (a->size <= 1)
-		return ;
-	a->top->dir->next = a->bottom->dir;
-	a->bottom->dir->prev = a->top->dir;
-	a->bottom->dir = a->top->dir;
-	a->top->dir = a->top->dir->prev;
-	a->top->dir->next = NULL;
-	a->bottom->dir->prev = NULL;
+	rotate(a);
 	write(1, "ra\n", 3);
 }

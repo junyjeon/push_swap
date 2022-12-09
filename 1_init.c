@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/08 22:44:39 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:46:12 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ static void	stack_init(t_stack *s)
 {
 	s->bottom = malloc(sizeof(s->bottom));
 	s->top = malloc(sizeof(s->top));
-	s->bottom->index = -1;
 	s->size = 0;
 }
+
 int init(t_stack *a, t_stack *b, char **ar, int ac)
 {
 	char	*str;
 	char	**res;
 	int		i;
 
-	if (ac <= 1)
-		error_print(1);
+	if (ac < 2)
+		print_error("Error {ac < 2}\n");
 	stack_init(a);
 	stack_init(b);
 	str = NULL;
@@ -37,9 +37,9 @@ int init(t_stack *a, t_stack *b, char **ar, int ac)
 	i = 0;
 	while (res[i])
 	{
-		if (!push_back(ft_atoi_ll(res[i++]), a))
+		if (!push_back(a, ft_atoi_ll(res[i++])))
 			return (-1);
 	}
-	printf("%zu, %d, %d \n", a->top->index, a->top->val, a->size);
+	check_error(a);
 	return (1);
 }

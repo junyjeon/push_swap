@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/08 22:44:11 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:46:27 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>/////
+# include <stdio.h>
 
 // For little sorting
-# define first		(a->top->dir->val)
-# define second		(a->top->dir->prev->val)
-# define third		(a->top->dir->prev->prev->val)
-# define fourth		(a->top->dir->prev->prev->prev->val)
-# define last		(a->bottom->dir->val)
+# define first		(a->top->val)
+# define second		(a->top->prev->val)
+# define third		(a->top->prev->prev->val)
+# define fourth		(a->top->prev->prev->prev->val)
+# define last		(a->bottom->val)
 # define sort_132	(first < second && second > last && first < last)
 # define sort_231	(first < second && second > last && first > last)
 # define sort_213	(first > second && second < last && first < last)
@@ -93,12 +93,16 @@ typedef struct s_stack
 // }	t_command;
 
 size_t	ft_strlen(const char *str);
-char	*ft_strjoin(char *s1, char const *s2, int first_val);
 int	ft_atoi_ll(const char *str);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char *s1, char const *s2, int index);
 char	**ft_split(char *s, char c);
 t_info	*lstnew(int val);
+t_info	*ft_lstlast(t_info *lst);
+void	ft_lstadd_front(t_info **lst, t_info *new);
+void	ft_lstadd_back(t_info **lst, t_info *new);
 void	rrr(t_stack *a, t_stack *b);
 void	rrb(t_stack *b);
 void	rra(t_stack *a);
@@ -115,7 +119,8 @@ int	push_back(t_stack *s, int val);
 int	pop_front(t_stack *s);
 int	pop_back(t_stack *s);
 int	init(t_stack *a, t_stack *b, char **ar, int ac);
-void	error_print(int type);
+void	check_error(t_stack *a);
+void	print_error(char *ar);
 void	little_sort(t_stack *a, t_stack *b);
 int	main(int ac, char **ar);
 
