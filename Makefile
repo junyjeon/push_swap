@@ -6,13 +6,14 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2022/12/09 22:26:00 by junyojeo         ###   ########.fr        #
+#    Updated: 2022/12/29 22:14:49 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	push_swap
 SRCS		= \
 0_push_swap.c \
+10_checker.c \
 1_init.c \
 2_push_pop.c \
 3_swap_ss.c \
@@ -20,6 +21,8 @@ SRCS		= \
 5_rotate_rr_rrr.c \
 6_error.c \
 7_little_sort.c \
+8_make_array.c \
+9_merge_sort.c \
 util/ft_atoi_ll.c \
 util/ft_lstadd_back.c \
 util/ft_lstadd_front.c \
@@ -30,9 +33,9 @@ util/ft_split.c \
 util/ft_strdup.c \
 util/ft_strjoin.c \
 util/ft_strlen.c \
+util/ft_strncmp.c \
 util/ft_substr.c
 BONUS_SRC	=	
-
 OBJS		=	$(SRCS:.c=.o)
 BONUS_OBJ	= 	$(BONUS_SRC:.c=.o)
 CFLAGS		=	-Wall -Wextra -Werror -I.

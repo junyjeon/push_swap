@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_swap_ss.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/29 22:16:31 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/09 01:18:35 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/12/31 08:52:01 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-
-static void	swap(t_stack *s)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	tmp;
+	size_t			i;
+	unsigned char	*x1;
+	unsigned char	*x2;
 
-	if (s->size <= 1)
-		return ;
-	tmp = s->bottom->val;
-	s->bottom->val = s->bottom->next->val;
-	s->bottom->next->val = tmp;
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
-	write(1, "ss\n", 3);
-}
-
-void sa(t_stack *a)
-{
-	swap(a);
-	write(1, "sa\n", 3);
-}
-
-void sb(t_stack *b)
-{
-	swap(b);
-	write(1, "sb\n", 3);
+	x1 = (unsigned char *)s1;
+	x2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n && (x1[i] || x2[i]))
+	{
+		if (x1[i] != x2[i])
+			return (x1[i] - x2[i]);
+		i++;
+	}
+	return (0);
 }

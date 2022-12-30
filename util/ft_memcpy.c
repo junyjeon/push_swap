@@ -6,11 +6,11 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:53:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/09 20:44:30 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/31 08:51:50 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

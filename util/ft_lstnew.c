@@ -6,11 +6,11 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:13:27 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/09 20:44:24 by junyojeo         ###   ########.fr       */
+/*   Updated: 2022/12/31 08:51:47 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_info	*lstnew(int val)
 {
