@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/09 21:46:27 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/03 21:28:41 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,10 +118,11 @@ int	push_front(t_stack *s, int val);
 int	push_back(t_stack *s, int val);
 int	pop_front(t_stack *s);
 int	pop_back(t_stack *s);
-int	init(t_stack *a, t_stack *b, char **ar, int ac);
-void	check_error(t_stack *a);
+int	*init(t_stack *a, t_stack *b, char **ar, int ac);
 void	print_error(char *ar);
+void	error_check(t_stack *a);
 void	little_sort(t_stack *a, t_stack *b);
+int	*sorted(t_stack *a, int *arr);
 int	main(int ac, char **ar);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 04:41:52 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/09 20:50:20 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/03 21:27:44 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	ft_atoi_ll(const char *str)
 	}
 	res *= sign;
 	if (res < -2147483648 || 2147483647 < res)
-		print_error("int");
+		print_error("int error");
 	return (res);
 }

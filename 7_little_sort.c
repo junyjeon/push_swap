@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void sort_five(t_stack *a)
+static int sort_five(t_stack *a)
 {
 	if (sort_2134)
 		sa(a);
@@ -22,6 +22,7 @@ static void sort_five(t_stack *a)
 		ra(a);
 		sa(a);
 		rra(a);
+		return (4);
 	}
 	else if (sort_41235)
 	{
@@ -29,12 +30,14 @@ static void sort_five(t_stack *a)
 		sa(a);
 		ra(a);
 		ra(a);
+		return (4);
 	}
 	else if (last < first)
 		ra(a);
+	return (1);
 }
 
-static void sort_four(t_stack *a)
+static int sort_four(t_stack *a)
 {
 	if (sort_2134)
 		sa(a);
@@ -44,17 +47,20 @@ static void sort_four(t_stack *a)
 		sa(a);
 		ra(a);
 		ra(a);
+		return (4);
 	}
 	else if (last < first)
 		ra(a);
+	return (1);
 }
 
-static void	sort_three(t_stack *a)
+static int	sort_three(t_stack *a)
 {
 	if (sort_132)
 	{
 		sa(a);
 		ra(a);
+		return (2);
 	}
 	else if (sort_231)
 		rra(a);
@@ -66,15 +72,15 @@ static void	sort_three(t_stack *a)
 	{
 		sa(a);
 		rra(a);
+		return (2);
 	}
+	return (1);
 }
 
 void	little_sort(t_stack *a, t_stack *b)
 {
 	if (1 == a->size)
-	{
 		write(1, "Arguments vector is one\n", 24);
-	}
 	else if (2 == a->size)
 	{
 		if (first > second)
@@ -99,5 +105,6 @@ void	little_sort(t_stack *a, t_stack *b)
 		pa(a, b);
 		sort_five(a);
 	}
+	write(1, "OK\n", 3);
 	exit(1);
 }

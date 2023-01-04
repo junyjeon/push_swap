@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2022/12/29 22:14:49 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/04 12:43:53 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,15 @@ SRCS		= \
 0_push_swap.c \
 10_checker.c \
 1_init.c \
-2_push_pop.c \
-3_swap_ss.c \
-4_push_pa_pb.c \
-5_rotate_rr_rrr.c \
-6_error.c \
+6_error_check.c \
 7_little_sort.c \
 8_make_array.c \
 9_merge_sort.c \
+command_pa_pb.c \
+command_push_pop.c \
+command_reverse_rotate.c \
+command_rotate.c \
+command_swap.c \
 util/ft_atoi_ll.c \
 util/ft_lstadd_back.c \
 util/ft_lstadd_front.c \

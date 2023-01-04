@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/29 22:00:22 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/03 21:37:42 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@
 
 int	main(int ac, char **ar)
 {
-	t_stack a;
-	t_stack b;
+	t_stack	a;
+	t_stack	b;
+	int		*arr;
 
-	init(&a, &b, ar, ac);
+	arr = init(&a, &b, ar, ac);
 	little_sort(&a, &b);
 	//greedy_algorithm(&a, &b);
 	//merge_sort(&a, &b);

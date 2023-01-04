@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 18:04:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/29 22:04:40 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/03 20:23:33 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@
 //	}
 //}
 
-////[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
-////stack_size = 34;
-////depth = 1;
-////arr_size = ft_pow(3, depth);//== 3
-////map[arr_size] = [size, inc_or_dec, a_or_b] [] []
+//[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
+//stack_size = 34;
+//depth = 1;
+//arr_size = ft_pow(3, depth);//== 3
+//map[arr_size] = [size, inc_or_dec, a_or_b] [] []
 
 //void	make_array(t_stack *a, t_stack *b)
 //{	

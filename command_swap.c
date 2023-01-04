@@ -1,19 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   3_swap_ss.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:18:32 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/03 20:31:45 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/03 17:08:35 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	ft_lstadd_front(t_info **lst, t_info *new)
+static void	swap(t_stack *s)
 {
-	new->next = *lst;
-	*lst = new;
+	int	tmp;
+
+	if (s->size <= 1)
+		return ;
+	tmp = s->bottom->val;
+	s->bottom->val = s->bottom->next->val;
+	s->bottom->next->val = tmp;
+}
+
+void	ss(t_stack *a, t_stack *b)
+{
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
+}
+
+void sa(t_stack *a)
+{
+	swap(a);
+	write(1, "sa\n", 3);
+}
+
+void sb(t_stack *b)
+{
+	swap(b);
+	write(1, "sb\n", 3);
 }
