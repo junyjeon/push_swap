@@ -40,7 +40,7 @@ int	push_back(t_stack *s, int val)
 
 	new = lstnew(val);
 	if (!new)
-		return (0);
+		print_error("malloc Error\n");
 	ft_lstadd_back(&s->bottom, new);
 	if (!s->size)
 	{
