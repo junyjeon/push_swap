@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/04 12:43:53 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/04 12:57:28 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ util/ft_substr.c
 BONUS_SRC	=	
 OBJS		=	$(SRCS:.c=.o)
 BONUS_OBJ	= 	$(BONUS_SRC:.c=.o)
-CFLAGS		=	-Wall -Wextra -Werror -I.
+CFLAGS		=	-Wall -Wextra -Werror -I. -g
 CC			=	cc
 INC_DIR		=	./includes
 

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/03 21:39:48 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:03:47 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ static int	stack_init(t_stack *s)
 
 int	*init(t_stack *a, t_stack *b, char **ar, int ac)
 {
-	char	*str;
-	char	**split_str;
-	int		i;
+	char		*str;
+	char		**split_str;
+	long long	res;
+	int			i;
 
 	if (ac < 2 || !stack_init(a) || !stack_init(b))
 		print_error("Error\n");
@@ -59,10 +60,13 @@ int	*init(t_stack *a, t_stack *b, char **ar, int ac)
 	split_str = ft_split(str, ' ');
 	if (!split_str)
 		print_error("Error\n");
-	i = 0;
-	while (split_str[i])
-		if (!push_back(a, ft_atoi_ll(split_str[i++])))
+	i = -1;
+	while (split_str[++i])
+	{
+		res = ft_atoi_ll(split_str[i]);
+		if (!push_back(a, res) || (res < -2147483648 || 2147483647 < res))
 			print_error("Error\n");
+	}
 	//error_check(a);
 	return (make_arr(a, split_str));
 }
