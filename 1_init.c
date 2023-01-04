@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/04 13:13:16 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:14:59 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ int	*init(t_stack *a, t_stack *b, char **ar, int ac)
 		if (!push_back(a, res))
 			print_error("Malloc error\n");
 	}
-	//error_check(a);
+	error_check(a);
 	return (make_arr(a, split_str));
 }
