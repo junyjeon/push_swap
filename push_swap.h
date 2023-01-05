@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/04 12:55:21 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/05 18:46:29 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@
 # define second		(a->top->prev->val)
 # define third		(a->top->prev->prev->val)
 # define fourth		(a->top->prev->prev->prev->val)
-# define last		(a->bottom->val)
-# define sort_132	(first < second && second > last && first < last)
-# define sort_231	(first < second && second > last && first > last)
-# define sort_213	(first > second && second < last && first < last)
-# define sort_312	(first > second && second < last && first > last)
+# define fifth		(a->top->prev->prev->prev->prev->val)
+# define sort_132	(first < second && second > third && first < third)
+# define sort_231	(first < second && second > third && first > third)
+# define sort_213	(first > second && second < third && first < third)
+# define sort_312	(first > second && second < third && first > third)
 # define sort_2134	(second < first && first < third)
 # define sort_3124	(third < first && first < fourth)
-# define sort_41235	(fourth < first && first < last)
+# define sort_41235	(fourth < first && first < fifth)
 
 
 // For struct triangle
@@ -120,7 +120,7 @@ int	pop_front(t_stack *s);
 int	pop_back(t_stack *s);
 int	*init(t_stack *a, t_stack *b, char **ar, int ac);
 void	print_error(char *ar);
-void	error_check(t_stack *a);
+void	error_check(int *arr, int size);
 void	little_sort(t_stack *a, t_stack *b);
 int	*sorted(t_stack *a, int *arr);
 int	main(int ac, char **ar);

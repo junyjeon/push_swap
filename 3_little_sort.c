@@ -22,7 +22,6 @@ static int sort_five(t_stack *a)
 		ra(a);
 		sa(a);
 		rra(a);
-		return (4);
 	}
 	else if (sort_41235)
 	{
@@ -30,7 +29,6 @@ static int sort_five(t_stack *a)
 		sa(a);
 		ra(a);
 		ra(a);
-		return (4);
 	}
 	else if (last < first)
 		ra(a);
@@ -47,55 +45,61 @@ static int sort_four(t_stack *a)
 		sa(a);
 		ra(a);
 		ra(a);
-		return (4);
 	}
-	else if (last < first)
+	else if (fifth < first)
 		ra(a);
-	return (1);
 }
 
-static int	sort_three(t_stack *a)
+static void	sort_three(t_stack *s)
 {
 	if (sort_132)
 	{
-		sa(a);
-		ra(a);
-		return (2);
+		ra(s);
+		sa(s);
+		rra(s);
 	}
 	else if (sort_231)
-		rra(a);
+	{
+		ra(s);
+		sa(s);
+		rra(s);
+		sa(s);
+	}
 	else if (sort_213)
-		sa(a);
+		sa(s);
 	else if (sort_312)
-		ra(a);
+	{
+		sa(s);
+		ra(s);
+		sa(s);
+		rra(s);
+	}
 	else
 	{
-		sa(a);
-		rra(a);
-		return (2);
+		sa(s);
+		rra(s);
 	}
-	return (1);
 }
 
-void	little_sort(t_stack *a, t_stack *b)
+void	hard_coding(t_stack *a, t_stack *b, int size, int flag)
 {
-	if (1 == a->size)
+	if (1 == size)
 		write(1, "Arguments vector is one\n", 24);
-	else if (2 == a->size)
+	else if (2 == size)
 	{
 		if (first > second)
 			sa(a);
 	}
-	else if (3 == a->size)
+	else if (3 == size)
 		sort_three(a);
-	else if (4 == a->size)
+	else if (4 == size)
 	{
 		pb(a, b);
 		sort_three(a);
 		pa(a, b);
 		sort_four(a);
 	}
-	else if (5 == a->size)
+	else if (5 == size)
 	{
 		pb(a, b);
 		pb(a, b);

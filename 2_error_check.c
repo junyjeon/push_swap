@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   6_error_check.c                                    :+:      :+:    :+:   */
+/*   2_error_check.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:56:47 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/04 13:15:43 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:56:04 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +21,30 @@ void	print_error(char *ar)
 	exit(1);
 }
 
-void	error_check(t_stack *a)
+void	error_check(int *arr, int size)
 {
-	t_info *cur1;
-	t_info *cur2;
+	int i;
+	int j;
 	int tmp;
 	int swap_cnt;
 
-	if (a->size < 2)
-		return ;
 	swap_cnt = 0;
-	cur1 = a->bottom;
-	cur2 = a->bottom;
-	while (cur1)
+	i = -1;
+	while (++i < size)
 	{
-		while (cur2)
+		j = -1;
+		while (++j < size - 1)
 		{
-			if (cur2->val > cur2->next->val && cur2)
+			if (arr[j] > arr[j + 1])
 			{
-				tmp = cur2->val;
-				cur2->val = cur2->next->val;
-				cur2->next->val = tmp;
+				tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
 				swap_cnt++;
 			}
-			cur2 = cur2->next;
 		}
-		if (cur1 == cur1->next)
+		if (arr[i] == arr[i + 1])
 			print_error("Argument is duplicated.\n");
-		cur1 = cur1->next;
 	}
 	if (swap_cnt == 0)
 		print_error("It's already sorted.\n");

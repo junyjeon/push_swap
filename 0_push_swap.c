@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/03 21:37:42 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/05 22:27:18 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,16 @@ int	main(int ac, char **ar)
 {
 	t_stack	a;
 	t_stack	b;
-	int		*arr;
 
-	arr = init(&a, &b, ar, ac);
+	1. init()
+	2. make_stack(join, split, atoi, int range)
+	3. make_arr(atoi)
+	4. arr_sort(merge_sort)
+	5. sorted_arr->(overlab_check, sorted)
+	if (ac < 2)
+		print_error("Argment error\n");
+	stack_init(a, b);
+	parsing(&a, &b, ar, ac);
 	little_sort(&a, &b);
 	//greedy_algorithm(&a, &b);
 	//merge_sort(&a, &b);
