@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 18:04:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/05 22:44:38 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/05 23:01:31 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ int merge_sort(t_stack *a, t_stack *b, int depth, int size)
 	}
 }
 
-void	make_array(t_stack *a, t_stack *b)
+void	aamake_array(t_stack *a, t_stack *b)
 {	
 	int	s_size;
 	int	arr_size;

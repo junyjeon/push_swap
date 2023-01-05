@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/05 22:27:18 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/05 23:00:35 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ int	main(int ac, char **ar)
 		print_error("Argment error\n");
 	stack_init(a, b);
 	parsing(&a, &b, ar, ac);
+	make_array
+	sorted(a, arr);
+	error_check(arr, a->size);
 	little_sort(&a, &b);
 	//greedy_algorithm(&a, &b);
 	//merge_sort(&a, &b);
