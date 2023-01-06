@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   command_rotate.c                                   :+:      :+:    :+:   */
+/*   pa_pb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 21:53:06 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/03 17:10:05 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/11/23 21:52:34 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/06 16:51:34 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	rotate(t_stack *s)
+void	pb(t_stack *a, t_stack *b)
 {
-	if (s->size <= 1)
+	int	tmp;
+
+	if (!a->size)
 		return ;
-	s->top->next = s->bottom;
-	s->bottom->prev = s->top;
-	s->bottom = s->top;
-	s->top = s->top->prev;
-	s->top->next = NULL;
-	s->bottom->prev = NULL;
+	tmp = pop_front(a);
+	push_front(b, tmp);
+	write(1, "pb\n", 3);
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b)
 {
-	rotate(a);
-	rotate(b);
-	write(1, "rr\n", 4);
-}
+	int	tmp;
 
-void	rb(t_stack *b)
-{
-	rotate(b);
-	write(1, "rb\n", 3);
-}
-
-void	ra(t_stack *a)
-{
-	rotate(a);
-	write(1, "ra\n", 3);
+	if (!b->size)
+		return ;
+	tmp = pop_front(b);
+	push_front(a, tmp);
+	write(1, "pa\n", 3);
 }

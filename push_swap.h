@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/06 15:12:44 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:29:51 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_info
 	struct s_info	*prev;
 	struct s_info	*next;
 	size_t			index;
+	size_t			rank;
 	int				val;
 }	t_info;
 

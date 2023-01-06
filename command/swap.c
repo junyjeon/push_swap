@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4_push_pa_pb.c                                     :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 21:52:34 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/08 21:42:05 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/06 16:52:01 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	pb(t_stack *a, t_stack *b)
+static void	swap(t_stack *s)
 {
 	int	tmp;
 
-	if (!a->size)
+	if (s->size <= 1)
 		return ;
-	tmp = pop_front(a);
-	push_front(b, tmp);
-	write(1, "pb\n", 3);
+	tmp = s->bottom->val;
+	s->bottom->val = s->bottom->next->val;
+	s->bottom->next->val = tmp;
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b)
 {
-	int	tmp;
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
+}
 
-	if (!b->size)
-		return ;
-	tmp = pop_front(b);
-	push_front(a, tmp);
-	write(1, "pa\n", 3);
+void sa(t_stack *a)
+{
+	swap(a);
+	write(1, "sa\n", 3);
+}
+
+void sb(t_stack *b)
+{
+	swap(b);
+	write(1, "sb\n", 3);
 }

@@ -22,15 +22,15 @@ int	push_front(t_stack *s, int val)
 	}
 	new->prev = NULL;
 	new->index = s->size;
+	new->rank = 0;
 	s->size++;
-	return (1);
 	cur = s->bottom;
 	while (cur)
 	{
-		printf("%zu\n", cur->index);
 		cur = cur->next;
 		cur->index++;
 	}
+	return (1);
 }
 
 
@@ -55,6 +55,7 @@ int	push_back(t_stack *s, int val)
 	}
 	new->next = NULL;
 	new->index = s->size;
+	new->rank = 0;
 	s->size++;
 	return (1);
 }
