@@ -6,16 +6,15 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:14:19 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/06 15:40:06 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:11:27 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*ranked(t_stack *a, int *arr)
+void	ranked(t_stack *a, int *arr)
 {
 	int		i;
-	int		rank[a->size];
 	t_info	*cur;
 
 	cur = a;
@@ -24,9 +23,8 @@ int	*ranked(t_stack *a, int *arr)
 		i = -1;
 		while (++i < a->size)
 			if (cur->val == arr[i])
-				rank[i] = cur->index;
+				cur->rank = i;
 		cur = cur->next;
 	}
 	free(arr);
-	return (rank);
 }

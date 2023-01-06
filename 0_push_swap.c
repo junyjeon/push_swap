@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/06 17:10:53 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:09:05 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int ac, char **argv)
 	arg = parsing_stack_and_array(&a, &b, argv, ac);
 	sort_arr(&a, arg);
 	check_overlap_and_sorted(arg, a.size);
-	rank = ranked(&a, arg);
+	ranked(&a, arg);
 	quick_sort(&a, &b, rank, a.size);
 	return (0);
 }
