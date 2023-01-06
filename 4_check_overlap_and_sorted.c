@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_error_check.c                                    :+:      :+:    :+:   */
+/*   4_check_overlap_and_sorted.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:56:47 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/04 16:56:04 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:41:44 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	print_error(char *ar)
 	exit(1);
 }
 
-void	error_check(int *arr, int size)
+void	check_overlap_and_sorted(int *arr, int size)
 {
 	int i;
 	int j;
 	int tmp;
 	int swap_cnt;
-
+w
 	swap_cnt = 0;
 	i = -1;
 	while (++i < size)

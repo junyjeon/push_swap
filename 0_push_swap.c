@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/05 23:00:35 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:39:57 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,19 @@
 //	return (0);
 //}
 
-int	main(int ac, char **ar)
+int	main(int ac, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
-
-	1. init()
-	2. make_stack(join, split, atoi, int range)
-	3. make_arr(atoi)
-	4. arr_sort(merge_sort)
-	5. sorted_arr->(overlab_check, sorted)
+	int		*arg;
+	int		*rank;
 	if (ac < 2)
 		print_error("Argment error\n");
 	stack_init(a, b);
-	parsing(&a, &b, ar, ac);
-	make_array
-	sorted(a, arr);
-	error_check(arr, a->size);
+	arg = parsing_stack_and_array(&a, &b, argv, ac);
+	sort_arr(a, arg);
+	check_overlap_and_sorted(arg, (&a)->size);
+	ranked(a, arg);
 	little_sort(&a, &b);
-	//greedy_algorithm(&a, &b);
-	//merge_sort(&a, &b);
 	return (0);
 }
-
-//집에서 git push 안하고 온 나, MergeSort, checker만 완성하기

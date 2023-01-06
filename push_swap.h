@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/05 18:46:29 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:12:44 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@
 
 
 // For struct triangle
-# define MAX		(1)
-# define MIN		(0)
-# define INC		(1)
-# define DEC		(-1)
-# define IN_A		(1)
-# define IN_B		(-1)
+//# define MAX		(1)
+//# define MIN		(0)
+//# define INC		(1)
+//# define DEC		(-1)
+//# define IN_A		(1)
+//# define IN_B		(-1)
 
 //node info
 typedef struct s_info
@@ -50,12 +50,12 @@ typedef struct s_info
 }	t_info;
 
 //size and descending or ascending and stack a or b
-typedef struct s_triangle
-{
-	int	size;
-	int	inc_or_dec;
-	int	a_or_b;
-}	t_tri;
+//typedef struct s_triangle_map
+//{
+//	int	size;
+//	int	inc_or_dec;
+//	int	a_or_b;
+//}	t_tri_map;
 
 /* NOTE
  * ------------------------

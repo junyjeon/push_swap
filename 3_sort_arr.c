@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   5_merge_sort.c                                     :+:      :+:    :+:   */
+/*   4_sort_arr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:37:25 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/05 19:34:14 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:37:14 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	merge(int *arr, int *sorted, int start, int end)
+void	merge(int *ar, int *sorted, int start, int end)
 {
 	int	mid;
 	int	i;
@@ -25,50 +25,38 @@ void	merge(int *arr, int *sorted, int start, int end)
 	k = start;
 	while (i <= mid && j <= end)
 	{
-		if (arr[i] <= arr[j])
-			sorted[k++] = arr[i++];
+		if (ar[i] <= ar[j])
+			sorted[k++] = ar[i++];
 		else
-			sorted[k++] = arr[j++];
+			sorted[k++] = ar[j++];
 	}
 	while (i <= mid)
-		sorted[k++] = arr[i++];
+		sorted[k++] = ar[i++];
 	while (j <= end)
-		sorted[k++] = arr[j++];
+		sorted[k++] = ar[j++];
 	i = -1;
 	while (++i <= end)
-		arr[i] = sorted[i];
+		ar[i] = sorted[i];
 }
 
-void	merge_sort(int *arr, int *sorted, int start, int end)
+void	merge_sort(int *ar, int *sorted, int start, int end)
 {
 	int	mid;
 
 	if (start < end)
     {
         mid = (start + end) / 2;
-        merge_sort(arr, sorted, start, mid);
-        merge_sort(arr, sorted, mid + 1, end);
-        merge(arr, sorted, start, end);
+        merge_sort(ar, sorted, start, mid);
+        merge_sort(ar, sorted, mid + 1, end);
+        merge(ar, sorted, start, end);
     }
 }
 
-int	*sorted(t_stack *a, int *arr)
+int	*sort_arr(t_stack *a, int *ar)
 {
 	int	*sort;
 
 	sort = (int *)malloc(sizeof(sort) * a->size);
-	merge_sort(arr, sort, 0, a->size - 1);
-	int *ranked;
-
-	t_info *cur;
-	cur = a->bottom;
-	for (int i =0; i < a->size; ++i)
-	{
-		while (cur)
-		{
-			if (sort[i] == cur->val)
-			cur = cur->next; 
-		}
-	}
+	merge_sort(ar, sort, 0, a->size - 1);
 	return (sort);
 }
