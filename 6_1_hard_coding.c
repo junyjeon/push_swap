@@ -81,15 +81,7 @@ static void	sort_three(t_stack *a, t_stack *b, char s)
 		cmd("rra", a, b, s);
 	}
 }
-//cmd(sa);
-//cmd(sb);
-//cmd(ss);
-//cmd(ra);
-//cmd(rb);
-//cmd(rr);
-//cmd(rra);
-//cmd(rrb);
-//cmd(rrr);
+
 void	hard_coding(t_stack *a, t_stack *b, int size, char s)
 {
 	if (1 == size)

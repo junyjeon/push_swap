@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 16:16:42 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:24:16 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,13 @@ int	main(int ac, char **argv)
 	t_stack	a;
 	t_stack	b;
 	int		*arg;
-	int		*rank;
 
 	if (ac < 2)
 		print_error("Argment error\n");
 	stack_init(&a, &b);
-	arg = parsing_stack_and_array(&a, &b, argv, ac);
+	arg = parsing_stack_and_array(&a, argv, ac);
 	sort_arr(&a, arg);
-	check_overlap_and_sorted(arg, a.size);
 	ranked(&a, arg);
-	quick_sort(&a, &b, rank, a.size);
+	quick_sort(&a, &b, a.size);
 	return (0);
 }

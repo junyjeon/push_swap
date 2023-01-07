@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 16:18:42 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:26:15 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ typedef struct s_stack
 // }	t_command;
 
 size_t	ft_strlen(const char *str);
-long long	ft_atoi_ll(const char *str);
+long long	ft_atoi(const char *str);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -115,7 +115,12 @@ t_info	*lstnew(int val);
 t_info	*ft_lstlast(t_info *lst);
 void	ft_lstadd_front(t_info **lst, t_info *new);
 void	ft_lstadd_back(t_info **lst, t_info *new);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 int	cmd(char *command, t_stack *a, t_stack *b, char s);
+int	push_front(t_stack *s, int val);
+int	push_back(t_stack *s, int val);
+int	pop_front(t_stack *s);
+int	pop_back(t_stack *s);
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
@@ -129,11 +134,13 @@ void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
 void	print_error(char *ar);
 int	stack_init(t_stack *a, t_stack *b);
-int	*parsing_stack_and_array(t_stack *a, t_stack *b, char **argv, int ac);
+int	*parsing_stack_and_array(t_stack *a, char **argv, int ac);
 int	*sort_arr(t_stack *a, int *ar);
-void	check_overlap_and_sorted(int *arr, int size);
 void	ranked(t_stack *a, int *arr);
 int	quick_sort(t_stack *a, t_stack *b, int size);
+void	a_to_b(t_stack *a, t_stack *b, t_cnt cnt, int size);
+void	b_to_a(t_stack *a, t_stack *b, t_cnt cnt, int size);
+void	hard_coding(t_stack *a, t_stack *b, int size, char s);
 int	main(int ac, char **ar);
 
 #endif

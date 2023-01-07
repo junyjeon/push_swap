@@ -6,18 +6,18 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 16:16:59 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:28:04 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*parsing_stack_and_array(t_stack *a, t_stack *b, char **argv, int ac)
+int	*parsing_stack_and_array(t_stack *a, char **argv, int ac)
 {
-	char		*str;
-	char		**split_str; 
-	long long	*ar;
-	int			i;
+	char	*str;
+	char	**split_str; 
+	int		*ar;
+	int		i;
 
 	str = NULL;
 	i = 0;
