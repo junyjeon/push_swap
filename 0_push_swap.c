@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 17:45:36 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:26:25 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,12 @@ int	main(int ac, char **argv)
 		print_error("Argment error\n");
 	stack_init(&a, &b);
 	arg = parsing_stack_and_array(&a, argv, ac);
+	if (a.size <= 3)
+		hard_coding(&a, &b, a.size, 'a');
 	sort_arr(&a, arg);
 	ranked(&a, arg);
 	quick_sort(&a, &b, a.size);
 	return (0);
 }
 //정렬 되어있는지, 중복 값이 있는지
+//4, 6

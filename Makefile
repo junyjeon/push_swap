@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/07 17:34:38 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/07 18:19:26 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ SRCS		=  \
 ./util/ft_strncmp.c \
 ./util/ft_substr.c
 OBJS		=	$(SRCS:.c=.o)
-CFLAGS		=	-Wall -Wextra -Werror -I. -g
+CFLAGS		=	-Wall -Wextra -Werror -I.
 CC			=	cc
 INC_DIR		=	./includes
 

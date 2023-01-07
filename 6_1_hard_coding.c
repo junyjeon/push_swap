@@ -81,7 +81,6 @@ static void	sort_three(t_stack *a, t_stack *b, char c)
 		cmd(a, b, "rr", c);
 	}
 }
-
 void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 {
 	if (1 == size)
@@ -89,12 +88,15 @@ void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 	else if (2 == size)
 	{
 		if (first > second)
-			cmd(a, b, "sa", c);
+			cmd(a, b, "s", c);
 	}
 	else if (3 == size)
 		sort_three(a, b, c);
 	else
+	{
+		print_error("Hard coding error\n");
 		return ;
+	}
 	//else if (4 == size)
 	//{
 	//	pb(a, b);

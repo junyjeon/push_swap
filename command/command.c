@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:45:27 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 17:39:53 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:15:22 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ int	cmd(t_stack *a, t_stack *b, char *command, char c)
 			rrr(a, b);
 	}
 	else
+	{
+		print_error("cmd error\n");	
 		return (0);
+	}
 	return (1);
 }
