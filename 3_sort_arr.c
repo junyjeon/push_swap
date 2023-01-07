@@ -6,13 +6,13 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:37:25 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 20:47:36 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 22:20:33 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	merge(int *ar, int *sorted, int start, int end)
+static void	merge(int *ar, int *tmp, int start, int end)
 {
 	int	mid;
 	int	i;
@@ -26,42 +26,35 @@ static void	merge(int *ar, int *sorted, int start, int end)
 	while (i <= mid && j <= end)//start->mid mid->end까지 교환, 
 	{
 		if (ar[i] <= ar[j])
-			sorted[k++] = ar[i++];
+			tmp[k++] = ar[i++];
 		else
-			sorted[k++] = ar[j++];
+			tmp[k++] = ar[j++];
 	}
 	while (i <= mid)//start->mid mid->end 남은 건 그대로 대입//
-		sorted[k++] = ar[i++];
+		tmp[k++] = ar[i++];
 	while (j <= end)
-		sorted[k++] = ar[j++];
+		tmp[k++] = ar[j++];
 	i = -1;
 	while (++i <= end)//합친 것 ar에 대입
-		ar[i] = sorted[i];
+		ar[i] = tmp[i];
 }
 
-static void	merge_sort(int *ar, int *sorted, int start, int end)
+static void	merge_sort(int *ar, int *tmp, int start, int end)
 {
 	int	mid;
 
 	if (start < end)
     {
         mid = (start + end) / 2; //2로 나누었을 때  0 이이면 start < end (x)
-        merge_sort(ar, sorted, start, mid);
-        merge_sort(ar, sorted, mid + 1, end);
-        merge(ar, sorted, start, end);
+        merge_sort(ar, tmp, start, mid);
+        merge_sort(ar, tmp, mid + 1, end);
+        merge(ar, tmp, start, end);
     }
 }
 
-int	*sort_arr(t_stack *a, int *ar)
+void	sort_arr(t_stack *a, int *ar)
 {
-	int	i;
+	int	tmp[a->size];
 
-	merge_sort(ar 0, a->size - 1);
-	i = -1;
-	while (++i < a->size - 1)
-	{
-		if (ar[i] == ar[i + 1])
-			print_error("Overlap error\n");
-	}
-	return (ar);
+	merge_sort(ar, tmp, 0, a->size - 1);
 }

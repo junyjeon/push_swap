@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/07 20:21:32 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/07 21:51:01 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ SRCS		=  \
 ./2_parsing_stack_and_array.c \
 ./3_sort_arr.c \
 ./4_ranked.c \
-./6_0_quick_sort.c \
-./6_1_hard_coding.c \
+./5_quick_sort.c \
+./6_hard_coding.c \
 ./command/command.c \
 ./command/pa_pb.c \
 ./command/reverse_rotate.c \

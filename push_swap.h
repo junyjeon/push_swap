@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 20:01:23 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 22:20:39 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void	ss(t_stack *a, t_stack *b);
 void	print_error(char *ar);
 int	stack_init(t_stack *a, t_stack *b);
 int	*parsing_stack_and_array(t_stack *a, char **argv, int ac);
-int	*sort_arr(t_stack *a, int *ar);
+void	sort_arr(t_stack *a, int *ar);
 void	ranked(t_stack *a, int *arr);
 void	quick_sort(t_stack *a, t_stack *b, int size);
 void	a_to_b(t_stack *a, t_stack *b, int size);

@@ -47,6 +47,24 @@ static void	sort_three(t_stack *a, t_stack *b, char c)
 }
 void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 {
+	t_info	*cur;
+	int	swap_cnt;
+	int	i;
+
+	if (c == 'a')
+		cur = a->top;
+	else
+		cur = b->top;
+	swap_cnt = 0;
+	i = -1;
+	while (++i < size)
+	{
+		if (cur->rank < cur->prev->rank)
+			swap_cnt++;
+		cur = cur->prev;
+	}
+	if (swap_cnt == size)
+		print_error("is sorted\n");
 	if (1 == size)
 		write(1, "Arguments vector is one\n", 24);
 	else if (2 == size)

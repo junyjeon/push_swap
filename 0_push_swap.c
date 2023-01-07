@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 21:42:17 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 22:22:19 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,43 @@ void	print_error(char *ar)
 	exit(1);
 }
 
+static void	check_duplicate(t_stack *a)
+{
+	t_info	*cur;
+	t_info	*cur2;
+
+	cur = a->bottom;
+	cur2 = a->bottom->next;
+	while (cur)
+	{
+		while (cur2)
+		{
+			if (cur->val == cur2->val)
+				print_error("Is duplicate error\n");
+			cur2 = cur2->next;
+		}
+		cur = cur->next;
+	}		
+}
+
 int	main(int ac, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
-	int		*arg;
+	int		*ar;
 
 	if (ac < 2)
 		print_error("Argment error\n");
 	stack_init(&a, &b);
-	arg = parsing_stack_and_array(&a, argv, ac);
+	ar = parsing_stack_and_array(&a, argv, ac);
 	if (a.size <= 3)
 		hard_coding(&a, &b, a.size, 'a');
-	sort_arr(&a, arg);
-	ranked(&a, arg);
+	check_duplicate(&a);
+	sort_arr(&a, ar);
+	ranked(&a, ar);
 	quick_sort(&a, &b, a.size);
 	return (0);
 }
+
 //정렬 되어있는지, 중복 값이 있는지
 //4, 6
