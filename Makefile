@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/07 20:11:52 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/07 20:21:32 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS		=  \
 ./command/reverse_rotate.c \
 ./command/rotate.c \
 ./command/swap.c \
-./push_pop.c \
+./command/push_pop.c \
 ./util/ft_atoi.c \
 ./util/ft_lstadd_back.c \
 ./util/ft_lstadd_front.c \
