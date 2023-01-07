@@ -7,7 +7,7 @@ int	push_front(t_stack *s, int val)
 
 	new = lstnew(val);
 	if (!new)
-		return (0);
+		print_error("malloc Error\n");
 	ft_lstadd_front(&s->bottom, new);
 	if (!s->size)
 	{

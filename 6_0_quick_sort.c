@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 17:57:09 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 19:57:45 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,6 @@ void	a_to_b(t_stack *a, t_stack *b, t_cnt cnt, int size)
 	b_to_a(a, b, cnt, cnt.rb);
 	b_to_a(a, b, cnt, cnt.pb - cnt.rb);
 }
-
-//a에서 pivot_max 보다 작은 것만 pb, size <= 5이면 hard_codin()만
-//b에서 pivot_max 개수만큼 ra
-//b에서 (new)pivot_min보다 큰 것만 pa
 
 void	b_to_a(t_stack *a, t_stack *b, t_cnt cnt, int size)
 {
