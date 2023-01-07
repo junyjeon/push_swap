@@ -53,11 +53,13 @@ void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 
 	if (c == 'a')
 		cur = a->top;
-	else
+	else if (c == 'b')
 		cur = b->top;
+	else
+		print_error("cur error\n");
 	swap_cnt = 0;
 	i = -1;
-	while (++i < size)
+	while (++i < size && size > 2)
 	{
 		if (cur->rank < cur->prev->rank)
 			swap_cnt++;
