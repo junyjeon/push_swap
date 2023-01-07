@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 17:45:04 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:57:09 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,9 +123,6 @@ void	b_to_a(t_stack *a, t_stack *b, t_cnt cnt, int size)
 	a_to_b(a, b, cnt, cnt.ra);
 	b_to_a(a, b, cnt, cnt.rb);
 }
-
-//a에선 큰 부분을 남기고 b에선 중간부분을 위로 작은 부분을 아래로 나누기.
-//다시 a에서 큰 부분을 남기고 b에서 중간 부분을 위로, 작은 부분을 아래로 나누기.
 
 void	quick_sort(t_stack *a, t_stack *b, int size)
 {
