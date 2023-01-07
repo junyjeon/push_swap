@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:37:25 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 17:04:24 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:32:48 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,17 @@ static void	merge(int *ar, int *sorted, int start, int end)
 	int	i;
 	int	j;
 	int	k;
-	int	swap_cnt;
 	
 	mid = (start + end) / 2;
 	i = start;
 	j = mid + 1;
 	k = start;
-	swap_cnt = 0;
 	while (i <= mid && j <= end)
 	{
 		if (ar[i] <= ar[j])
 			sorted[k++] = ar[i++];
 		else
-		{
 			sorted[k++] = ar[j++];
-			swap_cnt++;
-		}
 	}
 	while (i <= mid)
 		sorted[k++] = ar[i++];

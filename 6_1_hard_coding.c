@@ -50,49 +50,49 @@
 //		ra(a);
 //}
 
-static void	sort_three(t_stack *a, t_stack *b, char s)
+static void	sort_three(t_stack *a, t_stack *b, char c)
 {
 	if (sort_132)
 	{
-		cmd("ra", a, b, s);
-		cmd("sa", a, b, s);
-		cmd("rra", a, b, s);
+		cmd(a, b, "r", c);
+		cmd(a, b, "s", c);
+		cmd(a, b, "rr", c);
 	}
 	else if (sort_231)
 	{
-		cmd("ra", a, b, s);
-		cmd("sa", a, b, s);
-		cmd("rra", a, b, s);
-		cmd("sa", a, b, s);
+		cmd(a, b, "r", c);
+		cmd(a, b, "s", c);
+		cmd(a, b, "rr", c);
+		cmd(a, b, "s", c);
 	}
 	else if (sort_213)
-		cmd("sa", a, b, s);
+		cmd(a, b, "s", c);
 	else if (sort_312)
 	{
-		cmd("sa", a, b, s);
-		cmd("ra", a, b, s);
-		cmd("sa", a, b, s);
-		cmd("rra", a, b, s);
+		cmd(a, b, "s", c);
+		cmd(a, b, "r", c);
+		cmd(a, b, "s", c);
+		cmd(a, b, "rr", c);
 	}
 	else
 	{
-		cmd("ra", a, b, s);
-		cmd("sa", a, b, s);
-		cmd("rra", a, b, s);
+		cmd(a, b, "r", c);
+		cmd(a, b, "s", c);
+		cmd(a, b, "rr", c);
 	}
 }
 
-void	hard_coding(t_stack *a, t_stack *b, int size, char s)
+void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 {
 	if (1 == size)
 		write(1, "Arguments vector is one\n", 24);
 	else if (2 == size)
 	{
 		if (first > second)
-			cmd("sa", a, b, s);
+			cmd(a, b, "sa", c);
 	}
 	else if (3 == size)
-		sort_three(a, b, s);
+		sort_three(a, b, c);
 	else
 		return ;
 	//else if (4 == size)

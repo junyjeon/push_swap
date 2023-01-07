@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 17:26:53 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:45:04 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	a_to_b(t_stack *a, t_stack *b, t_cnt cnt, int size)
 	cnt_init(&cnt);
 	pivot_min = size / 3;
 	pivot_max = size / 3 * 2;
-	if (size < 6)
+	if (size < 3)
 	{
 		//if (!is_sorted())
-			hard_coding(a, b, a->size, 'a');
+			hard_coding(a, b, size, 'a');
 		return ;
 	}
 	cur = a->top;
@@ -46,16 +46,16 @@ void	a_to_b(t_stack *a, t_stack *b, t_cnt cnt, int size)
 	{
 		if (pivot_max <= cur->rank)
 		{
-			cmd("ra", a, b, 'a');
+			cmd(a, b, "r", 'a');
 			cnt.ra++;
 		}
 		else
 		{
-			cmd("pb", a, b, 'a');
+			cmd(a, b, "p", 'b');
 			cnt.pb++;
 			if (cur->rank >= pivot_min)
 			{
-				cmd("rb", a, b, 'a');
+				cmd(a, b, "r", 'b');
 				cnt.rb++;
 			}
 		}
@@ -64,7 +64,7 @@ void	a_to_b(t_stack *a, t_stack *b, t_cnt cnt, int size)
 	i = 0;
 	while (i < cnt.ra && i < cnt.rb)
 	{
-		cmd("rrr", a, b, 'c');
+		cmd(a, b, "rrr", 'c');
 		i++;
 	}
 	a_to_b(a, b, cnt, cnt.ra);
@@ -86,10 +86,10 @@ void	b_to_a(t_stack *a, t_stack *b, t_cnt cnt, int size)
 	cnt_init(&cnt);
 	pivot_min = size / 3;
 	pivot_max = size / 3 * 2;
-	if (size < 6)
+	if (size < 3)
 	{
 		//if (!is_sorted())
-			hard_coding(a, b, b->size, 'b');
+			hard_coding(a, b, size, 'b');
 		return ;
 	}
 	cur = a->top;
@@ -98,16 +98,16 @@ void	b_to_a(t_stack *a, t_stack *b, t_cnt cnt, int size)
 	{
 		if (cur->rank < pivot_min)
 		{
-			cmd("rb", a, b, 'b');
+			cmd(a, b, "r", 'b');
 			cnt.rb++;
 		}
 		else
 		{
-			cmd("pa", a, b, 'b');
+			cmd(a, b, "p", 'a');
 			cnt.pa++;
 			if (cur->rank < pivot_max)
 			{
-				cmd("ra", a, b, 'b');
+				cmd(a, b, "r", 'a');
 				cnt.ra++;
 			}
 		}
@@ -117,7 +117,7 @@ void	b_to_a(t_stack *a, t_stack *b, t_cnt cnt, int size)
 	i = 0;
 	while (i < cnt.ra && i < cnt.rb)
 	{
-		cmd("rrr", a, b, 'c');
+		cmd(a, b, "rrr", 'c');
 		i++;
 	}
 	a_to_b(a, b, cnt, cnt.ra);
@@ -127,9 +127,10 @@ void	b_to_a(t_stack *a, t_stack *b, t_cnt cnt, int size)
 //a에선 큰 부분을 남기고 b에선 중간부분을 위로 작은 부분을 아래로 나누기.
 //다시 a에서 큰 부분을 남기고 b에서 중간 부분을 위로, 작은 부분을 아래로 나누기.
 
-int	quick_sort(t_stack *a, t_stack *b, int size)
+void	quick_sort(t_stack *a, t_stack *b, int size)
 {
 	t_cnt	cnt;
 
+	cnt_init(&cnt);
 	a_to_b(a, b, cnt, size);
 }

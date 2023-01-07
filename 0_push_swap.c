@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 17:24:16 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:45:36 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,4 @@ int	main(int ac, char **argv)
 	quick_sort(&a, &b, a.size);
 	return (0);
 }
+//정렬 되어있는지, 중복 값이 있는지
