@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/07 18:19:26 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/07 20:11:52 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS		=  \
 ./1_stack_init.c \
 ./2_parsing_stack_and_array.c \
 ./3_sort_arr.c \
-./5_ranked.c \
+./4_ranked.c \
 ./6_0_quick_sort.c \
 ./6_1_hard_coding.c \
 ./command/command.c \
@@ -38,7 +38,7 @@ SRCS		=  \
 ./util/ft_strncmp.c \
 ./util/ft_substr.c
 OBJS		=	$(SRCS:.c=.o)
-CFLAGS		=	-Wall -Wextra -Werror -I.
+CFLAGS		=	-Wall -Wextra -Werror -I. -g
 CC			=	cc
 INC_DIR		=	./includes
 
