@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 19:57:45 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 20:10:56 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,26 @@ static void	cnt_init(t_cnt *cnt)
 	cnt->pa = 0;
 	cnt->pb = 0;
 }
-
-void	a_to_b(t_stack *a, t_stack *b, t_cnt cnt, int size)
+static int	is_sorted(t_stack *s, int size)
 {
 	t_info	*cur;
+	int		i;
+
+	cur = s->top;
+	i = -1;
+	while (++i < size)
+	{
+		if (cur->rank > cur->prev->rank)
+			return (0);
+		cur = cur->prev;
+	}
+	return (1);
+}
+
+void	a_to_b(t_stack *a, t_stack *b, int size)
+{
+	t_info	*cur;
+	t_cnt	cnt;
 	int	i;
 	int	pivot_min;
 	int	pivot_max;
@@ -36,7 +52,7 @@ void	a_to_b(t_stack *a, t_stack *b, t_cnt cnt, int size)
 	pivot_max = size / 3 * 2;
 	if (size < 3)
 	{
-		//if (!is_sorted())
+		if (!is_sorted(a, size))
 			hard_coding(a, b, size, 'a');
 		return ;
 	}
@@ -67,14 +83,15 @@ void	a_to_b(t_stack *a, t_stack *b, t_cnt cnt, int size)
 		cmd(a, b, "rrr", 'c');
 		i++;
 	}
-	a_to_b(a, b, cnt, cnt.ra);
-	b_to_a(a, b, cnt, cnt.rb);
-	b_to_a(a, b, cnt, cnt.pb - cnt.rb);
+	a_to_b(a, b, cnt.ra);
+	b_to_a(a, b, cnt.rb);
+	b_to_a(a, b, cnt.pb - cnt.rb);
 }
 
-void	b_to_a(t_stack *a, t_stack *b, t_cnt cnt, int size)
+void	b_to_a(t_stack *a, t_stack *b, int size)
 {
 	t_info	*cur;
+	t_cnt	cnt;
 	int	i;
 	int	pivot_min;
 	int	pivot_max;
@@ -84,7 +101,7 @@ void	b_to_a(t_stack *a, t_stack *b, t_cnt cnt, int size)
 	pivot_max = size / 3 * 2;
 	if (size < 3)
 	{
-		//if (!is_sorted())
+		if (!is_sorted(b, size))
 			hard_coding(a, b, size, 'b');
 		return ;
 	}
@@ -109,21 +126,18 @@ void	b_to_a(t_stack *a, t_stack *b, t_cnt cnt, int size)
 		}
 		cur = cur->next;
 	}
-	a_to_b(a, b, cnt, cnt.pa - cnt.ra);
+	a_to_b(a, b, cnt.pa - cnt.ra);
 	i = 0;
 	while (i < cnt.ra && i < cnt.rb)
 	{
 		cmd(a, b, "rrr", 'c');
 		i++;
 	}
-	a_to_b(a, b, cnt, cnt.ra);
-	b_to_a(a, b, cnt, cnt.rb);
+	a_to_b(a, b, cnt.ra);
+	b_to_a(a, b, cnt.rb);
 }
 
 void	quick_sort(t_stack *a, t_stack *b, int size)
 {
-	t_cnt	cnt;
-
-	cnt_init(&cnt);
-	a_to_b(a, b, cnt, size);
+	a_to_b(a, b, size);
 }

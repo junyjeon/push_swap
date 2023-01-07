@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 18:19:38 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 20:01:23 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define sort_231	(first < second && second > third && first > third)
 # define sort_213	(first > second && second < third && first < third)
 # define sort_312	(first > second && second < third && first > third)
+# define sort_321	(first > second && second > third && first > third)
 # define sort_2134	(second < first && first < third)
 # define sort_3124	(third < first && first < fourth)
 # define sort_41235	(fourth < first && first < fifth)
@@ -138,8 +139,8 @@ int	*parsing_stack_and_array(t_stack *a, char **argv, int ac);
 int	*sort_arr(t_stack *a, int *ar);
 void	ranked(t_stack *a, int *arr);
 void	quick_sort(t_stack *a, t_stack *b, int size);
-void	a_to_b(t_stack *a, t_stack *b, t_cnt cnt, int size);
-void	b_to_a(t_stack *a, t_stack *b, t_cnt cnt, int size);
+void	a_to_b(t_stack *a, t_stack *b, int size);
+void	b_to_a(t_stack *a, t_stack *b, int size);
 void	hard_coding(t_stack *a, t_stack *b, int size, char s);
 int	main(int ac, char **ar);
 

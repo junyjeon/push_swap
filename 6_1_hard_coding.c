@@ -12,44 +12,6 @@
 
 #include "push_swap.h"
 
-//static int sort_five(t_stack *a)
-//{
-//	if (sort_2134)
-//		sa(a);
-//	else if (sort_3124)
-//	{
-//		sa(a);
-//		ra(a);
-//		sa(a);
-//		rra(a);
-//	}
-//	else if (sort_41235)
-//	{
-//		rra(a);
-//		sa(a);
-//		ra(a);
-//		ra(a);
-//	}
-//	else if (fifth < first)
-//		ra(a);
-//	return (1);
-//}
-
-//static int sort_four(t_stack *a)
-//{
-//	if (sort_2134)
-//		sa(a);
-//	else if (sort_3124)
-//	{
-//		rra(a);
-//		sa(a);
-//		ra(a);
-//		ra(a);
-//	}
-//	else if (fifth < first)
-//		ra(a);
-//}
-
 static void	sort_three(t_stack *a, t_stack *b, char c)
 {
 	if (sort_132)
@@ -74,12 +36,14 @@ static void	sort_three(t_stack *a, t_stack *b, char c)
 		cmd(a, b, "s", c);
 		cmd(a, b, "rr", c);
 	}
-	else
+	else if (sort_321)
 	{
 		cmd(a, b, "r", c);
 		cmd(a, b, "s", c);
 		cmd(a, b, "rr", c);
 	}
+	else
+		print_error("sort_three error\n");
 }
 void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 {
@@ -97,23 +61,6 @@ void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 		print_error("Hard coding error\n");
 		return ;
 	}
-	//else if (4 == size)
-	//{
-	//	pb(a, b);
-	//	sort_three(a);
-	//	pa(a, b);
-	//	sort_four(a);
-	//}
-	//else if (5 == size)
-	//{
-	//	pb(a, b);
-	//	pb(a, b);
-	//	sort_three(a);
-	//	pa(a, b);
-	//	sort_four(a);
-	//	pa(a, b);
-	//	sort_five(a);
-	//}
 	write(1, "OK\n", 3);
 	exit(1);
 }
