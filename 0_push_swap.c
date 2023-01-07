@@ -51,9 +51,9 @@ int	main(int ac, char **argv)
 		print_error("Argment error\n");
 	stack_init(&a, &b);
 	ar = parsing_stack_and_array(&a, argv, ac);
+	check_duplicate(&a);
 	if (a.size <= 3)
 		hard_coding(&a, &b, a.size, 'a');
-	check_duplicate(&a);
 	sort_arr(&a, ar);
 	ranked(&a, ar);
 	quick_sort(&a, &b, a.size);
