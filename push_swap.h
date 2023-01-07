@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/06 17:29:51 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:18:42 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
-// For little sorting
+// For hardcoding
 # define first		(a->top->val)
 # define second		(a->top->prev->val)
 # define third		(a->top->prev->prev->val)
@@ -30,7 +30,6 @@
 # define sort_2134	(second < first && first < third)
 # define sort_3124	(third < first && first < fourth)
 # define sort_41235	(fourth < first && first < fifth)
-
 
 // For struct triangle
 //# define MAX		(1)
@@ -49,6 +48,18 @@ typedef struct s_info
 	size_t			rank;
 	int				val;
 }	t_info;
+
+typedef struct s_cnt
+{
+	int	sa;
+	int	sb;
+	int	ra;
+	int	rb;
+	int	rra;
+	int	rrb;
+	int	pa;
+	int	pb;
+}	t_cnt;
 
 //size and descending or ascending and stack a or b
 //typedef struct s_triangle_map
@@ -104,26 +115,25 @@ t_info	*lstnew(int val);
 t_info	*ft_lstlast(t_info *lst);
 void	ft_lstadd_front(t_info **lst, t_info *new);
 void	ft_lstadd_back(t_info **lst, t_info *new);
-void	rrr(t_stack *a, t_stack *b);
-void	rrb(t_stack *b);
-void	rra(t_stack *a);
-void	rr(t_stack *a, t_stack *b);
-void	rb(t_stack *b);
-void	ra(t_stack *a);
-void	pb(t_stack *a, t_stack *b);
+int	cmd(char *command, t_stack *a, t_stack *b, char s);
 void	pa(t_stack *a, t_stack *b);
-void	ss(t_stack *a, t_stack *b);
-void	sb(t_stack *b);
+void	pb(t_stack *a, t_stack *b);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
 void	sa(t_stack *a);
-int	push_front(t_stack *s, int val);
-int	push_back(t_stack *s, int val);
-int	pop_front(t_stack *s);
-int	pop_back(t_stack *s);
-int	*init(t_stack *a, t_stack *b, char **ar, int ac);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
 void	print_error(char *ar);
-void	error_check(int *arr, int size);
-void	little_sort(t_stack *a, t_stack *b);
-int	*sorted(t_stack *a, int *arr);
+int	stack_init(t_stack *a, t_stack *b);
+int	*parsing_stack_and_array(t_stack *a, t_stack *b, char **argv, int ac);
+int	*sort_arr(t_stack *a, int *ar);
+void	check_overlap_and_sorted(int *arr, int size);
+void	ranked(t_stack *a, int *arr);
+int	quick_sort(t_stack *a, t_stack *b, int size);
 int	main(int ac, char **ar);
 
 #endif

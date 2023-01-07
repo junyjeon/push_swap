@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4_sort_arr.c                                       :+:      :+:    :+:   */
+/*   3_sort_arr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:37:25 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/06 15:37:14 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:17:14 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	merge(int *ar, int *sorted, int start, int end)
+static void	merge(int *ar, int *sorted, int start, int end)
 {
 	int	mid;
 	int	i;
@@ -39,7 +39,7 @@ void	merge(int *ar, int *sorted, int start, int end)
 		ar[i] = sorted[i];
 }
 
-void	merge_sort(int *ar, int *sorted, int start, int end)
+static void	merge_sort(int *ar, int *sorted, int start, int end)
 {
 	int	mid;
 

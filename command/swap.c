@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/06 16:52:01 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:16:23 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void	ss(t_stack *a, t_stack *b)
 	write(1, "ss\n", 3);
 }
 
-void sa(t_stack *a)
+void	sa(t_stack *a)
 {
 	swap(a);
 	write(1, "sa\n", 3);
 }
 
-void sb(t_stack *b)
+void	sb(t_stack *b)
 {
 	swap(b);
 	write(1, "sb\n", 3);
