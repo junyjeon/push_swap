@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_parsing_stack_and_array.c                        :+:      :+:    :+:   */
+/*   parsing_stack_and_array.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/08 23:12:43 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 01:44:29 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	*parsing_stack_and_array(t_stack *a, char **argv, int ac)
 		push_back(a, arr[i]);
 	}
 	printf("size: %d, str: %s, arr = %d, i: %d\n", a->size, split_str[i], arr[i], i);
-	printf("1 2%d, %d\n", a->size, arr[0]);
 	ft_free(split_str);
 	return (arr);
 }

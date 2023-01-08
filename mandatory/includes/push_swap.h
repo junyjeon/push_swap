@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 01:36:31 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 01:47:14 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 // For hardcoding
 # define first		(a->top->val)
@@ -49,6 +50,18 @@ typedef struct s_stack
 	int			size;
 }	t_stack;
 
+typedef struct s_cnt
+{
+	int	sa;
+	int	sb;
+	int	ra;
+	int	rb;
+	int	rra;
+	int	rrb;
+	int	pa;
+	int	pb;
+}	t_cnt;
+
 size_t	ft_strlen(const char *str);
 long long	ft_atoi_ll(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -62,11 +75,11 @@ t_info	*lstnew(int val);
 t_info	*ft_lstlast(t_info *lst);
 void	ft_lstadd_front(t_info **lst, t_info *new);
 void	ft_lstadd_back(t_info **lst, t_info *new);
-int		cmd(t_stack *a, t_stack *b, char *command, char c);
 void	push_front(t_stack *s, int val);
 void	push_back(t_stack *s, int val);
 int		pop_front(t_stack *s);
 int		pop_back(t_stack *s);
+int		cmd(t_stack *a, t_stack *b, char *command, char c);
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 void	rra(t_stack *a);

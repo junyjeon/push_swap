@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/09 01:39:58 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/09 01:48:02 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ UTILS_DIR 		=	util
 
 # Define the source files
 SRCS_MAIN		=	main.c
-SRCS_CORE		=	$(addprefix $(CORE_DIR)/, check_duplicate_and_sort.c hard_coding.c main.c \
+SRCS_CORE		=	$(addprefix $(CORE_DIR)/, check_duplicate_and_sort.c hard_coding.c \
 parsing_stack_and_array.c push_pop.c quick_sort.c ranked.c stack_init.c)
 SRCS_COMMAND	=	$(addprefix $(COMMAND_DIR)/, command.c pa_pb.c reverse_rotate.c rotate.c swap.c)
 SRCS_UTIL		=	$(addprefix $(UTILS_DIR)/, ft_atoi_ll.c ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c \
@@ -61,7 +61,7 @@ $(BUILD_DIR)/$(COMMAND_DIR)/%.o: $(SRCS_DIR)/$(COMMAND_DIR)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
 
-$(BUILD_DIR)/$(SRCS_UTIL)/%.o: $(SRCS_DIR)/$(SRCS_UTIL)/%.c
+$(BUILD_DIR)/$(UTILS_DIR)/%.o: $(SRCS_DIR)/$(UTILS_DIR)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
 
