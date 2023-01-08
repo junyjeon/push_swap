@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:48:13 by marvin            #+#    #+#             */
-/*   Updated: 2023/01/08 14:32:36 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/08 14:37:04 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	ft_free(char **res)
 {
 	size_t	i;
 
-	i = 0;
-	while (res[i])
+	i = -1;
+	while (res[++i])
 		free(res[i]);
 	free(res);
 }
