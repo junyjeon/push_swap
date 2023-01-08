@@ -6,11 +6,11 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:45:27 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 18:15:22 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 01:21:49 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	cmd(t_stack *a, t_stack *b, char *command, char c)
 {

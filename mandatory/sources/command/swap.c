@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 21:53:06 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 16:15:53 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/09 01:21:59 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-static void	rotate(t_stack *s)
+static void	swap(t_stack *s)
 {
+	int	tmp;
+
 	if (s->size <= 1)
 		return ;
-	s->top->next = s->bottom;
-	s->bottom->prev = s->top;
-	s->bottom = s->top;
-	s->top = s->top->prev;
-	s->top->next = NULL;
-	s->bottom->prev = NULL;
+	tmp = s->bottom->val;
+	s->bottom->val = s->bottom->next->val;
+	s->bottom->next->val = tmp;
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b)
 {
-	rotate(a);
-	rotate(b);
-	write(1, "rr\n", 4);
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
 }
 
-void	rb(t_stack *b)
+void	sa(t_stack *a)
 {
-	rotate(b);
-	write(1, "rb\n", 3);
+	swap(a);
+	write(1, "sa\n", 3);
 }
 
-void	ra(t_stack *a)
+void	sb(t_stack *b)
 {
-	rotate(a);
-	write(1, "ra\n", 3);
+	swap(b);
+	write(1, "sb\n", 3);
 }

@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   pa_pb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 05:00:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/31 08:51:53 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/11/23 21:52:34 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/09 01:21:47 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-char	*ft_strdup(const char *s1)
+void	pb(t_stack *a, t_stack *b)
 {
-	size_t	s_len;
-	char	*dst;
+	int	tmp;
 
-	s_len = ft_strlen(s1);
-	dst = (char *)malloc(sizeof(char) * s_len + 1);
-	if (!dst)
-		return (0);
-	ft_memcpy(dst, s1, s_len);
-	dst[s_len] = '\0';
-	return (dst);
+	if (!a->size)
+		return ;
+	tmp = pop_front(a);
+	push_front(b, tmp);
+	write(1, "pb\n", 3);
+}
+
+void	pa(t_stack *a, t_stack *b)
+{
+	int	tmp;
+
+	if (!b->size)
+		return ;
+	tmp = pop_front(b);
+	push_front(a, tmp);
+	write(1, "pa\n", 3);
 }

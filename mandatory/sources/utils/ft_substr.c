@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 05:02:42 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/08 13:53:16 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/09 05:02:18 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/09 01:21:00 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-char	*ft_strjoin(char *s1, char const *s2, int index)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
-	int		src_len;
-	int		i;
-	int		j;
+	int				i;
+	unsigned int	s_len;
+	char			*str;
 
-	src_len = ft_strlen(s1) + ft_strlen(s2);
-	str = malloc(src_len + 2);
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (ft_strdup(""));
+	str = (char *)malloc(s_len + 1);
 	if (!str)
-		print_error("Memory allocation fail.\n");
+		return (0);
 	i = 0;
-	if (s1)
+	while (len-- && s[start + i])
 	{
-		while (s1[i])
-		{
-			str[i] = s1[i];
-			i++;
-		}
+		str[i] = s[start + i];
+		i++;
 	}
-	j = 0;
-	while (s2[j])
-		str[i++] = s2[j++];
-	str[i] = ' ';
-	str[i + 1] = '\0';
-	if (!(index == 1))
-		free(s1);
+	str[i] = '\0';
 	return (str);
 }

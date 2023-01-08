@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 01:18:35 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 17:13:12 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/08 23:52:02 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/09 01:20:31 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_lstadd_back(t_info **lst, t_info *new)
 {
-	size_t			i;
-	unsigned char	*x1;
-	unsigned char	*x2;
+	t_info	*tmp;
 
-	x1 = (unsigned char *)s1;
-	x2 = (unsigned char *)s2;
-	i = 0;
-	while (i < n && (x1[i] || x2[i]))
+	if (!*lst)
 	{
-		if (x1[i] != x2[i])
-			return (x1[i] - x2[i]);
-		i++;
+		*lst = new;
+		return ;
 	}
-	return (0);
+	tmp = ft_lstlast(*lst);
+	tmp->next = new;
 }

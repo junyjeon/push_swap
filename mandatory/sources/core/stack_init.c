@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 17:49:00 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/31 08:51:58 by junyojeo         ###   ########.fr       */
+/*   Created: 2023/01/05 22:59:41 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/09 01:21:36 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-size_t	ft_strlen(const char *str)
+int	stack_init(t_stack *a, t_stack *b)
 {
-	size_t	i;
-
-	i = 0;
-	if (str)
-		while (str[i])
-			i++;
-	return (i);
+	a->bottom = malloc(sizeof(a->bottom));
+	if (!a->bottom)
+		return (0);
+	a->top = malloc(sizeof(a->top));
+	if (!a->top)
+		return (0);
+	a->size = 0;
+	b->bottom = malloc(sizeof(b->bottom));
+	if (!b->bottom)
+		return (0);
+	b->top = malloc(sizeof(b->top));
+	if (!b->top)
+		return (0);
+	b->size = 0;
+	return (1);
 }

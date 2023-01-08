@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:27 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/31 08:51:47 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/06 17:53:24 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/09 01:20:42 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-t_info	*lstnew(int val)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	t_info	*elem;
+	char	*s;
+	char	*d;
 
-	elem = malloc(sizeof(elem));
-	if (!elem)
-		return (0);
-	elem->prev = NULL;
-	elem->val = val;
-	elem->next = NULL;
-	return (elem);
+	if (dest == src)
+		return (dest);
+	s = (char *)src;
+	d = (char *)dest;
+	while (n-- > 0)
+		*(d++) = *(s++);
+	return (dest);
 }

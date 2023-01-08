@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:29:06 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/31 08:51:44 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/09 05:00:43 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/09 01:20:48 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-t_info	*ft_lstlast(t_info *lst)
+char	*ft_strdup(const char *s1)
 {
-	if (!lst)
+	size_t	s_len;
+	char	*dst;
+
+	s_len = ft_strlen(s1);
+	dst = (char *)malloc(sizeof(char) * s_len + 1);
+	if (!dst)
 		return (0);
-	while (lst->next != 0)
-		lst = lst->next;
-	return (lst);
+	ft_memcpy(dst, s1, s_len);
+	dst[s_len] = '\0';
+	return (dst);
 }

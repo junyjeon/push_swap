@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 17:53:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/12/31 08:51:50 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/08 18:18:32 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/09 01:20:23 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_lstadd_front(t_info **lst, t_info *new)
 {
-	char	*s;
-	char	*d;
-
-	if (dest == src)
-		return (dest);
-	s = (char *)src;
-	d = (char *)dest;
-	while (n-- > 0)
-		*(d++) = *(s++);
-	return (dest);
+	new->next = *lst;
+	*lst = new;
 }

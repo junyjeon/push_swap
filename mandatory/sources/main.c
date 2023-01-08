@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   0_push_swap.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/08 21:20:01 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 01:23:14 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-#include <stdio.h>
 
 void	print_error(char *ar)
 {
@@ -39,14 +37,7 @@ int	main(int ac, char **argv)
 		hard_coding(&a, &b, a.size, 'a');
 		exit(1);
 	}
-	else if (a.size >= 4)
-	{
-		print_error("hi");
-	}
-	//ranked(&a, arr);
-	//quick_sort(&a, &b, a.size);
+	ranked(&a, arr);
+	quick_sort(&a, &b, a.size);
 	return (0);
 }
-
-//정렬 되어있는지, 중복 값이 있는지
-//4, 6

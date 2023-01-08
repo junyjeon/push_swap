@@ -6,54 +6,97 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/08 15:00:42 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/09 01:39:58 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	push_swap
-SRCS		=  \
-./0_push_swap.c \
-./1_stack_init.c \
-./2_parsing_stack_and_array.c \
-./3_check_duplicate_and_sort.c \
-./4_ranked.c \
-./5_quick_sort.c \
-./6_hard_coding.c \
-./command/command.c \
-./command/pa_pb.c \
-./command/reverse_rotate.c \
-./command/rotate.c \
-./command/swap.c \
-./command/push_pop.c \
-./util/ft_atoi_ll.c \
-./util/ft_lstadd_back.c \
-./util/ft_lstadd_front.c \
-./util/ft_lstlast.c \
-./util/ft_lstnew.c \
-./util/ft_memcpy.c \
-./util/ft_split.c \
-./util/ft_strdup.c \
-./util/ft_strjoin.c \
-./util/ft_strlen.c \
-./util/ft_strncmp.c \
-./util/ft_substr.c
-OBJS		=	$(SRCS:.c=.o)
-CFLAGS		=	-Wall -Wextra -Werror -I.
-CC			=	cc
-INC_DIR		=	./includes
+CC				=	cc
+CFLAGS			=	-Wall -Wextra -Werror -MMD -O3
 
-.INTERMEDIATE : $(SRCS:.c=.o)
-.PHONY : all .c.o clean fclean re bonus
+# Define the directories
+MANDATORY_DIR	=	mandatory
 
-all :		$(NAME)
+SRC_DIR			=	sources
+INC_DIR			=	includes
+BUILD_DIR		=	build
 
-$(NAME) : mandatory
+CORE_DIR		=	core
+COMMAND_DIR 	=	command
+UTILS_DIR 		=	util
 
-mandatory :	$(SRCS:.c=.o)
-	$(CC) $(CFLAGS) $^ -o $(NAME)
+# Define the source files
+SRCS_MAIN		=	main.c
+SRCS_CORE		=	$(addprefix $(CORE_DIR)/, check_duplicate_and_sort.c hard_coding.c main.c \
+parsing_stack_and_array.c push_pop.c quick_sort.c ranked.c stack_init.c)
+SRCS_COMMAND	=	$(addprefix $(COMMAND_DIR)/, command.c pa_pb.c reverse_rotate.c rotate.c swap.c)
+SRCS_UTIL		=	$(addprefix $(UTILS_DIR)/, ft_atoi_ll.c ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c \
+ft_lstnew.c ft_memcpy.c ft_split.c ft_strdup.c ft_strjoin.c ft_strlen.c ft_strncmp.c ft_substr.c)
 
-clean : ; rm -f $(OBJS)
+SRCS_TOTAL		=	$(SRCS_MAIN) $(SRCS_CORE) $(SRCS_COMMAND) $(SRCS_UTIL)
+SRCS_DIR		=	$(MANDATORY_DIR)/$(SRC_DIR)
+INCS_DIR		=	$(MANDATORY_DIR)/$(INC_DIR)
 
-fclean : clean ; rm -f $(NAME)
+NAME			=	push_swap
 
-re:	fclean all
+SRCS			=	$(addprefix $(SRCS_DIR)/, $(SRCS_TOTAL))
+OBJS			=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(SRCS_TOTAL))
+DEPS			=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(SRCS_TOTAL))
+
+all: $(NAME)
+
+# Define the target and dependencies
+$(NAME) : $(OBJS)
+	@$(CC) $(CFLAGS) $^ -o $@
+	@echo "${GREEN}> Compilation of the push_swap is success 🎉${END}"
+
+$(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
+
+$(BUILD_DIR)/$(CORE_DIR)/%.o: $(SRCS_DIR)/$(CORE_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
+	
+$(BUILD_DIR)/$(COMMAND_DIR)/%.o: $(SRCS_DIR)/$(COMMAND_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
+
+$(BUILD_DIR)/$(SRCS_UTIL)/%.o: $(SRCS_DIR)/$(SRCS_UTIL)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
+
+clean:
+	@$(RM) $(OBJS) $(DEPS)
+	@rm -rf $(BUILD_DIR)
+	@make clean -C ./lib
+	@echo "${YELLOW}> All objects files of the so_long have been deleted ❌${END}"
+
+fclean:
+	@$(RM) $(OBJS) $(DEPS) $(LIBS) $(LIBMLX) so_long so_long_bonus
+	@rm -rf $(BUILD_DIR)
+	@make fclean -C ./lib
+	@echo "${YELLOW}> Cleaning of the so_long has been done ❌${END}"
+
+re: fclean
+	@make all
+
+$(LDLIBS) :
+	@make -C ./lib
+
+.PHONY:	all clean fclean re
+
+# minimal color codes
+END				=	$'\x1b[0m
+BOLD			=	$'\x1b[1m
+UNDER			=	$'\x1b[4m
+REV				=	$'\x1b[7m
+GREY			=	$'\x1b[30m
+RED				=	$'\x1b[31m
+GREEN			=	$'\x1b[32m
+YELLOW			=	$'\x1b[33m
+BLUE			=	$'\x1b[34m
+PURPLE			=	$'\x1b[35m
+CYAN			=	$'\x1b[36m
+WHITE			=	$'\x1b[37m
+
+-include $(DEPS)

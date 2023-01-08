@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	push_front(t_stack *s, int val)
 {

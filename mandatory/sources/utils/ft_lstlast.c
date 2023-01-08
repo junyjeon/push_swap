@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa_pb.c                                            :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 21:52:34 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 16:16:30 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/08 18:29:06 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/09 01:20:35 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	pb(t_stack *a, t_stack *b)
+t_info	*ft_lstlast(t_info *lst)
 {
-	int	tmp;
-
-	if (!a->size)
-		return ;
-	tmp = pop_front(a);
-	push_front(b, tmp);
-	write(1, "pb\n", 3);
-}
-
-void	pa(t_stack *a, t_stack *b)
-{
-	int	tmp;
-
-	if (!b->size)
-		return ;
-	tmp = pop_front(b);
-	push_front(a, tmp);
-	write(1, "pa\n", 3);
+	if (!lst)
+		return (0);
+	while (lst->next != 0)
+		lst = lst->next;
+	return (lst);
 }
