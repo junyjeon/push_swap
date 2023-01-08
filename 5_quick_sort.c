@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   6_0_quick_sort.c                                   :+:      :+:    :+:   */
+/*   5_quick_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 21:49:46 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/08 14:52:10 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,16 @@ static int	is_sorted(t_stack *s, int size)
 	t_info	*cur;
 	int		i;
 
-	cur = s->top;
-	i = -1;
-	while (++i < size)
+	if (2 < size)
 	{
-		if (cur->rank > cur->prev->rank)
-			return (0);
-		cur = cur->prev;
+		cur = s->top;
+		i = -1;
+		while (++i < size)
+		{
+			if (cur->rank > cur->prev->rank)
+				return (0);
+			cur = cur->prev;
+		}
 	}
 	return (1);
 }
@@ -52,9 +55,10 @@ void	a_to_b(t_stack *a, t_stack *b, int size)
 	pivot_max = size / 3 * 2;
 	if (size < 3)
 	{
-		if (!is_sorted(a, size))
+		if (is_sorted(a, size))
+			return ;
+		else
 			hard_coding(a, b, size, 'a');
-		return ;
 	}
 	cur = a->top;
 	i = -1;
@@ -101,9 +105,10 @@ void	b_to_a(t_stack *a, t_stack *b, int size)
 	pivot_max = size / 3 * 2;
 	if (size < 3)
 	{
-		if (!is_sorted(b, size))
+		if (is_sorted(b, size))
+			return ;
+		else
 			hard_coding(a, b, size, 'b');
-		return ;
 	}
 	cur = a->top;
 	i = -1;

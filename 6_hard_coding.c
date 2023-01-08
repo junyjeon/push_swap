@@ -43,32 +43,13 @@ static void	sort_three(t_stack *a, t_stack *b, char c)
 		cmd(a, b, "rr", c);
 	}
 	else
-		print_error("sort_three error\n");
+		print_error("sort_three fail.\n");
 }
+
 void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 {
-	t_info	*cur;
-	int	swap_cnt;
-	int	i;
-
-	if (c == 'a')
-		cur = a->top;
-	else if (c == 'b')
-		cur = b->top;
-	else
-		print_error("cur error\n");
-	swap_cnt = 0;
-	i = -1;
-	while (++i < size && size > 2)
-	{
-		if (cur->rank < cur->prev->rank)
-			swap_cnt++;
-		cur = cur->prev;
-	}
-	if (swap_cnt == size)
-		print_error("is sorted\n");
 	if (1 == size)
-		write(1, "Arguments vector is one\n", 24);
+		print_error("Arguments vector is one.\n");
 	else if (2 == size)
 	{
 		if (first > second)
@@ -78,9 +59,8 @@ void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 		sort_three(a, b, c);
 	else
 	{
-		print_error("Hard coding error\n");
+		print_error("Hard coding error.\n");
 		return ;
 	}
 	write(1, "OK\n", 3);
-	exit(1);
 }

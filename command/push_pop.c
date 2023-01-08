@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-int	push_front(t_stack *s, int val)
+void	push_front(t_stack *s, int val)
 {
 	t_info *new;
 	t_info *cur;
@@ -11,7 +11,6 @@ int	push_front(t_stack *s, int val)
 	ft_lstadd_front(&s->bottom, new);
 	if (!s->size)
 	{
-		new->next = NULL;
 		s->bottom = new;
 		s->top = new;
 	}
@@ -20,21 +19,19 @@ int	push_front(t_stack *s, int val)
 		new->prev = s->bottom;
 		s->bottom = new;
 	}
-	new->prev = NULL;
-	new->index = s->size;
+	new->index = 0;
 	new->rank = 0;
 	s->size++;
 	cur = s->bottom;
 	while (cur)
 	{
-		cur = cur->next;
 		cur->index++;
+		cur = cur->next;
 	}
-	return (1);
 }
 
 
-int	push_back(t_stack *s, int val)
+void	push_back(t_stack *s, int val)
 {
 	t_info *new;
 
@@ -44,7 +41,6 @@ int	push_back(t_stack *s, int val)
 	ft_lstadd_back(&s->bottom, new);
 	if (!s->size)
 	{
-		new->prev = NULL;
 		s->bottom = new;
 		s->top = new;
 	}
@@ -53,11 +49,9 @@ int	push_back(t_stack *s, int val)
 		new->prev = s->top;
 		s->top = new;
 	}
-	new->next = NULL;
 	new->index = s->size;
 	new->rank = 0;
 	s->size++;
-	return (1);
 }
 
 int	pop_front(t_stack *s)

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:48:13 by marvin            #+#    #+#             */
-/*   Updated: 2023/01/08 14:37:04 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/08 15:23:52 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ char	**ft_split(char *s, char c)
 	if (!res)
 		print_error("Memory allocation fail.\n");
 	ft_division(s, c, res);
-	res[word_cnt] = NULL;
+	res[word_cnt] = NULL; 
 	return (res);
 }

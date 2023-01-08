@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:14:19 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 21:50:38 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/08 15:09:23 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ranked(t_stack *a, int *arr)
 	while (cur)
 	{
 		i = -1;
-		while (++i < a->size)
+		while (++i < a->size - 1)
 			if (cur->val == arr[i])
 				cur->rank = i;
 		cur = cur->prev;
