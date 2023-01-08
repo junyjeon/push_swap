@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 22:20:39 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/08 14:34:03 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,12 @@ typedef struct s_stack
 }	t_stack;
 
 size_t	ft_strlen(const char *str);
-long long	ft_atoi(const char *str);
+long long	ft_atoi_ll(const char *str);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s1, char const *s2, int index);
+void	ft_free(char **res);
 char	**ft_split(char *s, char c);
 t_info	*lstnew(int val);
 t_info	*ft_lstlast(t_info *lst);

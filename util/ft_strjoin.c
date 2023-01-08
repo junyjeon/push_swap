@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 05:02:42 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/04 13:03:52 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/08 13:53:16 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char *s1, char const *s2, int index)
 	src_len = ft_strlen(s1) + ft_strlen(s2);
 	str = malloc(src_len + 2);
 	if (!str)
-		return (0);
+		print_error("Memory allocation fail.\n");
 	i = 0;
 	if (s1)
 	{

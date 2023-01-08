@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 16:28:04 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/08 14:34:17 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,27 @@
 int	*parsing_stack_and_array(t_stack *a, char **argv, int ac)
 {
 	char	*str;
-	char	**split_str; 
-	int		*ar;
+	char	**split_str;
+	int		*arr;
 	int		i;
 
 	str = NULL;
 	i = 0;
 	while (++i < ac)
-	{
 		str = ft_strjoin(str, argv[i], i);
-		if (!str)
-			print_error("Memory allocation fail.\n");
-	}
 	split_str = ft_split(str, ' ');
-	if (!split_str)
-		print_error("Memory allocation fail.\n");
 	i = 0;
 	while (split_str[i])
 		i++;
-	ar = malloc(sizeof(ar) * i);
-	if (!ar)
+	arr = malloc(sizeof(arr) * i);
+	if (!arr)
 		print_error("Memory allocation fail.\n");
 	i = -1;
 	while (split_str[++i])
 	{
-		ar[i] = ft_atoi(split_str[i]);
-		if (ar[i] < -2147483648 || 2147483647 < ar[i])
-			print_error("Int range Error\n");
-		if (!push_back(a, ar[i]))
-			print_error("Memory allocation fail.\n");
+		arr[i] = ft_atoi_ll(split_str[i]);
+		push_back(a, arr[i]);
 	}
-	return (ar);
+	ft_free(split_str);
+	return (arr);
 }

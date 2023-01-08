@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/07 21:51:01 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/08 14:16:42 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS		=  \
 ./command/rotate.c \
 ./command/swap.c \
 ./command/push_pop.c \
-./util/ft_atoi.c \
+./util/ft_atoi_ll.c \
 ./util/ft_lstadd_back.c \
 ./util/ft_lstadd_front.c \
 ./util/ft_lstlast.c \
@@ -38,7 +38,7 @@ SRCS		=  \
 ./util/ft_strncmp.c \
 ./util/ft_substr.c
 OBJS		=	$(SRCS:.c=.o)
-CFLAGS		=	-Wall -Wextra -Werror -I. -g
+CFLAGS		=	-Wall -Wextra -Werror -I.
 CC			=	cc
 INC_DIR		=	./includes
 
