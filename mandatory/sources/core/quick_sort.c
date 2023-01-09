@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 09:12:13 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:15:38 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	cnt_init(t_cnt *cnt)
 	cnt->pa = 0;
 	cnt->pb = 0;
 }
+
 static int	is_sorted(t_stack *s, int size)
 {
 	t_info	*cur;
@@ -79,7 +80,6 @@ void	a_to_b(t_stack *a, t_stack *b, int size)
 				cnt.rb++;
 			}
 		}
-		printf("%d\n", cur->val);
 		cur = cur->prev;
 	}
 	i = 0;
