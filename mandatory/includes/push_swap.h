@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 05:44:45 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 09:33:04 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_info
 	int				rank;
 	int				index;
 	int				val;
-}	t_info;
+}		t_info;
 
 //stack info
 typedef struct s_stack
@@ -48,7 +48,7 @@ typedef struct s_stack
 	t_info	*top;
 	t_info	*bottom;
 	int		size;
-}	t_stack;
+}		t_stack;
 
 typedef struct s_cnt
 {
@@ -60,7 +60,7 @@ typedef struct s_cnt
 	int	rrb;
 	int	pa;
 	int	pb;
-}	t_cnt;
+}		t_cnt;
 
 size_t	ft_strlen(const char *str);
 int		ft_atoi_ll(const char *str);
@@ -70,7 +70,7 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s1, char const *s2);
 char	**ft_split(char *s, char c);
-t_info	*lstnew(t_stack *s, int val);
+t_info	*ft_lstnew(t_stack *s, int val);
 t_info	*ft_lstlast(t_info *lst);
 void	ft_lstadd_front(t_info **lst, t_info *new);
 void	ft_lstadd_back(t_info **lst, t_info *new);
@@ -90,7 +90,7 @@ void	rr(t_stack *a, t_stack *b);
 void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
-void	print_error(char *ar);
+void	print_error(char *str);
 void	stack_init(t_stack *a, t_stack *b);
 int		*parsing_stack_and_array(t_stack *a,  int argc, char **argv);
 void	check_duplicate_and_sort(int *arr, int size);

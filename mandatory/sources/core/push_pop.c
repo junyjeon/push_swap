@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_pop.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/09 09:19:43 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/09 09:21:14 by junyojeo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push_front(t_stack *s, int val)
@@ -5,7 +17,7 @@ void	push_front(t_stack *s, int val)
 	t_info *new;
 	t_info *cur;
 
-	new = lstnew(s, val);
+	new = ft_lstnew(s, val);
 	ft_lstadd_front(&s->bottom, new);
 	if (s->size == 0)
 	{
@@ -32,7 +44,7 @@ void	push_back(t_stack *s, int val)
 {
 	t_info	*new;
 	
-	new = lstnew(s, val);
+	new = ft_lstnew(s, val);
 	ft_lstadd_back(&s->bottom, new);
 	if (s->size == 0)
 	{

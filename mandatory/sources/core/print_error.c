@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:27 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 09:20:46 by junyojeo         ###   ########.fr       */
+/*   Created: 2023/01/05 17:37:25 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/01/09 09:32:14 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_info	*ft_lstnew(t_stack *s, int val)
+void	print_error(char *str)
 {
-	t_info	*elem;
+	int ar_len;
 	
-	elem = malloc(sizeof(t_info));
-	if (!elem)
-		print_error("Memory allocation fail.\n");
-	elem->val = val;
-	elem->index = s->size;
-	elem->rank = 0;
-	return (elem);
+	ar_len = ft_strlen(str);
+	write(2, str, ar_len + 1);
+	exit(1);
 }

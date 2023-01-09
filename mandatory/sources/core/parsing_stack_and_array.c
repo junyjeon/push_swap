@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 05:32:40 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 09:32:16 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	*parsing_stack_and_array(t_stack *a,  int argc, char **argv)
 	arr = malloc(sizeof(arr) * i);
 	if (!arr)
 		print_error("Memory allocation fail.\n");
-	while (--i)
+	while (i--)
 	{
 		arr[i] = ft_atoi_ll(split_str[i]);
 		push_front(a, arr[i]);
