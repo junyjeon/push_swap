@@ -6,13 +6,13 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 05:02:42 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 01:20:52 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 04:42:11 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strjoin(char *s1, char const *s2, int index)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*str;
 	int		src_len;
@@ -37,7 +37,6 @@ char	*ft_strjoin(char *s1, char const *s2, int index)
 		str[i++] = s2[j++];
 	str[i] = ' ';
 	str[i + 1] = '\0';
-	if (!(index == 1))
-		free(s1);
+	free(s1);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:48:13 by marvin            #+#    #+#             */
-/*   Updated: 2023/01/09 01:20:45 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 04:41:54 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	word_len(char const *s, char c, size_t i)
 	return (cnt);
 }
 
-void	ft_free(char **res)
+static void	ft_free(char **res)
 {
 	size_t	i;
 

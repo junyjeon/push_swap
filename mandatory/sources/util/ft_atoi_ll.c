@@ -6,16 +6,16 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 04:41:52 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 01:20:28 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 05:42:40 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long long	ft_atoi_ll(const char *str)
+int	ft_atoi_ll(const char *str)
 {
-	long long	res;
-	int			sign;
+	int	res;
+	int	sign;
 
 	if (*str == '\0')
 		return (0);

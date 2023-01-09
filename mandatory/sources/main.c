@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 01:23:14 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 05:36:20 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,17 @@ void	print_error(char *ar)
 	exit(1);
 }
 
-int	main(int ac, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
 	int		*arr;
 
-	if (ac < 2)
+	if (argc < 2)
 		print_error("Argment count is zero.\n");
 	stack_init(&a, &b);
-	arr = parsing_stack_and_array(&a, argv, ac);
+	arr = parsing_stack_and_array(&a, argc, argv);
+	printf("%d\n", arr[1]);
 	check_duplicate_and_sort(arr, a.size);
 	if (a.size <= 3)
 	{

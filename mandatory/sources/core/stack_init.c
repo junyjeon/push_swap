@@ -6,27 +6,20 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 22:59:41 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 01:21:36 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 05:32:10 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stack_init(t_stack *a, t_stack *b)
+void	stack_init(t_stack *a, t_stack *b)
 {
-	a->bottom = malloc(sizeof(a->bottom));
-	if (!a->bottom)
-		return (0);
-	a->top = malloc(sizeof(a->top));
-	if (!a->top)
-		return (0);
+	a->bottom = malloc(sizeof(t_info));
+	b->bottom = malloc(sizeof(t_info));
+	a->top = malloc(sizeof(t_info));
+	b->top = malloc(sizeof(t_info));
+	if (!a->bottom || !a->top || !b->bottom || !b->top)
+		print_error("Memory allocation fail.\n");
 	a->size = 0;
-	b->bottom = malloc(sizeof(b->bottom));
-	if (!b->bottom)
-		return (0);
-	b->top = malloc(sizeof(b->top));
-	if (!b->top)
-		return (0);
 	b->size = 0;
-	return (1);
 }

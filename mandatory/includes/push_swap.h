@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 01:47:14 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 05:44:45 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ typedef struct s_info
 {
 	struct s_info	*prev;
 	struct s_info	*next;
-	size_t			index;
 	int				rank;
+	int				index;
 	int				val;
 }	t_info;
 
@@ -47,7 +47,7 @@ typedef struct s_stack
 {
 	t_info	*top;
 	t_info	*bottom;
-	int			size;
+	int		size;
 }	t_stack;
 
 typedef struct s_cnt
@@ -63,15 +63,14 @@ typedef struct s_cnt
 }	t_cnt;
 
 size_t	ft_strlen(const char *str);
-long long	ft_atoi_ll(const char *str);
+int		ft_atoi_ll(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char *s1, char const *s2, int index);
-void	ft_free(char **res);
+char	*ft_strjoin(char *s1, char const *s2);
 char	**ft_split(char *s, char c);
-t_info	*lstnew(int val);
+t_info	*lstnew(t_stack *s, int val);
 t_info	*ft_lstlast(t_info *lst);
 void	ft_lstadd_front(t_info **lst, t_info *new);
 void	ft_lstadd_back(t_info **lst, t_info *new);
@@ -92,8 +91,8 @@ void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
 void	print_error(char *ar);
-int		stack_init(t_stack *a, t_stack *b);
-int		*parsing_stack_and_array(t_stack *a, char **argv, int ac);
+void	stack_init(t_stack *a, t_stack *b);
+int		*parsing_stack_and_array(t_stack *a,  int argc, char **argv);
 void	check_duplicate_and_sort(int *arr, int size);
 void	ranked(t_stack *a, int *arr);
 void	quick_sort(t_stack *a, t_stack *b, int size);

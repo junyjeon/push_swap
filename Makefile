@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/09 01:48:02 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/09 03:53:07 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,20 +68,15 @@ $(BUILD_DIR)/$(UTILS_DIR)/%.o: $(SRCS_DIR)/$(UTILS_DIR)/%.c
 clean:
 	@$(RM) $(OBJS) $(DEPS)
 	@rm -rf $(BUILD_DIR)
-	@make clean -C ./lib
 	@echo "${YELLOW}> All objects files of the so_long have been deleted ❌${END}"
 
 fclean:
 	@$(RM) $(OBJS) $(DEPS) $(LIBS) $(LIBMLX) so_long so_long_bonus
 	@rm -rf $(BUILD_DIR)
-	@make fclean -C ./lib
 	@echo "${YELLOW}> Cleaning of the so_long has been done ❌${END}"
 
 re: fclean
 	@make all
-
-$(LDLIBS) :
-	@make -C ./lib
 
 .PHONY:	all clean fclean re
 

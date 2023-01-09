@@ -5,12 +5,11 @@ void	push_front(t_stack *s, int val)
 	t_info *new;
 	t_info *cur;
 
-	new = lstnew(val);
-	if (!new)
-		print_error("malloc Error\n");
+	new = lstnew(s, val);
 	ft_lstadd_front(&s->bottom, new);
-	if (!s->size)
+	if (s->size == 0)
 	{
+		new->next = NULL;
 		s->bottom = new;
 		s->top = new;
 	}
@@ -18,29 +17,26 @@ void	push_front(t_stack *s, int val)
 	{
 		new->prev = s->bottom;
 		s->bottom = new;
+		cur = s->bottom->next;
+		while (cur)
+		{
+			cur->index++;
+			cur = cur->next;
+		}
 	}
 	new->index = 0;
-	new->rank = 0;
 	s->size++;
-	cur = s->bottom;
-	while (cur)
-	{
-		cur->index++;
-		cur = cur->next;
-	}
 }
-
 
 void	push_back(t_stack *s, int val)
 {
-	t_info *new;
-
-	new = lstnew(val);
-	if (!new)
-		print_error("malloc Error\n");
+	t_info	*new;
+	
+	new = lstnew(s, val);
 	ft_lstadd_back(&s->bottom, new);
-	if (!s->size)
+	if (s->size == 0)
 	{
+		new->prev = NULL;
 		s->bottom = new;
 		s->top = new;
 	}
@@ -49,8 +45,7 @@ void	push_back(t_stack *s, int val)
 		new->prev = s->top;
 		s->top = new;
 	}
-	new->index = s->size;
-	new->rank = 0;
+	new->next = NULL;
 	s->size++;
 }
 
@@ -75,9 +70,9 @@ int	pop_back(t_stack *s)
 	int		back_val;
 	t_info	*tmp;
 
-	back_val = s->top->val;
 	if (!s->size)
 		return (0);
+	back_val = s->top->val;
 	tmp = s->top;
 	s->top = s->top->prev;
 	s->top->next = NULL;
