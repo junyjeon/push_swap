@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/09 10:20:13 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/11 18:31:56 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,19 +49,11 @@ $(NAME) : $(OBJS)
 	@$(CC) $(CFLAGS) $^ -o $@
 	@echo "${GREEN}> Compilation of the push_swap is success 🎉${END}"
 
+$(BUILD_DIR)/%.o: $(SRCS)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
+
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
-	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
-
-$(BUILD_DIR)/$(CORE_DIR)/%.o: $(SRCS_DIR)/$(CORE_DIR)/%.c
-	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
-	
-$(BUILD_DIR)/$(COMMAND_DIR)/%.o: $(SRCS_DIR)/$(COMMAND_DIR)/%.c
-	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
-
-$(BUILD_DIR)/$(UTILS_DIR)/%.o: $(SRCS_DIR)/$(UTILS_DIR)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
 
@@ -73,7 +65,7 @@ clean:
 fclean:
 	@$(RM) $(OBJS) $(DEPS) $(LIBS) $(LIBMLX) so_long so_long_bonus
 	@rm -rf $(BUILD_DIR)
-	@echo "${YELLOW}> Cleaning of the so_long has been done ❌${END}"
+	@echo "${YELLOW}> Cleaning of the so_long has been don./e ❌${END}"
 
 re: fclean
 	@make all
