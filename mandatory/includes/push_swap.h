@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 09:51:08 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:46:09 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s1, char const *s2);
 char	**ft_split(char *s, char c);
-t_info	*ft_lstnew(t_stack *s, int val);
+t_info	*ft_lstnew(int val);
 t_info	*ft_lstlast(t_info *lst);
 void	ft_lstadd_front(t_info **lst, t_info *new);
 void	ft_lstadd_back(t_info **lst, t_info *new);

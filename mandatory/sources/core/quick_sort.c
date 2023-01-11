@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 10:15:38 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:55:40 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	a_to_b(t_stack *a, t_stack *b, int size)
 	}
 	cur = a->top;
 	i = -1;
-	while (++i < size)
+	while (++i < size && cur)
 	{
 		if (pivot_max <= cur->rank)
 		{
@@ -113,7 +113,7 @@ void	b_to_a(t_stack *a, t_stack *b, int size)
 	}
 	cur = a->top;
 	i = -1;
-	while (++i < size)
+	while (++i < size && cur)
 	{
 		if (cur->rank < pivot_min)
 		{
@@ -146,4 +146,18 @@ void	b_to_a(t_stack *a, t_stack *b, int size)
 void	quick_sort(t_stack *a, t_stack *b, int size)
 {
 	a_to_b(a, b, size);
+	//t_info *cur = a->top;
+	//t_info *cur2 = b->top;
+	
+	//while (cur)
+	//{
+	//	printf("a->%d, \n", cur->index);
+	//	cur = cur->prev;
+	//}
+	//printf("OK\n");
+	//while (cur2)
+	//{
+	//	printf("b->%d, \n", cur2->index);
+	//	cur2 = cur2->prev;
+	//}
 }

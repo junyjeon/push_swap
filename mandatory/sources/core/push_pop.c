@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:19:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 09:21:14 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/09 11:02:14 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ void	push_front(t_stack *s, int val)
 	t_info *new;
 	t_info *cur;
 
-	new = ft_lstnew(s, val);
+	new = ft_lstnew(val);
 	ft_lstadd_front(&s->bottom, new);
+	new->index = 0;
 	if (s->size == 0)
 	{
 		new->next = NULL;
@@ -27,16 +28,17 @@ void	push_front(t_stack *s, int val)
 	}
 	else
 	{
-		new->prev = s->bottom;
+		new->next = s->bottom;
 		s->bottom = new;
 		cur = s->bottom->next;
+		printf("OK %p | %p\n", cur, cur->next);
 		while (cur)
 		{
 			cur->index++;
 			cur = cur->next;
 		}
 	}
-	new->index = 0;
+	new->prev = NULL;
 	s->size++;
 }
 
@@ -44,8 +46,9 @@ void	push_back(t_stack *s, int val)
 {
 	t_info	*new;
 	
-	new = ft_lstnew(s, val);
+	new = ft_lstnew(val);
 	ft_lstadd_back(&s->bottom, new);
+	new->index = s->size;
 	if (s->size == 0)
 	{
 		new->prev = NULL;
@@ -63,32 +66,32 @@ void	push_back(t_stack *s, int val)
 
 int	pop_front(t_stack *s)
 {
-	int		front_val;
+	int		val;
 	t_info	*tmp;
 
 	if (!s->size)
 		return (0);
-	front_val = s->bottom->val;
+	val = s->bottom->val;
 	tmp = s->bottom;
 	s->bottom = s->bottom->next;
 	s->bottom->prev = NULL;
 	s->size--;
 	free(tmp);
-	return (front_val);
+	return (val);
 }
 
 int	pop_back(t_stack *s)
 {
-	int		back_val;
+	int		val;
 	t_info	*tmp;
 
 	if (!s->size)
 		return (0);
-	back_val = s->top->val;
+	val = s->top->val;
 	tmp = s->top;
 	s->top = s->top->prev;
 	s->top->next = NULL;
 	s->size--;
 	free(tmp);
-	return (back_val);
+	return (val);
 }
