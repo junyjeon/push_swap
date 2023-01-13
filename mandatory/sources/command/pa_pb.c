@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:52:34 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/14 05:45:50 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/14 05:58:08 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	pb(t_stack *a, t_stack *b)
 
 	if (!a->size)
 		return ;
-	tmp = pop_front(a);
+	tmp = pop_back(a);
 	push_back(b, tmp);
 	write(1, "pb\n", 3);
 }
@@ -29,7 +29,7 @@ void	pa(t_stack *a, t_stack *b)
 
 	if (!b->size)
 		return ;
-	tmp = pop_front(b);
+	tmp = pop_back(b);
 	push_back(a, tmp);
 	write(1, "pa\n", 3);
 }

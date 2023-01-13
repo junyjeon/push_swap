@@ -6,12 +6,12 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/13 21:08:13 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/14 06:37:36 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror -MMD -O3
+CFLAGS			=	-Wall -Wextra -Werror -MMD -O3 -g
 
 # Define the directories
 MANDATORY_DIR	=	mandatory

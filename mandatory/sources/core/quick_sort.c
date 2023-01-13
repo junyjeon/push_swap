@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/14 05:16:53 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/14 07:16:50 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static int	is_sorted(t_stack *s, int size)
 
 void	a_to_b(t_stack *a, t_stack *b, int size, t_cnt *cnt)
 {
-	t_info	*cur;
 	int	i;
 	int	pivot_min;
 	int	pivot_max;
@@ -53,11 +52,10 @@ void	a_to_b(t_stack *a, t_stack *b, int size, t_cnt *cnt)
 			hard_coding(a, b, size, 'a');
 		return ;
 	}
-	cur = a->top;
 	i = -1;
 	while (++i < size)
 	{
-		if (cur->rank >= pivot_max)
+		if (a->top->rank >= pivot_max)
 		{
 			cmd(a, b, "r", 'a');
 			cnt->ra++;
@@ -66,13 +64,12 @@ void	a_to_b(t_stack *a, t_stack *b, int size, t_cnt *cnt)
 		{
 			cmd(a, b, "p", 'b');
 			cnt->pb++;
-			if (cur->rank >= pivot_min)
+			if (a->top->rank >= pivot_min)
 			{
 				cmd(a, b, "r", 'b');
 				cnt->rb++;
 			}
 		}
-		cur = cur->prev;
 	}
 	i = 0;
 	while (i < cnt->ra && i < cnt->rb)
@@ -87,7 +84,6 @@ void	a_to_b(t_stack *a, t_stack *b, int size, t_cnt *cnt)
 
 void	b_to_a(t_stack *a, t_stack *b, int size, t_cnt *cnt)
 {
-	t_info	*cur;
 	int	i;
 	int	pivot_min;
 	int	pivot_max;
@@ -100,11 +96,10 @@ void	b_to_a(t_stack *a, t_stack *b, int size, t_cnt *cnt)
 			hard_coding(a, b, size, 'b');
 		return ;
 	}
-	cur = a->top;
 	i = -1;
-	while (++i < size && cur)
+	while (++i < size)
 	{
-		if (cur->rank < pivot_min)
+		if (a->top->rank < pivot_min)
 		{
 			cmd(a, b, "r", 'b');
 			cnt->rb++;
@@ -113,13 +108,12 @@ void	b_to_a(t_stack *a, t_stack *b, int size, t_cnt *cnt)
 		{
 			cmd(a, b, "p", 'a');
 			cnt->pa++;
-			if (cur->rank < pivot_max)
+			if (a->top->rank < pivot_max)
 			{
 				cmd(a, b, "r", 'a');
 				cnt->ra++;
 			}
 		}
-		cur = cur->prev;
 	}
 	a_to_b(a, b, cnt->pa - cnt->ra, cnt);
 	i = 0;
@@ -138,20 +132,5 @@ void	quick_sort(t_stack *a, t_stack *b, int size)
 
 	cnt_init(&cnt);
 	a_to_b(a, b, size, &cnt);
-	t_info	*cur;
-	t_info	*cur2;
-
-	cur = a->top;
-	cur2 = b->top;
-	while (cur)
-	{
-		printf("1. val: %d, rank: %d\n", cur->val, cur->rank);
-		cur = cur->prev;
-	}
-	while (cur2)
-	{
-		printf("2. val: %d, rank: %d\n", cur2->val, cur2->rank);
-		cur2 = cur2->prev;
-	}
 }
 
