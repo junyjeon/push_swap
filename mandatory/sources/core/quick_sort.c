@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/14 07:19:02 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/14 07:19:23 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	a_to_b(t_stack *a, t_stack *b, int size, t_cnt *cnt)
 	a_to_b(a, b, cnt->ra, cnt);
 	b_to_a(a, b, cnt->rb, cnt);
 	b_to_a(a, b, cnt->pb - cnt->rb, cnt);
+	printf("OK\n");
 }
 
 void	b_to_a(t_stack *a, t_stack *b, int size, t_cnt *cnt)
