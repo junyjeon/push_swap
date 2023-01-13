@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:19:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 11:02:14 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:49:45 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,17 @@
 void	push_front(t_stack *s, int val)
 {
 	t_info *new;
-	t_info *cur;
 
 	new = ft_lstnew(val);
-	ft_lstadd_front(&s->bottom, new);
-	new->index = 0;
 	if (s->size == 0)
 	{
-		new->next = NULL;
-		s->bottom = new;
 		s->top = new;
+		s->bottom = new;
 	}
 	else
-	{
-		new->next = s->bottom;
-		s->bottom = new;
-		cur = s->bottom->next;
-		printf("OK %p | %p\n", cur, cur->next);
-		while (cur)
-		{
-			cur->index++;
-			cur = cur->next;
-		}
-	}
-	new->prev = NULL;
+		s->bottom->prev = new;
+	new->next = s->bottom;
+	s->bottom = new;
 	s->size++;
 }
 
@@ -47,20 +34,15 @@ void	push_back(t_stack *s, int val)
 	t_info	*new;
 	
 	new = ft_lstnew(val);
-	ft_lstadd_back(&s->bottom, new);
-	new->index = s->size;
 	if (s->size == 0)
 	{
-		new->prev = NULL;
-		s->bottom = new;
 		s->top = new;
+		s->bottom = new;
 	}
 	else
-	{
-		new->prev = s->top;
-		s->top = new;
-	}
-	new->next = NULL;
+		s->top->next = new;
+	new->prev = s->top;
+	s->top = new;
 	s->size++;
 }
 

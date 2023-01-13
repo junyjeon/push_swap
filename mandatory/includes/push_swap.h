@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 10:46:09 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/13 20:31:11 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,13 @@
 # include <stdio.h>
 
 // For hardcoding
-# define first		(a->top->val)
-# define second		(a->top->prev->val)
-# define third		(a->top->prev->prev->val)
-# define fourth		(a->top->prev->prev->prev->val)
-# define fifth		(a->top->prev->prev->prev->prev->val)
+# define first		(a->bottom->val)
+# define second		(a->bottom->next->val)
+# define third		(a->bottom->next->next->val)
 # define sort_132	(first < second && second > third && first < third)
 # define sort_231	(first < second && second > third && first > third)
 # define sort_213	(first > second && second < third && first < third)
 # define sort_312	(first > second && second < third && first > third)
-# define sort_321	(first > second && second > third && first > third)
-# define sort_2134	(second < first && first < third)
-# define sort_3124	(third < first && first < fourth)
-# define sort_41235	(fourth < first && first < fifth)
 
 //node info
 typedef struct s_info
@@ -38,7 +32,6 @@ typedef struct s_info
 	struct s_info	*prev;
 	struct s_info	*next;
 	int				rank;
-	int				index;
 	int				val;
 }		t_info;
 
@@ -71,9 +64,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s1, char const *s2);
 char	**ft_split(char *s, char c);
 t_info	*ft_lstnew(int val);
-t_info	*ft_lstlast(t_info *lst);
-void	ft_lstadd_front(t_info **lst, t_info *new);
-void	ft_lstadd_back(t_info **lst, t_info *new);
 void	push_front(t_stack *s, int val);
 void	push_back(t_stack *s, int val);
 int		pop_front(t_stack *s);

@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/11 18:37:47 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/13 20:25:43 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,8 @@ SRCS_MAIN		=	main.c
 SRCS_CORE		=	$(addprefix $(CORE_DIR)/, check_duplicate_and_sort.c hard_coding.c \
 parsing_stack_and_array.c print_error.c push_pop.c quick_sort.c ranked.c stack_init.c)
 SRCS_COMMAND	=	$(addprefix $(COMMAND_DIR)/, command.c pa_pb.c reverse_rotate.c rotate.c swap.c)
-SRCS_UTIL		=	$(addprefix $(UTILS_DIR)/, ft_atoi_ll.c ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c \
-ft_lstnew.c ft_memcpy.c ft_split.c ft_strdup.c ft_strjoin.c ft_strlen.c ft_strncmp.c ft_substr.c)
+SRCS_UTIL		=	$(addprefix $(UTILS_DIR)/, ft_atoi_ll.c ft_lstnew.c ft_memcpy.c ft_split.c \
+ft_strdup.c ft_strjoin.c ft_strlen.c ft_strncmp.c ft_substr.c)
 
 SRCS_TOTAL		=	$(SRCS_MAIN) $(SRCS_CORE) $(SRCS_COMMAND) $(SRCS_UTIL)
 SRCS_DIR		=	$(MANDATORY_DIR)/$(SRC_DIR)

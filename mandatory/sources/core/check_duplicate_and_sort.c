@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_check_duplicate_and_sort.c                       :+:      :+:    :+:   */
+/*   check_duplicate_and_sort.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:37:25 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/08 15:04:43 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:58:32 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	check_duplicate_and_sort(int *arr, int size)
 	while (++i < size)
 	{
 		j = -1;
-		while (++j < size - 1)
+		while (++j < size - 1 - i)
 		{
 			if (arr[j] > arr[j + 1])
 			{

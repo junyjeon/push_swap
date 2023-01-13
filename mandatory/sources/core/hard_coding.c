@@ -14,6 +14,7 @@
 
 static void	sort_three(t_stack *a, t_stack *b, char c)
 {
+	
 	if (sort_132)
 	{
 		cmd(a, b, "r", c);
@@ -28,7 +29,9 @@ static void	sort_three(t_stack *a, t_stack *b, char c)
 		cmd(a, b, "s", c);
 	}
 	else if (sort_213)
+	{
 		cmd(a, b, "s", c);
+	}
 	else if (sort_312)
 	{
 		cmd(a, b, "s", c);
@@ -36,14 +39,12 @@ static void	sort_three(t_stack *a, t_stack *b, char c)
 		cmd(a, b, "s", c);
 		cmd(a, b, "rr", c);
 	}
-	else if (sort_321)
+	else
 	{
 		cmd(a, b, "r", c);
 		cmd(a, b, "s", c);
 		cmd(a, b, "rr", c);
 	}
-	else
-		print_error("sort_three fail.\n");
 }
 
 void	hard_coding(t_stack *a, t_stack *b, int size, char c)
@@ -57,10 +58,5 @@ void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 	}
 	else if (3 == size)
 		sort_three(a, b, c);
-	else
-	{
-		print_error("Hard coding error.\n");
-		return ;
-	}
 	write(1, "OK\n", 3);
 }
