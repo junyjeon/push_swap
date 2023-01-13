@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:19:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/13 21:36:11 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/13 23:58:16 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,34 +50,30 @@ void	push_back(t_stack *s, int val)
 	s->size++;
 }
 
-int	pop_front(t_stack *s)
+t_info	*pop_front(t_stack *s)
 {
-	int		val;
 	t_info	*tmp;
 
 	if (!s->size)
 		return (0);
-	val = s->bottom->val;
 	tmp = s->bottom;
 	s->bottom = s->bottom->next;
 	s->bottom->prev = NULL;
+	tmp->next = NULL;
 	s->size--;
-	free(tmp);
-	return (val);
+	return (tmp);
 }
 
-int	pop_back(t_stack *s)
+t_info	*pop_back(t_stack *s)
 {
-	int		val;
 	t_info	*tmp;
 
 	if (!s->size)
 		return (0);
-	val = s->top->val;
 	tmp = s->top;
 	s->top = s->top->prev;
 	s->top->next = NULL;
+	tmp->prev = NULL;
 	s->size--;
-	free(tmp);
-	return (val);
+	return (tmp);
 }

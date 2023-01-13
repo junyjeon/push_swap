@@ -50,7 +50,10 @@ static void	sort_three(t_stack *a, t_stack *b, char c)
 void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 {
 	if (1 == size)
-		print_error("Arguments vector is one.\n");
+	{
+		write(1, "Arguments vector is one.\n", 26);
+		return ;
+	}
 	else if (2 == size)
 	{
 		if (first > second)

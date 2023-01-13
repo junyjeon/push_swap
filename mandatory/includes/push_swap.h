@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/13 20:31:11 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:59:56 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # include <stdio.h>
 
 // For hardcoding
-# define first		(a->bottom->val)
-# define second		(a->bottom->next->val)
-# define third		(a->bottom->next->next->val)
+# define first		(a->top->val)
+# define second		(a->top->prev->val)
+# define third		(a->top->prev->prev->val)
 # define sort_132	(first < second && second > third && first < third)
 # define sort_231	(first < second && second > third && first > third)
 # define sort_213	(first > second && second < third && first < third)
@@ -66,8 +66,8 @@ char	**ft_split(char *s, char c);
 t_info	*ft_lstnew(int val);
 void	push_front(t_stack *s, int val);
 void	push_back(t_stack *s, int val);
-int		pop_front(t_stack *s);
-int		pop_back(t_stack *s);
+t_info	*pop_front(t_stack *s);
+t_info	*pop_back(t_stack *s);
 int		cmd(t_stack *a, t_stack *b, char *command, char c);
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
@@ -85,9 +85,9 @@ void	stack_init(t_stack *a, t_stack *b);
 int		*parsing_stack_and_array(t_stack *a,  int argc, char **argv);
 void	check_duplicate_and_sort(int *arr, int size);
 void	ranked(t_stack *a, int *arr);
+void	a_to_b(t_stack *a, t_stack *b, int size, t_cnt *cnt);
+void	b_to_a(t_stack *a, t_stack *b, int size, t_cnt *cnt);
 void	quick_sort(t_stack *a, t_stack *b, int size);
-void	a_to_b(t_stack *a, t_stack *b, int size);
-void	b_to_a(t_stack *a, t_stack *b, int size);
 void	hard_coding(t_stack *a, t_stack *b, int size, char s);
 int		main(int ac, char **ar);
 
