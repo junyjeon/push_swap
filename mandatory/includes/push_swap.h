@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/14 05:42:54 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/14 08:17:24 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ void	stack_init(t_stack *a, t_stack *b);
 int		*parsing_stack_and_array(t_stack *a,  int argc, char **argv);
 void	check_duplicate_and_sort(int *arr, int size);
 void	ranked(t_stack *a, int *arr);
-void	a_to_b(t_stack *a, t_stack *b, int size, t_cnt *cnt);
-void	b_to_a(t_stack *a, t_stack *b, int size, t_cnt *cnt);
+void	a_to_b(t_stack *a, t_stack *b, int size);
+void	b_to_a(t_stack *a, t_stack *b, int size);
 void	quick_sort(t_stack *a, t_stack *b, int size);
 void	hard_coding(t_stack *a, t_stack *b, int size, char s);
 int		main(int ac, char **ar);
