@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/14 08:24:56 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/14 08:26:48 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	b_to_a(t_stack *a, t_stack *b, int size)
 	{
 		if (!is_sorted(b, size))
 			hard_coding(a, b, size, 'b');
-			//b면 뒤집어서 정렬하기
+		//
 		return ;
 	}
 	i = -1;
