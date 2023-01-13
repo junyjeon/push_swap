@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/13 19:49:53 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/13 21:54:05 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	*parsing_stack_and_array(t_stack *a,  int argc, char **argv)
 	while (i--)
 	{
 		arr[i] = ft_atoi_ll(split_str[i]);
-		push_front(a, arr[i]);
+		push_back(a, arr[i]);
 		free(split_str[i]);
 	}
 	free(split_str);

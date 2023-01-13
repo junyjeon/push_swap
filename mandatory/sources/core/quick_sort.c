@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/13 21:02:10 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/13 21:58:11 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static void	cnt_init(t_cnt *cnt)
 	cnt->sb = 0;
 	cnt->ra = 0;
 	cnt->rb = 0;
-	cnt->rra = 0;
-	cnt->rrb = 0;
 	cnt->pa = 0;
 	cnt->pb = 0;
 }
@@ -29,13 +27,13 @@ static int	is_sorted(t_stack *s, int size)
 	t_info	*cur;
 	int		i;
 
-	cur = s->bottom;
+	cur = s->top;
 	i = -1;
-	while (++i < size && cur->next)
+	while (++i < size && cur->prev)
 	{
-		if (cur->rank > cur->next->rank)
+		if (cur->rank > cur->prev->rank)
 			return (0);
-		cur = cur->next;
+		cur = cur->prev;
 	}
 	return (1);
 }
@@ -140,5 +138,20 @@ void	b_to_a(t_stack *a, t_stack *b, int size)
 
 void	quick_sort(t_stack *a, t_stack *b, int size)
 {
+	t_info	*cur;
+
+	cur = a->top;
+	while (cur)
+	{
+		printf("1. val: %d, rank: %d\n", cur->val, cur->rank);
+		cur = cur->prev;
+	}
 	a_to_b(a, b, size);
+	cur = a->top;
+	while (cur)
+	{
+		printf("2. val: %d, rank: %d\n", cur->val, cur->rank);
+		cur = cur->prev;
+	}
 }
+

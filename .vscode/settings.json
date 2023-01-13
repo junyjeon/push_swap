@@ -3,6 +3,7 @@
 		"sstream": "c",
 		"push_swap.h": "c",
 		"chrono": "c",
-		"algorithm": "c"
+		"algorithm": "c",
+		"ios": "c"
 	}
 }

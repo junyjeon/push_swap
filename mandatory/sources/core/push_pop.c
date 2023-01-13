@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:19:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/13 19:49:45 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/13 21:36:11 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void	push_front(t_stack *s, int val)
 		s->bottom = new;
 	}
 	else
+	{
 		s->bottom->prev = new;
-	new->next = s->bottom;
+		new->next = s->bottom;
+	}
 	s->bottom = new;
 	s->size++;
 }
@@ -40,8 +42,10 @@ void	push_back(t_stack *s, int val)
 		s->bottom = new;
 	}
 	else
+	{
 		s->top->next = new;
-	new->prev = s->top;
+		new->prev = s->top;
+	}
 	s->top = new;
 	s->size++;
 }
