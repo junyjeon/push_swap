@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:45:27 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 10:13:01 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/14 05:17:27 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	cmd(t_stack *a, t_stack *b, char *command, char c)
 		if (!ft_strncmp(command, "s", len))
 			sa(a);
 		else if (!ft_strncmp(command, "r", len))
+		{
 			ra(a);
+		}
 		else if (!ft_strncmp(command, "rr", len))
 			rra(a);
 		else if (!ft_strncmp(command, "p", len))

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/13 21:54:05 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/14 05:36:38 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	*parsing_stack_and_array(t_stack *a,  int argc, char **argv)
 {
-	char	*str;
-	char	**split_str;
-	int		*arr;
+	t_info	*new;
 	int		i;
-
+	int		*arr;
+	char	**split_str;
+	char	*str;
+	
 	str = NULL;
 	i = 0;
 	while (++i < argc)
@@ -33,7 +34,8 @@ int	*parsing_stack_and_array(t_stack *a,  int argc, char **argv)
 	while (i--)
 	{
 		arr[i] = ft_atoi_ll(split_str[i]);
-		push_back(a, arr[i]);
+		new = ft_lstnew(arr[i]);
+		push_back(a, new);
 		free(split_str[i]);
 	}
 	free(split_str);

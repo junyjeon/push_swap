@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/14 05:10:24 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/14 05:16:53 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	a_to_b(t_stack *a, t_stack *b, int size, t_cnt *cnt)
 				cnt->rb++;
 			}
 		}
-		printf("%p\n", cur->prev);
 		cur = cur->prev;
 	}
 	i = 0;

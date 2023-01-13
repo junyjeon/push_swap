@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:06 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 01:21:57 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/14 05:42:32 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 static void	rotate(t_stack *s)
 {
+	t_info *tmp;
+
 	if (s->size <= 1)
 		return ;
-	s->top->next = s->bottom;
-	s->bottom->prev = s->top;
-	s->bottom = s->top;
-	s->top = s->top->prev;
-	s->top->next = NULL;
-	s->bottom->prev = NULL;
+	tmp = pop_back(s);
+	push_front(s, tmp);
 }
 
 void	rr(t_stack *a, t_stack *b)
