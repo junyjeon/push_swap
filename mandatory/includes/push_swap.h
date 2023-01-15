@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/14 08:17:24 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/15 16:32:09 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # include <stdio.h>
 
 // For hardcoding
-# define first		(a->top->val)
-# define second		(a->top->prev->val)
-# define third		(a->top->prev->prev->val)
+# define first		(s->top->val)
+# define second		(s->top->prev->val)
+# define third		(s->top->prev->prev->val)
 # define sort_132	(first < second && second > third && first < third)
 # define sort_231	(first < second && second > third && first > third)
 # define sort_213	(first > second && second < third && first < third)
@@ -68,7 +68,6 @@ void	push_front(t_stack *s, t_info *new);
 void	push_back(t_stack *s, t_info *new);
 t_info	*pop_front(t_stack *s);
 t_info	*pop_back(t_stack *s);
-int		cmd(t_stack *a, t_stack *b, char *command, char c);
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
@@ -88,7 +87,7 @@ void	ranked(t_stack *a, int *arr);
 void	a_to_b(t_stack *a, t_stack *b, int size);
 void	b_to_a(t_stack *a, t_stack *b, int size);
 void	quick_sort(t_stack *a, t_stack *b, int size);
-void	hard_coding(t_stack *a, t_stack *b, int size, char s);
+void	hard_coding(t_stack *s, int size, char c);
 int		main(int ac, char **ar);
 
 #endif

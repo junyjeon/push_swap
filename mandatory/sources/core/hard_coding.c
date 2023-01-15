@@ -12,42 +12,75 @@
 
 #include "push_swap.h"
 
-static void	sort_three(t_stack *a, t_stack *b, char c)
+static void	in_b_sort_three(t_stack *s)
+{
+	if (sort_132)
+	{
+		sb(s);
+		rb(s);
+		sb(s);
+		rrb(s);
+	}
+	else if (sort_231)
+		sb(s);
+	else if (sort_213)
+	{
+		rb(s);
+		sb(s);
+		rrb(s);
+		sb(s);
+	}
+	else if (sort_312)
+	{
+		rb(s);
+		sb(s);
+		rrb(s);
+	}
+	else
+	{
+		sb(s);
+		rb(s);
+		sb(s);
+		rrb(s);
+		sb(s);
+	}
+
+}
+
+static void	in_a_sort_three(t_stack *s)
 {
 	
 	if (sort_132)
 	{
-		cmd(a, b, "r", c);
-		cmd(a, b, "s", c);
-		cmd(a, b, "rr", c);
+		ra(s);
+		sa(s);
+		rra(s);
 	}
 	else if (sort_231)
 	{
-		cmd(a, b, "r", c);
-		cmd(a, b, "s", c);
-		cmd(a, b, "rr", c);
-		cmd(a, b, "s", c);
+		ra(s);
+		sa(s);
+		rra(s);
+		sa(s);
 	}
 	else if (sort_213)
-	{
-		cmd(a, b, "s", c);
-	}
+		sa(s);
 	else if (sort_312)
 	{
-		cmd(a, b, "s", c);
-		cmd(a, b, "r", c);
-		cmd(a, b, "s", c);
-		cmd(a, b, "rr", c);
+		sa(s);
+		ra(s);
+		sa(s);
+		rra(s);
 	}
 	else
 	{
-		cmd(a, b, "r", c);
-		cmd(a, b, "s", c);
-		cmd(a, b, "rr", c);
+		ra(s);
+		sa(s);
+		rra(s);
 	}
 }
 
-void	hard_coding(t_stack *a, t_stack *b, int size, char c)
+void	hard_coding(t_stack *s, int size, char c)
 {
 	if (1 == size)
 	{
@@ -56,10 +89,19 @@ void	hard_coding(t_stack *a, t_stack *b, int size, char c)
 	}
 	else if (2 == size)
 	{
-		if (first > second)
-			cmd(a, b, "s", c);
+		if (first > second && c == 'a')
+			sa(s);
+		else if (first < second && c == 'b')
+			sb(s);
 	}
 	else if (3 == size)
-		sort_three(a, b, c);
+	{
+		if (c == 'a')
+			in_a_sort_three(s);
+		else if (c == 'b')
+			in_b_sort_three(s);
+		else
+			print_error("Sort_three error\n");
+	}
 	write(1, "OK\n", 3);
 }

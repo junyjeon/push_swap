@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:19:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/14 06:33:08 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/15 16:31:46 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_info	*pop_front(t_stack *s)
 		return (NULL);
 	tmp = s->bottom;
 	s->bottom = s->bottom->next;
-	if (s->size == 1)
+	if (s->size == 1) 
 		s->top = NULL;
 	else
 	{
