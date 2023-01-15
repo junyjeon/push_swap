@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/15 17:51:10 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/15 21:39:39 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,37 @@ static int	is_sorted(t_stack *s, int size, char c)
 		cur = cur->prev;
 	}
 	return (1);
+}
+
+static int	find_pivot(t_stack *s, int size, int *pivot_min, int pivot_max)
+{
+	t_info	*cur;
+	t_info	*cur2;
+	int		min;
+	int		i;
+	int		j;
+
+	cur = s->top;
+	cur2 = s->top;
+	i = -1;
+	while (i < size && cur)
+	{
+		j = -1;
+		while (++j < size)
+		{
+			min = cur->val;
+			if (min < cur2->val)
+				min = cur->val;
+			else
+				min = cur2->val;
+			cur2 = cur2->prev; 
+		}
+		if (i == size / 3)	
+			pivot_min = i;
+		else if (i == size / 3 * 2)
+			pivot_max = i;	
+		cur = cur->prev; 
+	}
 }
 
 void	a_to_b(t_stack *a, t_stack *b, int size)
@@ -95,8 +126,6 @@ void	a_to_b(t_stack *a, t_stack *b, int size)
 		rrb(b);
 		i++;
 	}
-	a_to_b(a, b, cnt.ra);
-	b_to_a(a, b, cnt.rb);
 	t_info	*cur;
 	t_info	*cur2;
 
@@ -113,20 +142,63 @@ void	a_to_b(t_stack *a, t_stack *b, int size)
 		printf("b. val: %d, rank: %d\n", cur2->val, cur2->rank);
 		cur2 = cur2->prev;
 	}
+	a_to_b(a, b, cnt.ra);
+	cur = a->top;
+	cur2 = b->top;
+	printf("2_ a_to_b\n");
+	while (cur)
+	{
+		printf("a. val: %d, rank: %d\n", cur->val, cur->rank);
+		cur = cur->prev;
+	}
+	while (cur2)
+	{
+		printf("b. val: %d, rank: %d\n", cur2->val, cur2->rank);
+		cur2 = cur2->prev;
+	}
+	b_to_a(a, b, cnt.rb);
+	cur = a->top;
+	cur2 = b->top;
+	printf("3_ b_to_a\n");
+	while (cur)
+	{
+		printf("a. val: %d, rank: %d\n", cur->val, cur->rank);
+		cur = cur->prev;
+	}
+	while (cur2)
+	{
+		printf("b. val: %d, rank: %d\n", cur2->val, cur2->rank);
+		cur2 = cur2->prev;
+	}
 	b_to_a(a, b, cnt.pb - cnt.rb);
+	cur = a->top;
+	cur2 = b->top;
+	printf("4_ b_to_a\n");
+	while (cur)
+	{
+		printf("a. val: %d, rank: %d\n", cur->val, cur->rank);
+		cur = cur->prev;
+	}
+	while (cur2)
+	{
+		printf("b. val: %d, rank: %d\n", cur2->val, cur2->rank);
+		cur2 = cur2->prev;
+	}
 }
 
 void	b_to_a(t_stack *a, t_stack *b, int size)
 {
 	t_cnt	cnt;
 	int		i;
+	int		j;
 	int		pivot_min;
 	int		pivot_max;
 
 	cnt_init(&cnt);
-	pivot_min = size / 3;
-	pivot_max = size / 3 * 2;
-	if (size < 3)
+	//정렬 되었는지 여기서 확인?
+	//피벗 두개도 여기서 확인?
+	find_pivot(b, size, NULL, NULL);
+	if (size <= 3)
 	{
 		if (!is_sorted(b, size, 'b'))
 			hard_coding(b, size, 'b');
@@ -146,7 +218,7 @@ void	b_to_a(t_stack *a, t_stack *b, int size)
 		{
 			pa(a, b);
 			cnt.pa++;
-			if (a->top->rank <= pivot_max && a->size != 1)
+			if (a->top->rank < pivot_max && a->size != 1)
 			{
 				ra(a);
 				cnt.ra++;
