@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/15 16:33:40 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/17 03:43:04 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,19 +53,15 @@ $(BUILD_DIR)/%.o: $(SRCS)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
 
-$(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
-	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
-
 clean:
 	@$(RM) $(OBJS) $(DEPS)
 	@rm -rf $(BUILD_DIR)
-	@echo "${YELLOW}> All objects files of the so_long have been deleted ❌${END}"
+	@echo "${YELLOW}> All objects files of the push_swap have been deleted ❌${END}"
 
 fclean:
-	@$(RM) $(OBJS) $(DEPS) $(LIBS) $(LIBMLX) so_long so_long_bonus
+	@$(RM) $(OBJS) $(DEPS) $(LIBS) $(LIBMLX) push_swap
 	@rm -rf $(BUILD_DIR)
-	@echo "${YELLOW}> Cleaning of the so_long has been don./e ❌${END}"
+	@echo "${YELLOW}> Cleaning of the push_swap has been don./e ❌${END}"
 
 re: fclean
 	@make all
