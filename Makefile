@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/17 03:43:04 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/19 00:33:22 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,9 @@ SRCS_COMMAND	=	$(addprefix $(COMMAND_DIR)/, pa_pb.c reverse_rotate.c rotate.c sw
 SRCS_UTIL		=	$(addprefix $(UTILS_DIR)/, ft_atoi_ll.c ft_lstnew.c ft_memcpy.c ft_split.c \
 ft_strdup.c ft_strjoin.c ft_strlen.c ft_strncmp.c ft_substr.c)
 
-SRCS_TOTAL		=	$(SRCS_MAIN) $(SRCS_CORE) $(SRCS_COMMAND) $(SRCS_UTIL)
 SRCS_DIR		=	$(MANDATORY_DIR)/$(SRC_DIR)
 INCS_DIR		=	$(MANDATORY_DIR)/$(INC_DIR)
+SRCS_TOTAL		=	$(SRCS_MAIN) $(SRCS_CORE) $(SRCS_COMMAND) $(SRCS_UTIL)
 
 NAME			=	push_swap
 

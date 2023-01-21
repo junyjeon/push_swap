@@ -83,10 +83,7 @@ static void	in_a_sort_three(t_stack *s)
 void	hard_coding(t_stack *s, int size, char c)
 {
 	if (1 == size)
-	{
 		write(1, "Arguments vector is one.\n", 26);
-		return ;
-	}
 	else if (2 == size)
 	{
 		if (first > second && c == 'a')
@@ -103,5 +100,7 @@ void	hard_coding(t_stack *s, int size, char c)
 		else
 			print_error("Sort_three error\n");
 	}
+	else
+		return ;
 	write(1, "OK\n", 3);
 }
