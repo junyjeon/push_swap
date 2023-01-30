@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/01/21 12:32:09 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/01/30 17:55:55 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,9 @@ SRCS_COMMAND	=	$(addprefix $(COMMAND_DIR)/, push.c reverse_rotate.c rotate.c swa
 SRCS_UTIL		=	$(addprefix $(UTILS_DIR)/, ft_atoi_ll.c ft_lstnew.c ft_memcpy.c ft_split.c \
 ft_strdup.c ft_strjoin.c ft_strlen.c ft_strncmp.c ft_substr.c)
 
+SRCS_TOTAL		=	$(SRCS_MAIN) $(SRCS_CORE) $(SRCS_COMMAND) $(SRCS_UTIL)
 SRCS_DIR		=	$(MANDATORY_DIR)/$(SRC_DIR)
 INCS_DIR		=	$(MANDATORY_DIR)/$(INC_DIR)
-SRCS_TOTAL		=	$(SRCS_MAIN) $(SRCS_CORE) $(SRCS_COMMAND) $(SRCS_UTIL)
 
 NAME			=	push_swap
 
@@ -53,15 +53,19 @@ $(BUILD_DIR)/%.o: $(SRCS)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
 
+$(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
+
 clean:
 	@$(RM) $(OBJS) $(DEPS)
 	@rm -rf $(BUILD_DIR)
-	@echo "${YELLOW}> All objects files of the push_swap have been deleted ❌${END}"
+	@echo "${YELLOW}> All objects files of the so_long have been deleted ❌${END}"
 
 fclean:
-	@$(RM) $(OBJS) $(DEPS) $(LIBS) $(LIBMLX) push_swap
+	@$(RM) $(OBJS) $(DEPS) $(LIBS) $(LIBMLX) so_long so_long_bonus
 	@rm -rf $(BUILD_DIR)
-	@echo "${YELLOW}> Cleaning of the push_swap has been don./e ❌${END}"
+	@echo "${YELLOW}> Cleaning of the so_long has been don./e ❌${END}"
 
 re: fclean
 	@make all

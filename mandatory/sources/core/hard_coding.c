@@ -32,8 +32,29 @@ static void	in_b_sort_three(t_stack *s)
 	}
 	else if (sort_312)
 	{
+		t_info *cur3 = s->top;
+		printf("bbbbbbbbbbb\n");
+		while (cur3)
+		{
+			printf("b. val: %d, rank: %d\n", cur3->val, cur3->rank);
+			cur3 = cur3->prev;
+		}
 		rb(s);
+		t_info *cur = s->top;
+		printf("bbbbbbbbbbb\n");
+		while (cur)
+		{
+			printf("b. val: %d, rank: %d\n", cur->val, cur->rank);
+			cur = cur->prev;
+		}
 		sb(s);
+		t_info *cur2 = s->top;
+		printf("bbbbbbbbbbb\n");
+		while (cur2)
+		{
+			printf("b. val: %d, rank: %d\n", cur2->val, cur2->rank);
+			cur2 = cur2->prev;
+		}
 		rrb(s);
 	}
 	else

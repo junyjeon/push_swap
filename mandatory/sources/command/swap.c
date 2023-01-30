@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/15 16:56:36 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/30 19:58:24 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static void	swap(t_stack *s)
 
 	if (s->size <= 1)
 		return ;
-	val = s->bottom->val;
-	s->bottom->val = s->bottom->next->val;
-	s->bottom->next->val = val;
-	rank = s->bottom->rank;
-	s->bottom->rank = s->bottom->next->rank;
-	s->bottom->next->rank = rank;
+	val = s->top->val;
+	s->top->val = s->top->prev->val;
+	s->top->prev->val = val;
+	rank = s->top->rank;
+	s->top->rank = s->top->prev->rank;
+	s->top->prev->rank = rank;
 }
 
 void	ss(t_stack *a, t_stack *b)
