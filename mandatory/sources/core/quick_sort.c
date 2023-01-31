@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/31 20:00:41 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/31 20:03:13 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,8 +234,6 @@ void	quick_sort_stack(t_stack *a, t_stack *b, int size)
 {
 	t_cnt	cnt;
 
-	printf("0.ATB || size : %d\n", size);
-	showmethemoney(a, b);
 	if (is_sorted(a, size, 'a'))
 		return ;
 	if (size <= 3)
