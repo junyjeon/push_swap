@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/30 22:47:43 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:28:10 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,6 @@ int	main(int argc, char **argv)
 	stack_init(&a, &b);
 	arr = parsing_stack_and_array(&a, argc, argv);
 	check_duplicate_and_sort(arr, a.size);
-	if (a.size <= 3)
-	{
-		
-		hard_coding(&a, a.size, 'a');
-		exit(1);
-	}
 	ranked(&a, arr, a.size);
 	quick_sort_stack(&a, &b, a.size);
 	return (0);

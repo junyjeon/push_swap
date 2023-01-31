@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/30 22:49:27 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:33:36 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define sort_231	(first < second && second > third && first > third)
 # define sort_213	(first > second && second < third && first < third)
 # define sort_312	(first > second && second < third && first > third)
+# define sort_321	(first > second && second > third && first > third)
 
 //node info
 typedef struct s_info
@@ -86,6 +87,7 @@ void	check_duplicate_and_sort(int *arr, int size);
 void	ranked(t_stack *a, int *arr, int size);
 void	quick_sort_stack(t_stack *a, t_stack *b, int size);
 void	hard_coding(t_stack *s, int size, char c);
+void	showmethemoney(t_stack *a, t_stack *b);
 int		main(int ac, char **ar);
 
 #endif

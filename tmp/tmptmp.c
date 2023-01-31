@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 18:04:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/07 17:18:56 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/01/31 17:30:41 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ size_t	calc_amount(size_t p, size_t i, size_t n)//i번째 삼각형의 크기(�
 	}
 }
 
-//[0] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
+//[0] [1] [2] [3] [4] [5] [6] [7]
 
-//s_size = 10;
+//s_size = 8;
 
 //depth = 1;
 
@@ -139,7 +139,7 @@ int merge_sort(t_stack *a, t_stack *b, int depth, int size)
 }
 
 void	aamake_array(t_stack *a, t_stack *b)
-{	
+{
 	int	s_size;
 	int	arr_size;
 	int depth;
