@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/31 16:33:36 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/01 21:40:21 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define first		(s->top->val)
 # define second		(s->top->prev->val)
 # define third		(s->top->prev->prev->val)
+# define sort_123	(first < second && second < third && first < third)
 # define sort_132	(first < second && second > third && first < third)
 # define sort_231	(first < second && second > third && first > third)
 # define sort_213	(first > second && second < third && first < third)

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:06 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/31 16:49:26 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/01 20:12:32 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static int	rotate(t_stack *s)
 {
 	t_info *tmp;
 
-	if (s->size <= 1)
-		return (0);
 	tmp = pop_back(s);
 	push_front(s, tmp);
 	return (1);
@@ -25,21 +23,23 @@ static int	rotate(t_stack *s)
 
 void	rr(t_stack *a, t_stack *b)
 {
-	if (!(rotate(a) && rotate(b)))
-		return ;
+	rotate(a);
+	rotate(b);
 	write(1, "rr\n", 4);
 }
 
 void	ra(t_stack *a)
 {
-	if (!rotate(a))
+	if (a->size <= 1)
 		return ;
-	write(1, "ra\n", 3);
+	rotate(a);
+	write(1, "ra\n", 4);
 }
 
 void	rb(t_stack *b)
 {
-	if (!rotate(b))
+	if (b->size <= 1)
 		return ;
-	write(1, "rb\n", 3);
+	rotate(b);
+	write(1, "rb\n", 4);
 }

@@ -14,8 +14,14 @@
 
 static void	in_b_sort_three(t_stack *s)
 {
-	if (sort_132 || sort_312)
+	if (sort_132 || sort_312 || sort_123)
 	{
+		if (sort_123)
+		{
+			rb(s);
+			sb(s);
+			rrb(s);
+		}
 		if (sort_132)
 			sb(s);
 		rrb(s);
@@ -24,21 +30,22 @@ static void	in_b_sort_three(t_stack *s)
 	else if (sort_213 || sort_231)
 	{
 		sb(s);
-		rrb(s);
-		sb(s);
-		rb(s);
-		sb(s);
-		if (!sort_231)
+		if (sort_231)
+		{
 			rrb(s);
+			sb(s);
+			rb(s);
+			sb(s);
+			rrb(s);
+		}
 	}
 }
 
 static void	in_a_sort_three(t_stack *s)
 {
-	
 	if (sort_132 || sort_312)
 	{
-		if (sort_132)
+		if (sort_312)
 			sa(s);
 		ra(s);
 		sa(s);
@@ -46,14 +53,15 @@ static void	in_a_sort_three(t_stack *s)
 	}
 	else if (sort_231 || sort_213 || sort_321)
 	{
-		if (!sort_213)
+		if (sort_321)
+			sa(s);
+		if (sort_231)
 		{
 			ra(s);
 			sa(s);
 			rra(s);
 		}
-		if (!sort_321)
-			sa(s);
+		sa(s);
 	}
 }
 
@@ -63,9 +71,9 @@ void	hard_coding(t_stack *s, int size, char c)
 		return ;
 	else if (2 == size)
 	{
-		if (first > second && c == 'a')
+		if (c == 'a' && first > second)
 			sa(s);
-		else if (first < second && c == 'b')
+		else if (c == 'b' && first < second)
 			sb(s);
 	}
 	else if (3 == size)

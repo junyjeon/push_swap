@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:19:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/15 16:31:46 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/01 21:19:07 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,14 @@ t_info	*pop_front(t_stack *s)
 	if (s->size == 0)
 		return (NULL);
 	tmp = s->bottom;
-	s->bottom = s->bottom->next;
 	if (s->size == 1) 
+	{
 		s->top = NULL;
+		s->bottom = NULL;
+	}
 	else
 	{
+		s->bottom = s->bottom->next;
 		s->bottom->prev = NULL;
 		tmp->next = NULL;
 	}
@@ -70,11 +73,14 @@ t_info	*pop_back(t_stack *s)
 	if (s->size == 0)
 		return (NULL);
 	tmp = s->top;
-	s->top = s->top->prev;
 	if (s->size == 1)
+	{
+		s->top = NULL;
 		s->bottom = NULL;
+	}
 	else
 	{
+		s->top = s->top->prev;
 		s->top->next = NULL;
 		tmp->prev = NULL;
 	}
