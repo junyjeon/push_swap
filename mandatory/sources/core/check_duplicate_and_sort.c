@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:37:25 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/13 17:58:32 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/01 22:03:33 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ void	check_duplicate_and_sort(int *arr, int size)
 				swap_cnt++;
 			}
 		}
+	}
+	i = -1;
+	while (++i < size - 1)
 		if (arr[i] == arr[i + 1])
 			print_error("Duplicate!\n");
-	}
 	if (swap_cnt == 0)
 		print_error("It's aligned.\n");
 }

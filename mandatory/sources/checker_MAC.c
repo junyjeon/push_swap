@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   checker_MAC.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 16:52:11 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/02 15:05:54 by junyojeo         ###   ########.fr       */
+/*   Created: 2023/02/02 16:20:25 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/02/02 16:45:44 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	revers_rotate(t_stack *s)
+int main(int argc, char **argv)
 {
-	t_info	*tmp;
-
-	tmp = pop_front(s);
-	push_back(s, tmp);
-}
-
-void	rrr(t_stack *a, t_stack *b)
-{
-	revers_rotate(a);
-	revers_rotate(b);
-	write(1, "rrr\n", 4);
-}
-
-void	rrb(t_stack *b)
-{
-	revers_rotate(b);
-	write(1, "rrb\n", 4);
-}
-
-void	rra(t_stack *a)
-{
-	revers_rotate(a);
-	write(1, "rra\n", 4);
+	t_stack	a;
+	t_stack	b;
+	char	*line;
+	int		*arr;
+	stack_init(&a, &b);
+	arr = parsing_stack_and_array(&a, argc, argv);
+	check_duplicate_and_sort(arr, a.size);
+	line = get_next_line(STDIN_FILENO);
+	while (line)
+	{
+		line = get_next_line(STDIN_FILENO);
+		// cmd 처리
+		// cmd 예외처리
+	}
+		// stack a check후 stack a가 정렬이면 끝
+	return (0);	
 }

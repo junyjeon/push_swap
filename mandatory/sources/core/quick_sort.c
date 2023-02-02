@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/01 21:42:32 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:19:05 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,28 @@ static void	cnt_init(t_cnt *cnt)
 	cnt->rb = 0;
 	cnt->pa = 0;
 	cnt->pb = 0;
+}
+
+static int is_sorted(t_stack *s, int size, char c)
+{
+	t_info *cur;
+	int i;
+
+	i = -1;
+	cur = s->top;
+	while (++i < size && cur->prev)
+	{
+		if (c == 'a')
+		{
+			if (cur->rank > cur->prev->rank)
+				return (0);
+		}
+		else if (c == 'b')
+			if (cur->rank < cur->prev->rank)
+				return (0);
+		cur = cur->prev;
+	}
+	return (1);
 }
 
 static void	find_pivot(t_stack *s, int size, int *pivot_min, int *pivot_max)
@@ -52,30 +74,7 @@ static void	find_pivot(t_stack *s, int size, int *pivot_min, int *pivot_max)
 		}
 	}
 	*pivot_min = arr[size / 3];
-	*pivot_max = arr[size / 3 * 2];
-	
-}
-
-static int is_sorted(t_stack *s, int size, char c)
-{
-	t_info *cur;
-	int i;
-
-	i = -1;
-	cur = s->top;
-	while (++i < size && cur->prev)
-	{
-		if (c == 'a')
-		{
-			if (cur->rank > cur->prev->rank)
-				return (0);
-		}
-		else if (c == 'b')
-			if (cur->rank < cur->prev->rank)
-				return (0);
-		cur = cur->prev;
-	}
-	return (1);
+	*pivot_max = arr[size / 3 * 2 + size % 3];
 }
 
 void	partition_B(t_stack *a, t_stack *b, t_cnt *cnt, int size)
