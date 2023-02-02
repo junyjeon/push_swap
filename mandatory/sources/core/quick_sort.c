@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/02 16:19:05 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:02:12 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,29 @@ static void	find_pivot(t_stack *s, int size, int *pivot_min, int *pivot_max)
 	*pivot_max = arr[size / 3 * 2 + size % 3];
 }
 
-void	partition_B(t_stack *a, t_stack *b, t_cnt *cnt, int size)
+void	reverse_rotation(t_stack *a, t_stack *b, t_cnt *cnt)
+{
+	int	i;
+
+	i = 0;
+	while (i < cnt->ra && i < cnt->rb)
+	{
+		rrr(a, b);
+		i++;
+	}
+	while (i < cnt->ra)
+	{
+		rra(a);
+		i++;
+	}
+	while (i < cnt->rb)
+	{
+		rrb(b);
+		i++;
+	}
+}
+
+static void	reverse_partition(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 {
 	int	pivot_min;
 	int	pivot_max;
@@ -86,6 +108,7 @@ void	partition_B(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 	pivot_min = 0;
 	pivot_max = 0;
 	find_pivot(b, size, &pivot_min, &pivot_max);
+	printf("min: %d, max: %d", pivot_min, pivot_max);
 	i = -1;
 	while (++i < size)
 	{
@@ -105,9 +128,25 @@ void	partition_B(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 			}
 		}
 	}
+	i = 0;
+	while (i < cnt->ra && i < cnt->rb)
+	{
+		rrr(a, b);
+		i++;
+	}
+	while (i < cnt->ra)
+	{
+		rra(a);
+		i++;
+	}
+	while (i < cnt->rb)
+	{
+		rrb(b);
+		i++;
+	}
 }
 
-void	partition_A(t_stack *a, t_stack *b, t_cnt *cnt, int size)
+static void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 {
 	int	pivot_min;
 	int	pivot_max;
@@ -116,6 +155,7 @@ void	partition_A(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 	pivot_min = 0;
 	pivot_max = 0;
 	find_pivot(a, size, &pivot_min, &pivot_max);
+	printf("min: %d, max: %d\n", pivot_min, pivot_max);
 	i = -1;
 	while (++i < size)
 	{
@@ -168,24 +208,9 @@ static void	quick_sort_stack_B(t_stack *a, t_stack *b, int size)
 		return ;
 	}
 	cnt_init(&cnt);
-	partition_B(a, b, &cnt, size);;
+	reverse_partition(a, b, &cnt, size);;
 	quick_sort_stack(a, b, cnt.pa - cnt.ra);
-	i = 0;
-	while (i < cnt.ra && i < cnt.rb)
-	{
-		rrr(a, b);
-		i++;
-	}
-	while (i < cnt.ra)
-	{
-		rra(a);
-		i++;
-	}
-	while (i < cnt.rb)
-	{
-		rrb(b);
-		i++;
-	}
+	//reverse_rotation(a, b, &cnt);
 	quick_sort_stack(a, b, cnt.ra);
 	quick_sort_stack_B(a, b, cnt.rb);
 }
@@ -194,6 +219,7 @@ void	quick_sort_stack(t_stack *a, t_stack *b, int size)
 {
 	t_cnt	cnt;
 
+	//정렬 되었는지 먼저 확인
 	if (size <= 3)
 	{
 		if (!is_sorted(a, size, 'a'))
@@ -201,7 +227,8 @@ void	quick_sort_stack(t_stack *a, t_stack *b, int size)
 		return ;
 	}
 	cnt_init(&cnt);
-	partition_A(a, b, &cnt, size);
+	partition(a, b, &cnt, size);
+	//reverse_rotation(a, b, &cnt);
 	quick_sort_stack(a, b, cnt.ra);
 	quick_sort_stack_B(a, b, cnt.rb);
 	quick_sort_stack_B(a, b, cnt.pb - cnt.rb);
