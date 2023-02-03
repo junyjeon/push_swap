@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rotation.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/03 23:42:12 by junyojeo         ###   ########.fr       */
+/*   Created: 2023/02/03 23:56:09 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/02/04 00:10:56 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	rotation(t_stack *a, t_stack *b, t_cnt *cnt)
 {
-	t_stack	a;
-	t_stack	b;
-	int		*arr;
+	int	i;
 
-	if (argc < 2)
-		print_error("Argment count is zero.\n");
-	stack_init(&a, &b);
-	arr = parsing_stack_and_array(&a, argc, argv, 0);
-	check_duplicate_and_sort(arr, a.size);
-	ranked(&a, arr, a.size);
-	if (a.size <= 5)
-		hard_coding(&a, &b, a.size, 'a');
-	else
-		quick_sort_stack(&a, &b, a.size, 1);
-	return (0);
+	i = 0;
+	while (i < cnt->ra && i < cnt->rb)
+	{
+		rrr(a, b);
+		i++;
+	}
+	while (i < cnt->ra)
+	{
+		rra(a);
+		i++;
+	}
+	while (i < cnt->rb)
+	{
+		rrb(b);
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/02/03 22:56:14 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/02/04 00:09:15 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,15 @@ INC_DIR			=	-I includes
 
 # Define the source files
 
-SRC_CORE		=	$(addprefix core/, check_duplicate_and_sort.c hard_coding.c \
-parsing_stack_and_array.c print_error.c push_pop.c quick_sort.c ranked.c stack_init.c)
+SRC_PARSING		=	$(addprefix parsing/, check_duplicate_and_sort.c init.c \
+parsing_stack_and_array.c print_error.c push_pop.c ranked.c)
 SRC_COMMAND		=	$(addprefix command/, push.c reverse_rotate.c rotate.c swap.c)
+SRC_HARDCODING	=	$(addprefix hardcoding/, hard_coding.c sort_three.c sort_four.c sort_five.c)
+SRC_QUICKSORT	=	$(addprefix quicksort/, find_pivot.c partition.c quick_sort.c rotation.c)
 SRC_UTIL		=	$(addprefix util/, ft_atoi_ll.c ft_lstnew.c ft_memcpy.c ft_split.c \
 ft_strdup.c ft_strjoin.c ft_strlen.c ft_strncmp.c ft_substr.c)
 
-PUSHSWAP_SRCS	=	$(addprefix $(SRC_DIR)/, main.c $(SRC_CORE) $(SRC_COMMAND) $(SRC_UTIL))
+PUSHSWAP_SRCS	=	$(addprefix $(SRC_DIR)/, main.c $(SRC_PARSING) $(SRC_COMMAND) $(SRC_HARDCODING) $(SRC_QUICKSORT) $(SRC_UTIL))
 PUSHSWAP_OBJS	=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(PUSHSWAP_SRCS))
 PUSHSWAP_DEPS	=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.d, $(PUSHSWAP_SRCS))
 
@@ -49,8 +51,10 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | dir_guard
 	@printf "$(YELLOW)[PUSHSWAP] [%02d/%02d] ( %3d %%) Compiling $<\r$(END)"
 
 dir_guard:
-	@mkdir -p $(addprefix $(BUILD_DIR)/, core)
+	@mkdir -p $(addprefix $(BUILD_DIR)/, parsing)
 	@mkdir -p $(addprefix $(BUILD_DIR)/, command)
+	@mkdir -p $(addprefix $(BUILD_DIR)/, hardcoding)
+	@mkdir -p $(addprefix $(BUILD_DIR)/, quicksort)
 	@mkdir -p $(addprefix $(BUILD_DIR)/, util)
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:06 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/02 15:06:06 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 00:15:44 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	rotate(t_stack *s)
 {
-	t_info *tmp;
+	t_info	*tmp;
 
 	tmp = pop_back(s);
 	push_front(s, tmp);

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/03 22:49:14 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 00:17:01 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,15 @@
 # include <unistd.h>
 # include <stdio.h>
 
-// For hardcoding
+// Define For hardcoding
 # define first		(s->top->val)
 # define second		(s->top->prev->val)
 # define third		(s->top->prev->prev->val)
-# define forth		(s->bottom->val)
-# define sort_123	(first < second && second < third && first < third)
 # define sort_132	(first < second && second > third && first < third)
 # define sort_231	(first < second && second > third && first > third)
 # define sort_213	(first > second && second < third && first < third)
 # define sort_312	(first > second && second < third && first > third)
-# define sort_321	(first > second && second > third && first > third)
 
-//node info
 typedef struct s_info
 {
 	struct s_info	*prev;
@@ -38,7 +34,6 @@ typedef struct s_info
 	int				val;
 }		t_info;
 
-//stack info
 typedef struct s_stack
 {
 	t_info	*top;
@@ -57,6 +52,12 @@ typedef struct s_cnt
 	int	pa;
 	int	pb;
 }		t_cnt;
+
+typedef struct s_pivot
+{
+	int	min;
+	int	max;
+}		t_pivot;
 
 size_t	ft_strlen(const char *str);
 int		ft_atoi_ll(const char *str);
@@ -85,15 +86,27 @@ void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
 
-void	print_error(char *str);
+void	cnt_init(t_cnt *cnt);
+void	pivot_init(t_pivot *pivot);
 void	stack_init(t_stack *a, t_stack *b);
-int		*parsing_stack_and_array(t_stack *a,  int argc, char **argv);
+
+int		*parsing_stack_and_array(t_stack *a, int argc, char **argv, int i);
 void	check_duplicate_and_sort(int *arr, int size);
 void	ranked(t_stack *a, int *arr, int size);
+void	print_error(char *str);
 
-void	quick_sort_stack_B(t_stack *a, t_stack *b, int size);
-void	quick_sort_stack(t_stack *a, t_stack *b, int size, int is_first);
+void	sort_three(t_stack *s, char c);
+void	sort_four(t_stack *s, t_stack *s2, char c);
+void	sort_five(t_stack *s, t_stack *s2, char c);
 void	hard_coding(t_stack *s, t_stack *s2, int size, char c);
+
+void	quick_sort_stack(t_stack *a, t_stack *b, int size, int is_first);
+void	quick_sort_stack_b(t_stack *a, t_stack *b, int size);
+void	find_pivot(t_stack *s, int size, t_pivot *pivot);
+void	partition_when_first(t_stack *a, t_stack *b, t_cnt *cnt, int size);
+void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
+void	reverse_partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
+void	rotation(t_stack *a, t_stack *b, t_cnt *cnt);
 
 int		checker(int argc, char **argv);
 int		main(int argc, char **argv);
