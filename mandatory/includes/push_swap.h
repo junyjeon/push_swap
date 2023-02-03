@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/01 21:40:21 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/03 16:49:49 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		*parsing_stack_and_array(t_stack *a,  int argc, char **argv);
 void	check_duplicate_and_sort(int *arr, int size);
 void	ranked(t_stack *a, int *arr, int size);
 void	quick_sort_stack(t_stack *a, t_stack *b, int size);
-void	hard_coding(t_stack *s, int size, char c);
+void	hard_coding(t_stack *s, t_stack *s2, int size, char c);
 void	showmethemoney(t_stack *a, t_stack *b);
 int		main(int ac, char **ar);
 

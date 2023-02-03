@@ -74,13 +74,15 @@ static void	in_B(t_stack *s)
 	else if (sort_132)
 		rb(s);
 	else if (sort_213)
-		rrb(s);
+	{
+			rrb(s);
+	}
 	else if (sort_231)
 		sb(s);
 	else if (sort_312)
 	{
-		rrb(s);
-		rrb(s);
+		sb(s);
+		rb(s);
 	}
 }
 
@@ -104,8 +106,10 @@ static void	in_A(t_stack *s)
 	}
 }
 
-void	hard_coding(t_stack *s, int size, char c)
+void	hard_coding(t_stack *s, t_stack *s2, int size, char c)
 {
+	int cnt;
+
 	if (size == 1)
 		return;
 	else if (size == 2)
@@ -117,7 +121,7 @@ void	hard_coding(t_stack *s, int size, char c)
 	}
 	else if (size == 3)
 	{
-		if (3 <= s->size)
+		if (s->size <= 3)
 		{
 			if (c == 'a')
 				in_A(s);
@@ -130,6 +134,91 @@ void	hard_coding(t_stack *s, int size, char c)
 				in_A_sort_three(s);
 			else if (c == 'b')
 				in_B_sort_three(s);
+		}
+	}
+	else if (size == 4)
+	{
+		cnt = 0;
+		if (c == 'a')
+		{
+			pb(s, s2);
+			if (s->size <= 3)
+				in_A(s);
+			else
+				in_A_sort_three(s);
+			while (size--)
+			{
+				if (first > s2->top->rank)
+					pa(s, s2);
+				else
+				{
+					ra(s);
+					cnt++;
+				}
+			}
+			while (cnt--)
+				rra(s);
+		}
+		else if (c == 'b')
+		{
+			pa(s2, s);
+			if (s->size <= 3)
+				in_B(s);
+			else
+				in_B_sort_three(s);
+			while (size--)
+			{
+				if (first < s2->top->rank)
+					pb(s2, s);
+				else
+				{
+					rb(s);
+					cnt++;
+				}
+			}
+			while (cnt--)
+				rrb(s);
+		}
+	}
+	else if (size == 5)
+	{
+		cnt = 0;
+		if (c == 'a')
+		{
+			pb(s, s2);
+			pb(s, s2);
+			hard_coding(s, s2, 2, 'a');
+			while (size--)
+			{
+				if (first > s2->top->rank)
+					pa(s, s2);
+				else
+				{
+					ra(s);
+					cnt++;
+				}
+			}
+			while (cnt--)
+				rra(s);
+		}
+		else if (c == 'b')
+		{
+			pa(s2, s);
+			pa(s2, s);
+			hard_coding(s2, s, 2, 'b');
+			while (size--)
+			{
+				if (first < s2->top->rank)
+					pb(s2, s);
+				else
+				{
+					rb(s);
+					cnt++;
+				}
+			}
+			while (cnt--)
+				rrb(s);
+		
 		}
 	}
 }

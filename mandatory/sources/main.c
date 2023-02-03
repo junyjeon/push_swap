@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/02 20:01:58 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:56:28 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ int	main(int argc, char **argv)
 	check_duplicate_and_sort(arr, a.size);
 	ranked(&a, arr, a.size);
 	quick_sort_stack(&a, &b, a.size);
-	showmethemoney(&a, &b);
 	return (0);
 }

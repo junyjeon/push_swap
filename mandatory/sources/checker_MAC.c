@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:20:25 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/02 19:05:20 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:51:50 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(int argc, char **argv)
 	while (line)
 	{
 		line = get_next_line(STDIN_FILENO);
+		ft_strncmp("sa", line,ft_strlen(line));
 		// cmd 처리
 		// cmd 예외처리
 	}
