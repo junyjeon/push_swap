@@ -53,3 +53,9 @@ dkms.conf
 
 .DS_Store
 .vscode
+push_swap_visualizer/
+push_swap_tester/
+build/
+push_swap
+checker
+checker_MAC
