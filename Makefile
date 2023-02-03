@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/02/03 22:21:17 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/02/03 22:24:53 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ clean:
 fclean:
 	@$(RM) -r $(PUSHSWAP) $(CHECKER) $(BUILD_DIR) push_swap push_swap_bonus
 	@rm -rf $(BUILD_DIR)
-	@echo "${YELLOW}> Cleaning of the push_swap has been don./e ❌${END}"
+	@echo "${YELLOW}> Cleaning of the push_swap has been done.❌${END}"
 
 re: fclean
 	@$(MAKE) all
