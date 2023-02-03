@@ -19,9 +19,9 @@ void	hard_coding(t_stack *s, t_stack *s2, int size, char ch)
 	else if (size == 2)
 	{
 		if (ch == 'a' && s->top->val > s->top->prev->val)
-			sa(s);
+			sa(s, 1);
 		else if (ch == 'b' && s->top->val < s->top->prev->val)
-			sb(s);
+			sb(s, 1);
 	}
 	else if (size == 3)
 		sort_three(s, ch);

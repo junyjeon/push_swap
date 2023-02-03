@@ -6,13 +6,13 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:29:49 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 02:28:47 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static int	is_sorted(t_stack *s, int size, char c)
+int	is_sorted(t_stack *s, int size, char c)
 {
 	t_info	*cur;
 	int		i;
@@ -43,7 +43,7 @@ void	quick_sort_stack_b(t_stack *a, t_stack *b, int size)
 	{
 		i = -1;
 		while (++i < size)
-			pa(a, b);
+			pa(a, b, 1);
 		return ;
 	}
 	if (size <= 3)
@@ -52,7 +52,7 @@ void	quick_sort_stack_b(t_stack *a, t_stack *b, int size)
 			hard_coding(b, a, size, 'b');
 		i = -1;
 		while (++i < size)
-			pa(a, b);
+			pa(a, b, 1);
 		return ;
 	}
 	cnt_init(&cnt);

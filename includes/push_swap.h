@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 01:34:10 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 02:41:03 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ typedef struct s_compare
 	int	third;
 }		t_compare;
 
+size_t	ft_strlen2(const char *str);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strdup2(const char *s1);
+char	*ft_substr2(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin2(char const *s1, char const *s2);
+
 size_t	ft_strlen(const char *str);
 int		ft_atoi_ll(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -80,25 +86,25 @@ void	push_back(t_stack *s, t_info *new);
 t_info	*pop_front(t_stack *s);
 t_info	*pop_back(t_stack *s);
 
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
-void	rra(t_stack *a);
-void	rrb(t_stack *b);
-void	rrr(t_stack *a, t_stack *b);
-void	ra(t_stack *a);
-void	rb(t_stack *b);
-void	rr(t_stack *a, t_stack *b);
-void	sa(t_stack *a);
-void	sb(t_stack *b);
-void	ss(t_stack *a, t_stack *b);
+void	pa(t_stack *a, t_stack *b, int flag);
+void	pb(t_stack *a, t_stack *b, int flag);
+void	rra(t_stack *a, int flag);
+void	rrb(t_stack *b, int flag);
+void	rrr(t_stack *a, t_stack *b, int flag);
+void	ra(t_stack *a, int flag);
+void	rb(t_stack *b, int flag);
+void	rr(t_stack *a, t_stack *b, int flag);
+void	sa(t_stack *a, int flag);
+void	sb(t_stack *b, int flag);
+void	ss(t_stack *a, t_stack *b, int flag);
 
 void	cnt_init(t_cnt *cnt);
 void	pivot_init(t_pivot *pivot);
 void	stack_init(t_stack *a, t_stack *b);
 int		compare_init(t_stack *s, t_compare *c);
 
-int		*parsing_stack_and_array(t_stack *a, int argc, char **argv, int i);
-void	check_duplicate_and_sort(int *arr, int size);
+int		*parse(t_stack *a, int argc, char **argv, int i);
+void	check_overlap(int *arr, int size);
 void	ranked(t_stack *a, int *arr, int size);
 void	print_error(char *str);
 
@@ -114,7 +120,10 @@ void	partition_when_first(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	reverse_partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	rotation(t_stack *a, t_stack *b, t_cnt *cnt);
+int		is_sorted(t_stack *s, int size, char c);
 
+char	*get_next_line(int fd);
+int		checker(int argc, char **argv);
 int		main(int argc, char **argv);
 
 #endif

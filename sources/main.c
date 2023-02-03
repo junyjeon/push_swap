@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:30:29 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 02:14:12 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		print_error("Argment count is zero.\n");
 	stack_init(&a, &b);
-	arr = parsing_stack_and_array(&a, argc, argv, 0);
-	check_duplicate_and_sort(arr, a.size);
+	arr = parse(&a, argc, argv, 0);
+	check_overlap(arr, a.size);
 	ranked(&a, arr, a.size);
 	if (a.size <= 5)
 		hard_coding(&a, &b, a.size, 'a');

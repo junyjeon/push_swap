@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:37:25 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:29:49 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 02:07:32 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	arr_sort(int *arr, int size, int swap_cnt)
 		print_error("It's aligned.\n");
 }
 
-void	check_duplicate_and_sort(int *arr, int size)
+void	check_overlap(int *arr, int size)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:29:49 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 01:56:16 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,24 @@ static void	swap(t_stack *s)
 	s->top->prev->rank = rank;
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b, int flag)
 {
 	swap(a);
 	swap(b);
-	write(1, "ss\n", 3);
+	if (flag)
+		write(1, "ss\n", 3);
 }
 
-void	sa(t_stack *a)
+void	sa(t_stack *a, int flag)
 {
 	swap(a);
-	write(1, "sa\n", 3);
+	if (flag)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *b)
+void	sb(t_stack *b, int flag)
 {
 	swap(b);
-	write(1, "sb\n", 3);
+	if (flag)
+		write(1, "sb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 23:54:17 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:29:49 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 02:01:51 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ void	reverse_partition(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 	{
 		if (b->top->rank < pivot.min)
 		{
-			rb(b);
+			rb(b, 1);
 			cnt->rb++;
 		}
 		else
 		{
-			pa(a, b);
+			pa(a, b, 1);
 			cnt->pa++;
 			if (a->top->rank < pivot.max)
 			{
-				ra(a);
+				ra(a, 1);
 				cnt->ra++;
 			}
 		}
@@ -52,16 +52,16 @@ void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 	{
 		if (a->top->rank > pivot.max)
 		{
-			ra(a);
+			ra(a, 1);
 			cnt->ra++;
 		}
 		else
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			cnt->pb++;
 			if (b->top->rank > pivot.min)
 			{
-				rb(b);
+				rb(b, 1);
 				cnt->rb++;
 			}
 		}
@@ -80,16 +80,16 @@ void	partition_when_first(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 	{
 		if (a->top->rank > pivot.max)
 		{
-			ra(a);
+			ra(a, 1);
 			cnt->ra++;
 		}
 		else
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			cnt->pb++;
 			if (b->top->rank <= pivot.min)
 			{
-				rb(b);
+				rb(b, 1);
 				cnt->rb++;
 			}
 		}
