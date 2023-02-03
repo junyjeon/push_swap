@@ -6,11 +6,11 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:52:11 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/02 15:05:54 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 00:22:31 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "includes/push_swap.h"
 
 static void	revers_rotate(t_stack *s)
 {

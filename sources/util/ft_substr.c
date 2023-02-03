@@ -6,11 +6,11 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 05:02:18 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/01/09 01:21:00 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 00:22:31 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "includes/push_swap.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
