@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/03 16:49:49 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/03 19:59:44 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define first		(s->top->val)
 # define second		(s->top->prev->val)
 # define third		(s->top->prev->prev->val)
+# define forth		(s->bottom->val)
 # define sort_123	(first < second && second < third && first < third)
 # define sort_132	(first < second && second > third && first < third)
 # define sort_231	(first < second && second > third && first > third)
@@ -66,10 +67,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s1, char const *s2);
 char	**ft_split(char *s, char c);
 t_info	*ft_lstnew(int val);
+
 void	push_front(t_stack *s, t_info *new);
 void	push_back(t_stack *s, t_info *new);
 t_info	*pop_front(t_stack *s);
 t_info	*pop_back(t_stack *s);
+
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
@@ -81,13 +84,17 @@ void	rr(t_stack *a, t_stack *b);
 void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
+
 void	print_error(char *str);
 void	stack_init(t_stack *a, t_stack *b);
 int		*parsing_stack_and_array(t_stack *a,  int argc, char **argv);
 void	check_duplicate_and_sort(int *arr, int size);
 void	ranked(t_stack *a, int *arr, int size);
-void	quick_sort_stack(t_stack *a, t_stack *b, int size);
+
+void	quick_sort_stack_B(t_stack *a, t_stack *b, int size);
+void	quick_sort_stack(t_stack *a, t_stack *b, int size, int is_first);
 void	hard_coding(t_stack *s, t_stack *s2, int size, char c);
+
 void	showmethemoney(t_stack *a, t_stack *b);
 int		main(int ac, char **ar);
 

@@ -108,9 +108,8 @@ static void	in_A(t_stack *s)
 
 void	hard_coding(t_stack *s, t_stack *s2, int size, char c)
 {
-	int	tmp;
-	int cnt;
-	int	pa_cnt;
+	static int	tmp;
+	static int	cnt;
 
 	if (size == 1)
 		return;
@@ -140,12 +139,11 @@ void	hard_coding(t_stack *s, t_stack *s2, int size, char c)
 	}
 	else if (size == 4)
 	{
-		cnt = 0;
 		if (c == 'a')
 		{
 			pb(s, s2);
-			tmp = s2->top->val;
 			hard_coding(s, s2, 3, 'a');
+			tmp = s2->top->val;
 			if (tmp < first)
 				pa(s, s2);
 			else if (first < tmp && tmp < second)
@@ -155,11 +153,10 @@ void	hard_coding(t_stack *s, t_stack *s2, int size, char c)
 			}
 			else if (second < tmp && tmp < third)
 			{
-				ra(s);
-				ra(s);
+				rra(s);
 				pa(s, s2);
-				rra(s);
-				rra(s);
+				ra(s);
+				ra(s);
 			}
 			else
 			{
@@ -170,8 +167,8 @@ void	hard_coding(t_stack *s, t_stack *s2, int size, char c)
 		else if (c == 'b')
 		{
 			pa(s2, s);
-			tmp = s2->top->val;
 			hard_coding(s2, s, 3, 'b');
+			tmp = s2->top->val;
 			if (tmp > first)
 				pb(s, s2);
 			else if (first > tmp && tmp > second)
@@ -181,11 +178,10 @@ void	hard_coding(t_stack *s, t_stack *s2, int size, char c)
 			}
 			else if (second > tmp && tmp > third)
 			{
-				rb(s);
-				rb(s);
+				rrb(s);
 				pb(s, s2);
-				rrb(s);
-				rrb(s);
+				rb(s);
+				rb(s);
 			}
 			else
 			{
@@ -193,50 +189,40 @@ void	hard_coding(t_stack *s, t_stack *s2, int size, char c)
 				rb(s);
 			}
 		}
-		//else if (c == 'b')
-		//{
-		//	pa(s2, s);
-		//	hard_coding(s2, s, 3, 'b');
-		//	tmp = s2->top->rank;
-		//	if (tmp > first)
-		//		pb(s, s2);
-		//	else if (first > tmp && tmp > second)
-		//	{
-		//		pb(s, s2);
-		//		sb(s);
-		//	}
-		//	else if (second > tmp && tmp > third)
-		//	{
-		//		rb(s);
-		//		rb(s);
-		//		pb(s, s2);
-		//		rrb(s);
-		//		rrb(s);
-		//	}
-		//	else
-		//	{
-		//		pb(s, s2);
-		//		rb(s);
-		//	}
-		//}
 	}
 	else if (size == 5)
 	{
-		pa_cnt = 0;
-		cnt = 0;
 		if (c == 'a')
 		{
-			pb(s, s2);
-			pb(s, s2);
-			hard_coding(s, s2, 3, 'a');
-			
+			cnt = 2;
+			while (cnt)
+			{
+				if (s->top->rank == 0 || s->top->rank == 1)
+				{
+					pb(s, s2);
+					cnt--;
+				}
+				else
+					ra(s);
+			}
+			quick_sort_stack(s, s2, 3, 0);
+			quick_sort_stack_B(s, s2, 2);
 		}
 		else if (c == 'b')
 		{
-			pa(s2, s);
-			pa(s2, s);
-			hard_coding(s2, s, 3, 'b');
-			
+			int cnt = 2;
+			while (cnt)
+			{
+				if (s->top->rank == 0 || s->top->rank == 1)
+				{
+					pa(s, s2);
+					cnt--;
+				}
+				else
+					rb(s);
+			}
+			quick_sort_stack_B(s2, s, 3);
+			quick_sort_stack(s2, s, 2, 0);
 		}
 	}
 }

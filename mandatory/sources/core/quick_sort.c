@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/03 18:23:34 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:03:28 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,13 @@ static void	find_pivot(t_stack *s, int size, int *pivot_min, int *pivot_max)
 		}
 	}
 	*pivot_min = arr[size / 3];
-	*pivot_max = arr[size / 3 * 2 + size % 3];
+	*pivot_max = arr[size / 3 * 2];
 }
 
 void	reverse_rotation(t_stack *a, t_stack *b, t_cnt *cnt)
 {
 	int	i;
+
 	i = 0;
 	while (i < cnt->ra && i < cnt->rb)
 	{
@@ -100,9 +101,9 @@ void	reverse_rotation(t_stack *a, t_stack *b, t_cnt *cnt)
 
 static void	reverse_partition(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 {
-	int	pivot_min;
-	int	pivot_max;
-	int i;
+	int			pivot_min;
+	int			pivot_max;
+	static int	i;
 	
 	pivot_min = 0;
 	pivot_max = 0;
@@ -130,9 +131,9 @@ static void	reverse_partition(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 
 static void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 {
-	int	pivot_min;
-	int	pivot_max;
-	int i;
+	int			pivot_min;
+	int			pivot_max;
+	static int	i;
 	
 	pivot_min = 0;
 	pivot_max = 0;
@@ -140,7 +141,7 @@ static void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 	i = -1;
 	while (++i < size)
 	{
-		if (a->top->rank >= pivot_max)
+		if (a->top->rank > pivot_max)
 		{
 			ra(a);
 			cnt->ra++;
@@ -149,7 +150,7 @@ static void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 		{
 			pb(a, b);
 			cnt->pb++;
-			if (b->top->rank >= pivot_min)
+			if (b->top->rank > pivot_min)
 			{
 				rb(b);
 				cnt->rb++;
@@ -158,11 +159,42 @@ static void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size)
 	}
 }
 
-static void	quick_sort_stack_B(t_stack *a, t_stack *b, int size)
+static void	partition_when_first(t_stack *a, t_stack *b, t_cnt *cnt, int size)
+{
+	int	pivot_min;
+	int	pivot_max;
+	static int i;
+	
+	pivot_min = 0;
+	pivot_max = 0;
+	find_pivot(a, size, &pivot_min, &pivot_max);
+	i = -1;
+	while (++i < size)
+	{
+		if (a->top->rank > pivot_max)
+		{
+			ra(a);
+			cnt->ra++;
+		}
+		else
+		{
+			pb(a, b);
+			cnt->pb++;
+			if (b->top->rank <= pivot_min)
+			{
+				rb(b);
+				cnt->rb++;
+			}
+		}
+	}
+	cnt->rb = cnt->pb - cnt->rb;
+}
+
+void	quick_sort_stack_B(t_stack *a, t_stack *b, int size)
 {
 	t_cnt	cnt;
-	int		sorted;
-	int		i;
+	static int		sorted;
+	static int		i;
 
 	sorted = is_sorted(b, size, 'b');
 	if (sorted)
@@ -172,7 +204,7 @@ static void	quick_sort_stack_B(t_stack *a, t_stack *b, int size)
 			pa(a, b);
 		return ;
 	}
-	if (size <= 4)
+	if (size <= 3)
 	{
 		if (!sorted)
 			hard_coding(b, a, size, 'b');
@@ -183,38 +215,46 @@ static void	quick_sort_stack_B(t_stack *a, t_stack *b, int size)
 	}
 	cnt_init(&cnt);
 	reverse_partition(a, b, &cnt, size);;
-	quick_sort_stack(a, b, cnt.pa - cnt.ra);
+	quick_sort_stack(a, b, cnt.pa - cnt.ra, 0);
 	reverse_rotation(a, b, &cnt);
-	quick_sort_stack(a, b, cnt.ra);
+	quick_sort_stack(a, b, cnt.ra, 0);
 	quick_sort_stack_B(a, b, cnt.rb);
 }
 
-void	quick_sort_stack(t_stack *a, t_stack *b, int size)
+void	quick_sort_stack(t_stack *a, t_stack *b, int size, int is_first)
 {
-	t_cnt	cnt;
-	int		sorted;
+	t_cnt		cnt;
+	static int	sorted;
 
 	sorted = is_sorted(a, size, 'a');
 	if (sorted)
 		return ;
-	if (size <= 4)
+	if (size <= 3)
 	{
 		if (!sorted)
 			hard_coding(a, b, size, 'a');
 		return ;
 	}
 	cnt_init(&cnt);
-	partition(a, b, &cnt, size);
-	reverse_rotation(a, b, &cnt);
-	quick_sort_stack(a, b, cnt.ra);
+	if (is_first)
+	{
+		partition_when_first(a, b, &cnt, size);
+		is_first = 0;
+	}
+	else
+	{
+		partition(a, b, &cnt, size);
+		reverse_rotation(a, b, &cnt);
+	}
+	quick_sort_stack(a, b, cnt.ra, 0);
 	quick_sort_stack_B(a, b, cnt.rb);
 	quick_sort_stack_B(a, b, cnt.pb - cnt.rb);
 }
 
 void	showmethemoney(t_stack *a, t_stack *b)
 {
-	t_info	*cur;
-	t_info	*cur2;
+	static t_info	*cur;
+	static t_info	*cur2;
 
 	cur = a->top;
 	cur2 = b->top;
