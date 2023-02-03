@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/03 20:06:39 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/03 22:49:14 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void	quick_sort_stack_B(t_stack *a, t_stack *b, int size);
 void	quick_sort_stack(t_stack *a, t_stack *b, int size, int is_first);
 void	hard_coding(t_stack *s, t_stack *s2, int size, char c);
 
-int		main(int ac, char **ar);
+int		checker(int argc, char **argv);
+int		main(int argc, char **argv);
 
 #endif
