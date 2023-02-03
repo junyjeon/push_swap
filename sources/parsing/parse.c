@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 03:16:36 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 04:48:35 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,39 +50,41 @@ static void	check_overlap(int *arr, int size)
 			print_error("Duplicate!\n");
 }
 
-static int	*make_list(t_stack *a, char **split_str, int index)
+static int	*make_list(t_stack *a, char **split_str, int i)
 {
 	t_info	*new;
 	int		*arr;
 	
-	arr = malloc(sizeof(int) * index);
+	arr = malloc(sizeof(int) * i);
 	if (!arr)
 		print_error("Memory allocation fail.\n");
-	while (index--)
+	while (i--)
 	{
-		arr[index] = ft_atoi_ll(split_str[index]);
-		new = ft_lstnew(arr[index]);
+		arr[i] = ft_atoi_ll(split_str[i]);
+		new = ft_lstnew(arr[i]);
 		push_back(a, new);
-		free(split_str[index]);
+		free(split_str[i]);
 	}
+	free(split_str);
 	return (arr);
 }
 
-int	*parse(t_stack *a, int argc, char **argv, int index)
+int	*parse(t_stack *a, int argc, char **argv)
 {
 	char	**split_str;
 	char	*str;
 	int		*arr;
+	int		i;
 
 	str = NULL;
-	while (argc--)
-		str = ft_strjoin(str, argv[argc]);//
+	i = 0;
+	while (++i < argc)
+		str = ft_strjoin(str, argv[i]);
 	split_str = ft_split(str, ' ');
-	index = 0;
-	while (split_str[index])
-		index++;
-	arr = make_list(a, split_str, index);
+	i = 0;
+	while (split_str[i])
+		i++;
+	arr = make_list(a, split_str, i);
 	check_overlap(arr, a->size);
-	free(split_str);
 	return (arr);
 }

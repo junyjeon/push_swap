@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 03:17:36 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 04:48:06 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	pivot_init(t_pivot *pivot);
 void	stack_init(t_stack *a, t_stack *b);
 int		compare_init(t_stack *s, t_compare *c);
 
-int		*parse(t_stack *a, int argc, char **argv, int index);
+int		*parse(t_stack *a, int argc, char **argv);
 void	ranked(t_stack *a, int *arr, int size);
 void	print_error(char *str);
 
@@ -114,6 +114,7 @@ void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	reverse_partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	rotation(t_stack *a, t_stack *b, t_cnt *cnt);
 
+void	show(t_stack *a, t_stack *b);
 int		main(int argc, char **argv);
 
 #endif

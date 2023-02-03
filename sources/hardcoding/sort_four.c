@@ -6,27 +6,28 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 23:34:12 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 02:01:18 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 04:22:25 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static void	in_b_sort_four(t_stack *s, t_stack *s2, t_compare *c)
+static void	in_b_sort_four(t_stack *s, t_stack *s2, int tmp)
 {
-	static int	tmp;
+	t_compare	c;
 
 	pa(s2, s, 1);
 	hard_coding(s2, s, 3, 'b');
+	compare_init(s, &c);
 	tmp = s2->top->val;
-	if (tmp > c->first)
+	if (tmp > c.first)
 		pb(s, s2, 1);
-	else if (c->first > tmp && tmp > c->second)
+	else if (c.first > tmp && tmp > c.second)
 	{
 		pb(s, s2, 1);
 		sb(s, 1);
 	}
-	else if (c->second > tmp && tmp > c->third)
+	else if (c.second > tmp && tmp > c.third)
 	{
 		rrb(s, 1);
 		pb(s, s2, 1);
@@ -40,21 +41,22 @@ static void	in_b_sort_four(t_stack *s, t_stack *s2, t_compare *c)
 	}
 }
 
-static void	in_a_sort_four(t_stack *s, t_stack *s2, t_compare *c)
+static void	in_a_sort_four(t_stack *s, t_stack *s2, int tmp)
 {
-	static int	tmp;
+	t_compare	c;
 
 	pb(s, s2, 1);
-	hard_coding(s, s2, 3, 'a');
 	tmp = s2->top->val;
-	if (tmp < c->first)
+	hard_coding(s, s2, 3, 'a');
+	compare_init(s, &c);
+	if (tmp < c.first)
 		pa(s, s2, 1);
-	else if (c->first < tmp && tmp < c->second)
+	else if (c.first < tmp && tmp < c.second)
 	{
 		pa(s, s2, 1);
 		sa(s, 1);
 	}
-	else if (c->second < tmp && tmp < c->third)
+	else if (c.second < tmp && tmp < c.third)
 	{
 		rra(s, 1);
 		pa(s, s2, 1);
@@ -70,11 +72,8 @@ static void	in_a_sort_four(t_stack *s, t_stack *s2, t_compare *c)
 
 void	sort_four(t_stack *s, t_stack *s2, char ch)
 {
-	t_compare	c;
-
-	compare_init(s, &c);
 	if (ch == 'a')
-		in_a_sort_four(s, s2, &c);
+		in_a_sort_four(s, s2, 0);
 	else if (ch == 'b')
-		in_b_sort_four(s, s2, &c);
+		in_b_sort_four(s, s2, 0);
 }

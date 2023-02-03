@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 03:15:46 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 04:43:01 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		print_error("Argment count is zero.\n");
 	stack_init(&a, &b);
-	arr = parse(&a, argc, argv, 0);
+	arr = parse(&a, argc, argv);
 	ranked(&a, arr, a.size);
 	if (a.size <= 5)
 		hard_coding(&a, &b, a.size, 'a');
@@ -29,3 +29,4 @@ int	main(int argc, char **argv)
 		quick_sort_stack(&a, &b, a.size, 1);
 	return (0);
 }
+
