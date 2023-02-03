@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 02:41:03 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 03:17:36 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,6 @@ typedef struct s_compare
 	int	third;
 }		t_compare;
 
-size_t	ft_strlen2(const char *str);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strdup2(const char *s1);
-char	*ft_substr2(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin2(char const *s1, char const *s2);
-
 size_t	ft_strlen(const char *str);
 int		ft_atoi_ll(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -103,8 +97,7 @@ void	pivot_init(t_pivot *pivot);
 void	stack_init(t_stack *a, t_stack *b);
 int		compare_init(t_stack *s, t_compare *c);
 
-int		*parse(t_stack *a, int argc, char **argv, int i);
-void	check_overlap(int *arr, int size);
+int		*parse(t_stack *a, int argc, char **argv, int index);
 void	ranked(t_stack *a, int *arr, int size);
 void	print_error(char *str);
 
@@ -120,10 +113,7 @@ void	partition_when_first(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	reverse_partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	rotation(t_stack *a, t_stack *b, t_cnt *cnt);
-int		is_sorted(t_stack *s, int size, char c);
 
-char	*get_next_line(int fd);
-int		checker(int argc, char **argv);
 int		main(int argc, char **argv);
 
 #endif

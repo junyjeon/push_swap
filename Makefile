@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/02/04 02:56:24 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/02/04 03:13:52 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,7 @@ BUILD_DIR		=	build
 INC_DIR			=	-I includes
 
 # Define the source files
-SRC_PARSING		=	$(addprefix parsing/, check_overlap.c init.c parse.c print_error.c\
- push_pop.c ranked.c)
+SRC_PARSING		=	$(addprefix parsing/, init.c parse.c print_error.c push_pop.c ranked.c)
 SRC_COMMAND		=	$(addprefix command/, push.c reverse_rotate.c rotate.c swap.c)
 SRC_HARDCODING	=	$(addprefix hardcoding/, hard_coding.c sort_three.c sort_four.c sort_five.c)
 SRC_QUICKSORT	=	$(addprefix quicksort/, find_pivot.c partition.c quick_sort.c rotation.c)

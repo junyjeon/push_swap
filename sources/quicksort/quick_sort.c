@@ -6,13 +6,13 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 02:28:47 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 03:01:24 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	is_sorted(t_stack *s, int size, char c)
+static int	is_sorted(t_stack *s, int size, char c)
 {
 	t_info	*cur;
 	int		i;
