@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:24:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/03 20:03:28 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:05:40 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -249,23 +249,4 @@ void	quick_sort_stack(t_stack *a, t_stack *b, int size, int is_first)
 	quick_sort_stack(a, b, cnt.ra, 0);
 	quick_sort_stack_B(a, b, cnt.rb);
 	quick_sort_stack_B(a, b, cnt.pb - cnt.rb);
-}
-
-void	showmethemoney(t_stack *a, t_stack *b)
-{
-	static t_info	*cur;
-	static t_info	*cur2;
-
-	cur = a->top;
-	cur2 = b->top;
-	while (cur)
-	{
-		printf("a_ rank: %d, asize: %d\n", cur->rank, a->size);
-		cur = cur->prev;
-	}
-	while (cur2)
-	{
-		printf("b_ rank: %d, bsize: %d\n", cur2->rank, b->size);
-		cur2 = cur2->prev;
-	}
 }
