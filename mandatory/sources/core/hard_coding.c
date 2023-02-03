@@ -167,11 +167,11 @@ void	hard_coding(t_stack *s, t_stack *s2, int size, char c)
 				ra(s);
 			}
 		}
-		else if (c == 'a')
+		else if (c == 'b')
 		{
 			pa(s2, s);
 			tmp = s2->top->val;
-			hard_coding(s2, s, 3, 'a');
+			hard_coding(s2, s, 3, 'b');
 			if (tmp > first)
 				pb(s, s2);
 			else if (first > tmp && tmp > second)
@@ -189,8 +189,8 @@ void	hard_coding(t_stack *s, t_stack *s2, int size, char c)
 			}
 			else
 			{
-				pa(s, s2);
-				ra(s);
+				pb(s, s2);
+				rb(s);
 			}
 		}
 		//else if (c == 'b')
