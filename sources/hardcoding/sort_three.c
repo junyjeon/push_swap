@@ -6,16 +6,16 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 23:29:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:22:31 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 00:30:17 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	in_b_sort_three(t_stack *s)
 {
 	if (sort_132 || sort_312 || first < second \
-	&& second < third && first < third)
+&& second < third && first < third)
 	{
 		if (first < second && second < third && first < third)
 		{
@@ -52,7 +52,7 @@ static void	in_a_sort_three(t_stack *s)
 		rra(s);
 	}
 	else if (sort_231 || sort_213 || first > second \
-	&& second > third && first > third)
+&& second > third && first > third)
 	{
 		if (first > second && second > third && first > third)
 			sa(s);

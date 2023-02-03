@@ -6,11 +6,11 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 23:55:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:22:31 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 00:29:49 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	ft_swap(int *arr, int size)
 {

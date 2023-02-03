@@ -6,11 +6,11 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 23:34:12 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:22:31 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 00:29:49 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	in_b_sort_four(t_stack *s, t_stack *s2)
 {

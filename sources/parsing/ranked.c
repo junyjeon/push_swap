@@ -6,11 +6,11 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:14:19 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:22:31 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 00:29:49 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ranked(t_stack *a, int *arr, int size)
 {
