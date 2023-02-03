@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 22:59:41 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:29:49 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 01:33:42 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,24 @@ void	stack_init(t_stack *a, t_stack *b)
 		print_error("Memory allocation fail.\n");
 	a->size = 0;
 	b->size = 0;
+}
+
+int	compare_init(t_stack *s, t_compare *c)
+{
+	c->first = s->top->val;
+	c->second = s->top->prev->val;
+	c->third = s->top->prev->prev->val;
+	if (c->first < c->second && c->second < c->third && c->first < c->third)
+		return (SORT_123);
+	else if (c->first < c->second && c->second > c->third && c->first < c->third)
+		return (SORT_132);
+	else if (c->first > c->second && c->second < c->third && c->first < c->third)
+		return (SORT_213);
+	else if (c->first < c->second && c->second > c->third && c->first > c->third)
+		return (SORT_231);
+	else if (c->first > c->second && c->second < c->third && c->first > c->third)
+		return (SORT_312);
+	else if (c->first > c->second && c->second > c->third && c->first > c->third)
+		return (SORT_321);
+	return (0);
 }

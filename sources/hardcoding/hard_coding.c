@@ -12,21 +12,21 @@
 
 #include "../../includes/push_swap.h"
 
-void	hard_coding(t_stack *s, t_stack *s2, int size, char c)
+void	hard_coding(t_stack *s, t_stack *s2, int size, char ch)
 {
 	if (size == 1)
 		return ;
 	else if (size == 2)
 	{
-		if (c == 'a' && first > second)
+		if (ch == 'a' && s->top->val > s->top->prev->val)
 			sa(s);
-		else if (c == 'b' && first < second)
+		else if (ch == 'b' && s->top->val < s->top->prev->val)
 			sb(s);
 	}
 	else if (size == 3)
-		sort_three(s, c);
+		sort_three(s, ch);
 	else if (size == 4)
-		sort_four(s, s2, c);
+		sort_four(s, s2, ch);
 	else if (size == 5)
-		sort_five(s, s2, c);
+		sort_five(s, s2, ch);
 }

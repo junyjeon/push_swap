@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:17:01 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 01:34:10 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@
 # include <stdio.h>
 
 // Define For hardcoding
-# define first		(s->top->val)
-# define second		(s->top->prev->val)
-# define third		(s->top->prev->prev->val)
-# define sort_132	(first < second && second > third && first < third)
-# define sort_231	(first < second && second > third && first > third)
-# define sort_213	(first > second && second < third && first < third)
-# define sort_312	(first > second && second < third && first > third)
+# define SORT_123	(1)
+# define SORT_132	(2)
+# define SORT_231	(3)
+# define SORT_213	(4)
+# define SORT_312	(5)
+# define SORT_321	(6)
 
 typedef struct s_info
 {
@@ -59,6 +58,13 @@ typedef struct s_pivot
 	int	max;
 }		t_pivot;
 
+typedef struct s_compare
+{
+	int	first;
+	int	second;
+	int	third;
+}		t_compare;
+
 size_t	ft_strlen(const char *str);
 int		ft_atoi_ll(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -89,16 +95,17 @@ void	ss(t_stack *a, t_stack *b);
 void	cnt_init(t_cnt *cnt);
 void	pivot_init(t_pivot *pivot);
 void	stack_init(t_stack *a, t_stack *b);
+int		compare_init(t_stack *s, t_compare *c);
 
 int		*parsing_stack_and_array(t_stack *a, int argc, char **argv, int i);
 void	check_duplicate_and_sort(int *arr, int size);
 void	ranked(t_stack *a, int *arr, int size);
 void	print_error(char *str);
 
-void	sort_three(t_stack *s, char c);
-void	sort_four(t_stack *s, t_stack *s2, char c);
-void	sort_five(t_stack *s, t_stack *s2, char c);
-void	hard_coding(t_stack *s, t_stack *s2, int size, char c);
+void	sort_three(t_stack *s, char ch);
+void	sort_four(t_stack *s, t_stack *s2, char ch);
+void	sort_five(t_stack *s, t_stack *s2, char ch);
+void	hard_coding(t_stack *s, t_stack *s2, int size, char ch);
 
 void	quick_sort_stack(t_stack *a, t_stack *b, int size, int is_first);
 void	quick_sort_stack_b(t_stack *a, t_stack *b, int size);
@@ -108,7 +115,6 @@ void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	reverse_partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	rotation(t_stack *a, t_stack *b, t_cnt *cnt);
 
-int		checker(int argc, char **argv);
 int		main(int argc, char **argv);
 
 #endif
