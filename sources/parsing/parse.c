@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 23:58:30 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/05 01:16:06 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	*make_list(t_stack *a, char **split_str, int i)
 {
 	t_info	*new;
 	int		*arr;
-	
+
 	arr = malloc(sizeof(int) * i);
 	if (!arr)
 		print_error("Memory allocation fail.\n", 1);

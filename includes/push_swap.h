@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 21:43:35 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/05 01:41:31 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ typedef struct s_pivot
 
 typedef struct s_compare
 {
-	int	first;
-	int	second;
-	int	third;
+	int	fir;
+	int	sec;
+	int	thi;
 }		t_compare;
 
 size_t	ft_strlen(const char *str);

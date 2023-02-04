@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 22:59:41 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 21:12:34 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/05 01:42:31 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,20 @@ void	stack_init(t_stack *a, t_stack *b)
 
 int	compare_init(t_stack *s, t_compare *c)
 {
-	c->first = s->top->val;
-	c->second = s->top->prev->val;
-	c->third = s->top->prev->prev->val;
-	if (c->first < c->second && c->second < c->third && c->first < c->third)
+	c->fir = s->top->val;
+	c->sec = s->top->prev->val;
+	c->thi = s->top->prev->prev->val;
+	if (c->fir < c->sec && c->sec < c->thi && c->fir < c->thi)
 		return (SORT_123);
-	else if (c->first < c->second && c->second > c->third && c->first < c->third)
+	else if (c->fir < c->sec && c->sec > c->thi && c->fir < c->thi)
 		return (SORT_132);
-	else if (c->first > c->second && c->second < c->third && c->first < c->third)
+	else if (c->fir > c->sec && c->sec < c->thi && c->fir < c->thi)
 		return (SORT_213);
-	else if (c->first < c->second && c->second > c->third && c->first > c->third)
+	else if (c->fir < c->sec && c->sec > c->thi && c->fir > c->thi)
 		return (SORT_231);
-	else if (c->first > c->second && c->second < c->third && c->first > c->third)
+	else if (c->fir > c->sec && c->sec < c->thi && c->fir > c->thi)
 		return (SORT_312);
-	else if (c->first > c->second && c->second > c->third && c->first > c->third)
+	else if (c->fir > c->sec && c->sec > c->thi && c->fir > c->thi)
 		return (SORT_321);
 	return (0);
 }
