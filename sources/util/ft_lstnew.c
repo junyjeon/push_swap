@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:13:27 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:29:49 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 21:44:41 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_info	*ft_lstnew(int val)
 
 	elem = malloc(sizeof(t_info));
 	if (!elem)
-		print_error("Memory allocation fail.\n");
+		print_error("Memory allocation fail.\n", 1);
 	elem->prev = NULL;
 	elem->prev = NULL;
 	elem->rank = 0;

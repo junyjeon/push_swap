@@ -6,14 +6,14 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/02/04 21:27:04 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/02/04 21:33:30 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Define the complier and flags
 
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror -MMD -O2 -fsanitaize=address
+CFLAGS			=	-Wall -Wextra -Werror -MMD -O2
 
 # Define the directories
 

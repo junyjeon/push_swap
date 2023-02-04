@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 21:10:13 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 23:58:30 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	arr_sort(int *arr, int size, int swap_cnt)
 		}
 	}
 	if (swap_cnt == 0)
-		print_error("It's aligned.\n");
+		print_error("It's aligned.\n", 0);
 }
 
 static void	check_overlap(int *arr, int size)
@@ -42,12 +42,12 @@ static void	check_overlap(int *arr, int size)
 	int	i;
 
 	if (1 == size)
-		print_error("Arguments vector is one.\n");
+		print_error("Arguments vector is one.\n", 0);
 	arr_sort(arr, size, 0);
 	i = -1;
 	while (++i < size - 1)
 		if (arr[i] == arr[i + 1])
-			print_error("Duplicate!\n");
+			print_error("Duplicate!\n", 1);
 }
 
 static int	*make_list(t_stack *a, char **split_str, int i)
@@ -57,7 +57,7 @@ static int	*make_list(t_stack *a, char **split_str, int i)
 	
 	arr = malloc(sizeof(int) * i);
 	if (!arr)
-		print_error("Memory allocation fail.\n");
+		print_error("Memory allocation fail.\n", 1);
 	while (i--)
 	{
 		arr[i] = ft_atoi_ll(split_str[i]);

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:48:13 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/04 00:29:49 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 21:45:44 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static char	**ft_division(char *s, char c, char **res)
 			if (!res[j])
 			{
 				ft_free(res);
-				print_error("Memory allocation fail.\n");
+				print_error("Memory allocation fail.\n", 1);
 			}	
 			i = i + word_len(s, c, i);
 			j++;
@@ -82,7 +82,7 @@ char	**ft_split(char *s, char c)
 	}
 	res = (char **)malloc(sizeof(char *) * (word_cnt + 1));
 	if (!res)
-		print_error("Memory allocation fail.\n");
+		print_error("Memory allocation fail.\n", 1);
 	ft_division(s, c, res);
 	res[word_cnt] = NULL;
 	return (res);

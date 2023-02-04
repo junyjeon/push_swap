@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 21:25:01 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 23:56:54 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	int		*arr;
 
 	if (argc < 2)
-		print_error("Argment count is zero.\n");
+		print_error("Argment count is zero.\n", 1);
 	stack_init(&a, &b);
 	arr = parse(&a, argc, argv);
 	ranked(&a, arr, a.size);

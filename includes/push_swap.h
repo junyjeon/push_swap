@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 04:53:20 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 21:43:35 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int		compare_init(t_stack *s, t_compare *c);
 
 int		*parse(t_stack *a, int argc, char **argv);
 void	ranked(t_stack *a, int *arr, int size);
-void	print_error(char *str);
+void	print_error(char *str, int flag);
 
 void	sort_three(t_stack *s, char ch);
 void	sort_four(t_stack *s, t_stack *s2, char ch);
