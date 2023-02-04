@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 23:36:23 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 04:39:46 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/05 04:18:47 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ static void	in_b_sort_five(t_stack *s, t_stack *s2)
 		else
 			rb(s, 1);
 	}
-	quick_sort_stack(s, s2, 3, 0);
-	quick_sort_stack_b(s, s2, 2);
+	quick_sort_stack(s2, s, 3, 0);
+	quick_sort_stack_b(s2, s, 2);
 }
 
 void	sort_five(t_stack *s, t_stack *s2, char ch)
