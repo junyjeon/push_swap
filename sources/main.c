@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 04:43:01 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 21:25:01 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ int	main(int argc, char **argv)
 		hard_coding(&a, &b, a.size, 'a');
 	else
 		quick_sort_stack(&a, &b, a.size, 1);
+	while (a.size--)
+	{
+		free(a.top);
+		a.top = a.top->prev;
+	}
 	return (0);
 }
 

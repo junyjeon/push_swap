@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 04:41:52 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/02/04 00:29:49 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/02/04 21:08:37 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_atoi_ll(const char *str)
 		res = res * 10 + (*str - '0');
 		str++;
 	}
-	if (*str && (*str < '0' || '9' < *str))
+	if (*str && (*str < '0' || '9' < *str ))
 		print_error("Is not integer\n");
 	if (2147483647 < res)
 		print_error("It's out of range\n");
