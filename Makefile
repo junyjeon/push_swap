@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/02/04 21:33:30 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/02/05 10:45:20 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ fclean:
 
 re: fclean
 		@$(MAKE) all
-		@printf "$(GREEN)Cleaned and rebuilt everything for pushswap!${END}"
+		@printf "$(GREEN)Cleaned and rebuilt everything for push_swap!${END}"
 
 .PHONY:	all clean fclean re dir_guard
 
