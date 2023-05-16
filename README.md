@@ -33,7 +33,7 @@ push_swap
 
 ## 📍Overview
 
-GitHub project push_swap is a program that sorts a given stack of integers using a selection of steps, aiming to minimize the total number of moves required. The program is written
+GitHub project push_swap is a program that sorts a given stack of integers using a selection of steps, aiming to minimize the total number of moves required.
 
 ## 🔮 Feautres
 
