@@ -5,6 +5,7 @@
 <br>
 push_swap
 </h1>
+<img src="https://github.com/junyjeon/fdf/assets/98337069/e4cb1b68-eaaf-453e-b1c9-5b8b8033604d" />
 <h3 align="center">📍 Push your code to new heights with Push_Swap!</h3>
 <h3 align="center">🚀 Developed with the software and tools below.</h3>
 <p align="center">
