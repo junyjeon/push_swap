@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 04:39:22 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 05:43:31 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	arr_sort(int *arr, int size, int swap_cnt)
 		}
 	}
 	if (swap_cnt == 0)
-		print_error("It's aligned.\n", 0);
+		print_error("It's aligned.\n", 1);
 }
 
 static void	check_overlap(int *arr, int size)
@@ -42,7 +42,7 @@ static void	check_overlap(int *arr, int size)
 	int	i;
 
 	if (1 == size)
-		print_error("Arguments vector is one.\n", 0);
+		print_error("Arguments vector is one.\n", 1);
 	arr_sort(arr, size, 0);
 	i = -1;
 	while (++i < size - 1)

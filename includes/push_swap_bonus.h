@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 04:19:52 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 05:40:49 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s1, char const *s2);
+char	*ft_strjoin2(char const *s1, char const *s2);
 char	**ft_split(char *s, char c);
 t_info	*ft_lstnew(int val);
 char	*ft_strchr(const char *s, int c);
@@ -106,7 +107,5 @@ int		compare_init(t_stack *s, t_compare *c);
 void	parse(t_stack *a, int argc, char **argv);
 void	ranked(t_stack *a, int *arr, int size);
 void	print_error(char *str, int flag);
-
-void	checker(t_stack *a, t_stack *b);
 
 #endif

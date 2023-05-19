@@ -6,26 +6,11 @@
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 18:41:34 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 05:08:38 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 07:05:34 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap_bonus.h"
-
-// 에러처리
-
-// 파싱
-// 초기화
-
-// gnl 
-
-// a 6 1 4 3 2 
-// command();
-
-// is_sorted()
-// 	OK
-
-// 	KO
 
 static int	is_sorted(t_stack *s, int size)
 {
@@ -45,28 +30,28 @@ static int	is_sorted(t_stack *s, int size)
 
 void	command(t_stack *a, t_stack *b, char *cmd)
 {
-	if (ft_strcmp(cmd, "sa"))
-		sa(a, 1);
-	else if (ft_strcmp(cmd, "sb"))
-		sb(b, 1);
-	else if (ft_strcmp(cmd, "ss"))
-		ss(a, b, 1);
-	else if (ft_strcmp(cmd, "ra"))
-		ra(a, 1);
-	else if (ft_strcmp(cmd, "rb"))
-		ra(b, 1);
-	else if (ft_strcmp(cmd, "rr"))
-		rr(a, b, 1);
-	else if (ft_strcmp(cmd, "rra"))
-		rra(a, 1);
-	else if (ft_strcmp(cmd, "rrb"))
-		rrb(b, 1);
-	else if (ft_strcmp(cmd, "rrr"))
-		rrr(a, b, 1);
-	else if (ft_strcmp(cmd, "pa"))
-		pa(a, b, 1);
-	else if (ft_strcmp(cmd, "pb"))
-		pb(a, b, 1);
+	if (!ft_strncmp(cmd, "sa", 2))
+		sa(a, 0);
+	else if (!ft_strncmp(cmd, "sb", 2))
+		sb(b, 0);
+	else if (!ft_strncmp(cmd, "ss", 2))
+		ss(a, b, 0);
+	else if (!ft_strncmp(cmd, "ra", 2))
+		ra(a, 0);
+	else if (!ft_strncmp(cmd, "rb", 2))
+		rb(b, 0);
+	else if (!ft_strncmp(cmd, "rr", 2))
+		rr(a, b, 0);
+	else if (!ft_strncmp(cmd, "rra", 3))
+		rra(a, 0);
+	else if (!ft_strncmp(cmd, "rrb", 3))
+		rrb(b, 0);
+	else if (!ft_strncmp(cmd, "rrr", 3))
+		rrr(a, b, 0);
+	else if (!ft_strncmp(cmd, "pa", 2))
+		pa(a, b, 0);
+	else if (!ft_strncmp(cmd, "pb", 2))
+		pb(a, b, 0);
 	else
 		print_error("Error: command invalid\n", 1);
 	return ;
@@ -80,14 +65,16 @@ static void	checker(t_stack *a, t_stack *b)
 	while (cmd)
 	{
 		command(a, b, cmd);
+		free(cmd);
 		cmd = get_next_line(0);
 	}
+	if (cmd != NULL)
+		free(cmd);
 	if (!b->top && is_sorted(a, a->size))
-		print_error("OK\n", 0);
+		print_error("OK\n", 1);
 	else
 		print_error("KO\n", 1);
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -99,7 +86,10 @@ int	main(int argc, char **argv)
 	stack_init(&a, &b);
 	parse(&a, argc, argv);
 	checker(&a, &b);
-	printf("aa\n");
+	while (a.size--)
+	{
+		free(a.top);
+		a.top = a.top->prev;
+	}
 	exit(0);
 }
-// is_sorted? and stack_b == null?

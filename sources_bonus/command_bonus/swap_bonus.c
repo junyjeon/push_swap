@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:51:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 03:22:38 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 06:29:06 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	swap(t_stack *s)
 	val = s->top->val;
 	s->top->val = s->top->prev->val;
 	s->top->prev->val = val;
-} 
+}
 
 void	ss(t_stack *a, t_stack *b, int flag)
 {

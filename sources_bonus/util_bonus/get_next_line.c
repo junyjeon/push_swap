@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 17:43:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 05:07:19 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 05:33:12 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*buf_read(int fd, char *buf, char *save)
 			save[0] = '\0';
 		}
 		tmp = save;
-		save = ft_strjoin(tmp, buf);
+		save = ft_strjoin2(tmp, buf);
 		free(tmp);
 		if (ft_strchr(buf, '\n'))
 			break ;
