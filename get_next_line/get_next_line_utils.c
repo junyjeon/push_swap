@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 17:44:50 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 02:43:47 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/03/20 05:11:34 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/get_next_line_bonus.h"
+#include "get_next_line.h"
 
 size_t	ft_strlen(const char *str)
 {	

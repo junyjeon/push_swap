@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/05/20 02:44:25 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/05/20 02:47:08 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,13 @@
 CC				=	cc
 CFLAGS			=	-Wall -Wextra -Werror
 
+
 # Define the directories
+GNL_DIR			=	./lib/get_next_line
+GNL				=	$(GNL_DIR)/libGNL.a
 BUILD_DIR		=	build
-INC_DIR			=	-Iincludes
+INC_DIR			=	-Iincludes -I$(GNL_DIR)
+LDFLAGS			=	-L$(GNL_DIR) -lGNL
 
 # Define the source files
 ifdef !WITH_BONUS
@@ -51,7 +55,7 @@ all:
 	
 # Define the target and dependencies
 $(NAME): $(PUSHSWAP_OBJS)
-	@$(CC) $(CFLAGS) -L$(LIB_DIR) -lGNL $^ -o $@
+	@$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
 	@printf "${GREEN}> $(NAME) success 🎉${END}"
 
 

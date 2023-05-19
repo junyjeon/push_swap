@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 17:43:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 02:43:50 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/03/20 05:11:36 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/get_next_line_bonus.h"
+#include "get_next_line.h"
 
 static char	*buf_read(int fd, char *buf, char *save)
 {
