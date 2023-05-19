@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/19 20:31:30 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 02:45:00 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -66,6 +66,7 @@ typedef struct s_compare
 
 size_t	ft_strlen(const char *str);
 int		ft_atoi_ll(const char *str);
+int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
@@ -113,7 +114,6 @@ void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	reverse_partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
 void	rotation(t_stack *a, t_stack *b, t_cnt *cnt);
 
-int		checker(int ac, char **ar);
-int		main(int argc, char **argv);
+void	checker(t_stack *a, t_stack *b);
 
 #endif

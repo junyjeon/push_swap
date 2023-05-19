@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/19 21:09:42 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/09 01:18:35 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/05/19 21:10:16 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap_bonus.h"
 
-int	main(int argc, char **argv)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_stack	a;
-	t_stack	b;
-	int		*arr;
+	size_t			i;
+	unsigned char	*x1;
+	unsigned char	*x2;
 
-	if (argc < 2)
-		print_error("Argment count is zero.\n", 1);
-	stack_init(&a, &b);
-	arr = parse(&a, argc, argv);
-	ranked(&a, arr, a.size);
-	if (a.size <= 5)
-		hard_coding(&a, &b, a.size, 'a');
-	else
-		quick_sort_stack(&a, &b, a.size, 1);
-	while (a.size--)
+	x1 = (unsigned char *)s1;
+	x2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n && (x1[i] || x2[i]))
 	{
-		free(a.top);
-		a.top = a.top->prev;
+		if (x1[i] != x2[i])
+			return (x1[i] - x2[i]);
+		i++;
 	}
 	return (0);
 }

@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rotation_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/19 21:09:42 by junyojeo         ###   ########.fr       */
+/*   Created: 2023/02/03 23:56:09 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/05/19 21:10:16 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap_bonus.h"
 
-int	main(int argc, char **argv)
+void	rotation(t_stack *a, t_stack *b, t_cnt *cnt)
 {
-	t_stack	a;
-	t_stack	b;
-	int		*arr;
+	int	i;
 
-	if (argc < 2)
-		print_error("Argment count is zero.\n", 1);
-	stack_init(&a, &b);
-	arr = parse(&a, argc, argv);
-	ranked(&a, arr, a.size);
-	if (a.size <= 5)
-		hard_coding(&a, &b, a.size, 'a');
-	else
-		quick_sort_stack(&a, &b, a.size, 1);
-	while (a.size--)
+	i = 0;
+	while (i < cnt->ra && i < cnt->rb)
 	{
-		free(a.top);
-		a.top = a.top->prev;
+		rrr(a, b, 1);
+		i++;
 	}
-	return (0);
+	while (i < cnt->ra)
+	{
+		rra(a, 1);
+		i++;
+	}
+	while (i < cnt->rb)
+	{
+		rrb(b, 1);
+		i++;
+	}
 }

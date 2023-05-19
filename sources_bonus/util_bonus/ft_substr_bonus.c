@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_substr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/19 21:09:42 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/09 05:02:18 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/05/19 21:10:16 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap_bonus.h"
 
-int	main(int argc, char **argv)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_stack	a;
-	t_stack	b;
-	int		*arr;
+	int				i;
+	unsigned int	s_len;
+	char			*str;
 
-	if (argc < 2)
-		print_error("Argment count is zero.\n", 1);
-	stack_init(&a, &b);
-	arr = parse(&a, argc, argv);
-	ranked(&a, arr, a.size);
-	if (a.size <= 5)
-		hard_coding(&a, &b, a.size, 'a');
-	else
-		quick_sort_stack(&a, &b, a.size, 1);
-	while (a.size--)
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (ft_strdup(""));
+	str = (char *)malloc(s_len + 1);
+	if (!str)
+		return (0);
+	i = 0;
+	while (len-- && s[start + i])
 	{
-		free(a.top);
-		a.top = a.top->prev;
+		str[i] = s[start + i];
+		i++;
 	}
-	return (0);
+	str[i] = '\0';
+	return (str);
 }

@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ranked_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
+/*   Created: 2023/01/06 15:14:19 by junyojeo          #+#    #+#             */
 /*   Updated: 2023/05/19 21:09:42 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap_bonus.h"
 
-int	main(int argc, char **argv)
+void	ranked(t_stack *a, int *arr, int size)
 {
-	t_stack	a;
-	t_stack	b;
-	int		*arr;
+	t_info	*cur;
+	int		i;
+	int		j;
 
-	if (argc < 2)
-		print_error("Argment count is zero.\n", 1);
-	stack_init(&a, &b);
-	arr = parse(&a, argc, argv);
-	ranked(&a, arr, a.size);
-	if (a.size <= 5)
-		hard_coding(&a, &b, a.size, 'a');
-	else
-		quick_sort_stack(&a, &b, a.size, 1);
-	while (a.size--)
+	cur = a->top;
+	i = -1;
+	while (++i < size)
 	{
-		free(a.top);
-		a.top = a.top->prev;
+		j = -1;
+		while (++j < size)
+			if (cur->val == arr[j])
+				cur->rank = j;
+		cur = cur->prev;
 	}
-	return (0);
+	free(arr);
 }

@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_error_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 17:40:24 by junyojeo          #+#    #+#             */
+/*   Created: 2023/01/05 17:37:25 by junyojeo          #+#    #+#             */
 /*   Updated: 2023/05/19 21:09:42 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap_bonus.h"
 
-int	main(int argc, char **argv)
+void	print_error(char *str, int flag)
 {
-	t_stack	a;
-	t_stack	b;
-	int		*arr;
+	int	ar_len;
 
-	if (argc < 2)
-		print_error("Argment count is zero.\n", 1);
-	stack_init(&a, &b);
-	arr = parse(&a, argc, argv);
-	ranked(&a, arr, a.size);
-	if (a.size <= 5)
-		hard_coding(&a, &b, a.size, 'a');
-	else
-		quick_sort_stack(&a, &b, a.size, 1);
-	while (a.size--)
+	if (flag)
 	{
-		free(a.top);
-		a.top = a.top->prev;
+		ar_len = ft_strlen(str);
+		write(2, str, ar_len + 1);
+		exit(1);
 	}
-	return (0);
+	else
+		exit(0);
 }
