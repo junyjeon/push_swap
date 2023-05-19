@@ -6,14 +6,13 @@
 #    By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/05/20 07:01:39 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/05/20 07:14:10 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Define the complier and flags
 CC				=	cc
 CFLAGS			=	-Wall -Wextra -Werror
-CFLAGS			+=	-g -g3 #-fsanitize=address
 
 # Define the directories
 BUILD_DIR		=	build
