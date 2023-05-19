@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 18:41:34 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 08:03:29 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 08:18:04 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	command(t_stack *a, t_stack *b, char *cmd)
 	else if (!ft_strcmp(cmd, "pb\n"))
 		pb(a, b, 0);
 	else
-		print_error("Error: command invalid\n", 1);
+		print_error("Error\n", 1);
 	return ;
 }
 
@@ -71,7 +71,7 @@ static void	checker(t_stack *a, t_stack *b)
 	if (cmd != NULL)
 		free(cmd);
 	if (!b->top && is_sorted(a, a->size))
-		print_error("OK\n", 1);
+		write(1, "OK\n", 3);
 	else
 		print_error("KO\n", 1);
 }
@@ -82,7 +82,7 @@ int	main(int argc, char **argv)
 	t_stack	b;
 
 	if (argc < 2)
-		print_error("Argment count is zero.\n", 1);
+		print_error("Error\n", 1);
 	stack_init(&a, &b);
 	parse(&a, argc, argv);
 	checker(&a, &b);
