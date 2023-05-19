@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 17:43:40 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/03/20 05:11:36 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 05:07:19 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../includes/push_swap_bonus.h"
 
 static char	*buf_read(int fd, char *buf, char *save)
 {
@@ -74,7 +74,6 @@ char	*get_next_line(int fd)
 	char		*buf;
 	char		*line;
 
-	line = 0;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
@@ -82,6 +81,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	save = buf_read(fd, buf, save);
 	free(buf);
+	line = 0;
 	line = split_idx(&save, line);
 	return (line);
 }

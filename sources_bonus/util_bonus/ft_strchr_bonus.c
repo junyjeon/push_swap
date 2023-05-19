@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ranked_bonus.c                                     :+:      :+:    :+:   */
+/*   ft_strchr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 15:14:19 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/19 21:09:42 by junyojeo         ###   ########.fr       */
+/*   Created: 2022/07/30 17:44:50 by junyojeo          #+#    #+#             */
+/*   Updated: 2023/05/20 04:35:21 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap_bonus.h"
 
-void	ranked(t_stack *a, int *arr, int size)
+char	*ft_strchr(const char *s, int c)
 {
-	t_info	*cur;
-	int		i;
-	int		j;
-
-	cur = a->top;
-	i = -1;
-	while (++i < size)
+	while (*s)
 	{
-		j = -1;
-		while (++j < size)
-			if (cur->val == arr[j])
-				cur->rank = j;
-		cur = cur->prev;
+		if (*s == (unsigned char)c)
+			return ((char *)s);
+		s++;
 	}
-	free(arr);
+	if (*s == (unsigned char)c)
+		return ((char *)s);
+	return (NULL);
 }

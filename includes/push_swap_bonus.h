@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 21:08:07 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 02:45:52 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 04:19:52 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1048576
+# endif
 
 // Define For hardcoding
 # define SORT_123	(1)
@@ -28,7 +33,6 @@ typedef struct s_info
 {
 	struct s_info	*prev;
 	struct s_info	*next;
-	int				rank;
 	int				val;
 }		t_info;
 
@@ -74,6 +78,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s1, char const *s2);
 char	**ft_split(char *s, char c);
 t_info	*ft_lstnew(int val);
+char	*ft_strchr(const char *s, int c);
+char	*get_next_line(int fd);
 
 void	push_front(t_stack *s, t_info *new);
 void	push_back(t_stack *s, t_info *new);
@@ -97,22 +103,9 @@ void	pivot_init(t_pivot *pivot);
 void	stack_init(t_stack *a, t_stack *b);
 int		compare_init(t_stack *s, t_compare *c);
 
-int		*parse(t_stack *a, int argc, char **argv);
+void	parse(t_stack *a, int argc, char **argv);
 void	ranked(t_stack *a, int *arr, int size);
 void	print_error(char *str, int flag);
-
-void	sort_three(t_stack *s, char ch);
-void	sort_four(t_stack *s, t_stack *s2, char ch);
-void	sort_five(t_stack *s, t_stack *s2, char ch);
-void	hard_coding(t_stack *s, t_stack *s2, int size, char ch);
-
-void	quick_sort_stack(t_stack *a, t_stack *b, int size, int is_first);
-void	quick_sort_stack_b(t_stack *a, t_stack *b, int size);
-void	find_pivot(t_stack *s, int size, t_pivot *pivot);
-void	partition_when_first(t_stack *a, t_stack *b, t_cnt *cnt, int size);
-void	partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
-void	reverse_partition(t_stack *a, t_stack *b, t_cnt *cnt, int size);
-void	rotation(t_stack *a, t_stack *b, t_cnt *cnt);
 
 void	checker(t_stack *a, t_stack *b);
 

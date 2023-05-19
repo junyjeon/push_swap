@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/19 21:09:42 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 04:39:22 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	*make_list(t_stack *a, char **split_str, int i)
 	return (arr);
 }
 
-int	*parse(t_stack *a, int argc, char **argv)
+void	parse(t_stack *a, int argc, char **argv)
 {
 	char	**split_str;
 	char	*str;
@@ -86,5 +86,5 @@ int	*parse(t_stack *a, int argc, char **argv)
 		i++;
 	arr = make_list(a, split_str, i);
 	check_overlap(arr, a->size);
-	return (arr);
+	free(arr);
 }
