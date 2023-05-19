@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 03:26:48 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 07:27:29 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	check_overlap(int *arr, int size)
 	int	i;
 
 	if (1 == size)
-		print_error("Arguments vector is one.\n", 0);
+		print_error("Arguments vector is one.\n", 1);
 	arr_sort(arr, size, 0);
 	i = -1;
 	while (++i < size - 1)

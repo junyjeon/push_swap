@@ -6,13 +6,13 @@
 #    By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 21:52:21 by junyojeo          #+#    #+#              #
-#    Updated: 2023/05/20 07:14:10 by junyojeo         ###   ########.fr        #
+#    Updated: 2023/05/20 07:52:39 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Define the complier and flags
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -g
 
 # Define the directories
 BUILD_DIR		=	build
@@ -27,7 +27,7 @@ ifdef WITH_BONUS
 	SRC_HARDCODING	=	
 	SRC_QUICKSORT	=	
 	SRC_UTIL		=	$(addprefix util_bonus/, ft_atoi_ll_bonus.c ft_lstnew_bonus.c ft_memcpy_bonus.c ft_split_bonus.c\
-	ft_strdup_bonus.c ft_strjoin_bonus.c ft_strlen_bonus.c ft_strncmp_bonus.c ft_substr_bonus.c get_next_line.c ft_strchr_bonus.c)
+	ft_strdup_bonus.c ft_strjoin_bonus.c ft_strlen_bonus.c ft_strncmp_bonus.c ft_strcmp.bonus.c ft_substr_bonus.c get_next_line.c ft_strchr_bonus.c)
 	NAME			=	checker
 else
 	SRC_DIR			=	sources

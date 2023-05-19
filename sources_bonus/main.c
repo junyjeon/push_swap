@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 18:41:34 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 07:07:50 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 08:03:29 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,27 @@ static int	is_sorted(t_stack *s, int size)
 
 void	command(t_stack *a, t_stack *b, char *cmd)
 {
-	if (!ft_strncmp(cmd, "sa", 2))
+	if (!ft_strcmp(cmd, "sa\n"))
 		sa(a, 0);
-	else if (!ft_strncmp(cmd, "sb", 2))
+	else if (!ft_strcmp(cmd, "sb\n"))
 		sb(b, 0);
-	else if (!ft_strncmp(cmd, "ss", 2))
+	else if (!ft_strcmp(cmd, "ss\n"))
 		ss(a, b, 0);
-	else if (!ft_strncmp(cmd, "ra", 2))
-		ra(a, 0);
-	else if (!ft_strncmp(cmd, "rb", 2))
-		rb(b, 0);
-	else if (!ft_strncmp(cmd, "rr", 2))
-		rr(a, b, 0);
-	else if (!ft_strncmp(cmd, "rra", 3))
+	else if (!ft_strcmp(cmd, "rra\n"))
 		rra(a, 0);
-	else if (!ft_strncmp(cmd, "rrb", 3))
+	else if (!ft_strcmp(cmd, "rrb\n"))
 		rrb(b, 0);
-	else if (!ft_strncmp(cmd, "rrr", 3))
+	else if (!ft_strcmp(cmd, "rrr\n"))
 		rrr(a, b, 0);
-	else if (!ft_strncmp(cmd, "pa", 2))
+	else if (!ft_strcmp(cmd, "ra\n"))
+		ra(a, 0);
+	else if (!ft_strcmp(cmd, "rb\n"))
+		rb(b, 0);
+	else if (!ft_strcmp(cmd, "rr\n"))
+		rr(a, b, 0);
+	else if (!ft_strcmp(cmd, "pa\n"))
 		pa(a, b, 0);
-	else if (!ft_strncmp(cmd, "pb", 2))
+	else if (!ft_strcmp(cmd, "pb\n"))
 		pb(a, b, 0);
 	else
 		print_error("Error: command invalid\n", 1);
