@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:53:59 by junyojeo          #+#    #+#             */
-/*   Updated: 2023/05/20 08:25:44 by junyojeo         ###   ########.fr       */
+/*   Updated: 2023/05/20 09:47:12 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ static void	arr_sort(int *arr, int size, int swap_cnt)
 		}
 	}
 	if (swap_cnt == 0)
+	{
 		write(1, "OK\n", 3);
+		exit(1);
+	}
 }
 
 static void	check_overlap(int *arr, int size)
