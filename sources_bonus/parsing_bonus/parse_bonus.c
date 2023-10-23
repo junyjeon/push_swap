@@ -12,11 +12,11 @@
 
 #include "../../includes/push_swap_bonus.h"
 
-static void	arr_sort(int *arr, int size, int swap_cnt)
+static void arr_sort(int *arr, int size, int swap_cnt)
 {
-	int	i;
-	int	j;
-	int	tmp;
+	int i;
+	int j;
+	int tmp;
 
 	i = -1;
 	while (++i < size)
@@ -33,16 +33,11 @@ static void	arr_sort(int *arr, int size, int swap_cnt)
 			}
 		}
 	}
-	if (swap_cnt == 0)
-	{
-		write(1, "OK\n", 3);
-		exit(1);
-	}
 }
 
-static void	check_overlap(int *arr, int size)
+static void check_overlap(int *arr, int size)
 {
-	int	i;
+	int i;
 
 	if (1 == size)
 		print_error("Arguments vector is one.\n", 1);
@@ -53,10 +48,10 @@ static void	check_overlap(int *arr, int size)
 			print_error("Duplicate!\n", 1);
 }
 
-static int	*make_list(t_stack *a, char **split_str, int i)
+static int *make_list(t_stack *a, char **split_str, int i)
 {
-	t_info	*new;
-	int		*arr;
+	t_info *new;
+	int *arr;
 
 	arr = malloc(sizeof(int) * i);
 	if (!arr)
@@ -72,12 +67,12 @@ static int	*make_list(t_stack *a, char **split_str, int i)
 	return (arr);
 }
 
-void	parse(t_stack *a, int argc, char **argv)
+void parse(t_stack *a, int argc, char **argv)
 {
-	char	**split_str;
-	char	*str;
-	int		*arr;
-	int		i;
+	char **split_str;
+	char *str;
+	int *arr;
+	int i;
 
 	str = NULL;
 	i = 0;

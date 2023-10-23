@@ -12,12 +12,14 @@
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_stack	a;
-	t_stack	b;
-	int		*arr;
+	t_stack a;
+	t_stack b;
+	int *arr;
 
+	if (argc == 1)
+		exit(0);
 	if (argc < 2)
 		print_error("Argment count is zero.\n", 1);
 	stack_init(&a, &b);

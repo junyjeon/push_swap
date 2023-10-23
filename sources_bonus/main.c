@@ -12,10 +12,10 @@
 
 #include "../includes/push_swap_bonus.h"
 
-static int	is_sorted(t_stack *s, int size)
+static int is_sorted(t_stack *s, int size)
 {
-	t_info	*cur;
-	int		i;
+	t_info *cur;
+	int i;
 
 	i = 0;
 	cur = s->top;
@@ -28,7 +28,7 @@ static int	is_sorted(t_stack *s, int size)
 	return (1);
 }
 
-void	command(t_stack *a, t_stack *b, char *cmd)
+void command(t_stack *a, t_stack *b, char *cmd)
 {
 	if (!ft_strcmp(cmd, "sa\n"))
 		sa(a, 0);
@@ -54,12 +54,12 @@ void	command(t_stack *a, t_stack *b, char *cmd)
 		pb(a, b, 0);
 	else
 		print_error("Error\n", 1);
-	return ;
+	return;
 }
 
-static void	checker(t_stack *a, t_stack *b)
+static void checker(t_stack *a, t_stack *b)
 {
-	char	*cmd;
+	char *cmd;
 
 	cmd = get_next_line(0);
 	while (cmd)
@@ -76,11 +76,13 @@ static void	checker(t_stack *a, t_stack *b)
 		print_error("KO\n", 1);
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_stack	a;
-	t_stack	b;
+	t_stack a;
+	t_stack b;
 
+	if (argc == 1)
+		exit(0);
 	if (argc < 2)
 		print_error("Error\n", 1);
 	stack_init(&a, &b);
